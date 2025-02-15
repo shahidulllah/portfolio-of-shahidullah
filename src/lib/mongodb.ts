@@ -1,41 +1,21 @@
-/* eslint-disable no-var */
-import mongoose, { Mongoose } from "mongoose";
-
-declare global {
-  var mongoose: {
-    conn: Mongoose | null;
-    promise: Promise<Mongoose> | null;
-  };
-}
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import mongoose from "mongoose";
 
 const MONGODB_URI = process.env.MONGODB_URI as string;
 
 if (!MONGODB_URI) {
-  throw new Error("Please define the MONGODB_URI environment variable");
+  throw new Error("Please define the MONGODB_URI environment variable.");
 }
 
-let cached: {
-  conn: Mongoose | null;
-  promise: Promise<Mongoose> | null;
-} = global.mongoose;
+const cached = (global as any).mongoose || { conn: null, promise: null };
 
-if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
-}
-
-async function connectDB(): Promise<Mongoose> {
-  if (cached.conn) {
-    return cached.conn;
-  }
-
+export async function connectDB() {
+  if (cached.conn) return cached.conn;
   if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGODB_URI).then((mongooseInstance) => {
-      return mongooseInstance;
+    cached.promise = mongoose.connect(MONGODB_URI, {
+      dbName: "portfolioDB",
     });
   }
-
   cached.conn = await cached.promise;
   return cached.conn;
 }
-
-export default connectDB;

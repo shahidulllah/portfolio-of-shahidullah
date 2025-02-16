@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 
 export default function ContactPage() {
@@ -28,7 +29,7 @@ export default function ContactPage() {
   };
 
   return (
-    <section className="py-10 px-6">
+    <section className="py-10 px-6 mt-20">
       <h1 className="text-3xl font-bold text-center mb-6">Contact Me</h1>
       <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
         <input

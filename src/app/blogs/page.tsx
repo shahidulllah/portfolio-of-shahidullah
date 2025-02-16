@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
@@ -20,7 +22,7 @@ export default function BlogPage() {
   }, []);
 
   return (
-    <section className="py-10 px-6">
+    <section className="py-10 px-6 mt-20">
       <h1 className="text-3xl font-bold text-center mb-6">Blog</h1>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {blogs.map((blog) => (

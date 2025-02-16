@@ -1,14 +1,13 @@
-import Home from "@/components/Home";
-import Navbar from "@/components/Navbar";
+import BannerSection from "@/components/BannerSection";
 
 
 const page = () => {
-    return (
-        <div>
-            <Navbar/>
-            <Home/>
-        </div>
-    );
+  return (
+    <div>
+      <BannerSection/>
+
+    </div>
+  );
 };
 
 export default page;

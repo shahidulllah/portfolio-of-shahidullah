@@ -1,12 +1,7 @@
-import mongoose, { Schema, Document } from "mongoose";
+import { IProject } from "@/types/project.type";
+import mongoose, { Schema } from "mongoose";
 
-export interface IProject extends Document {
-  title: string;
-  description: string;
-  image: string;
-  liveUrl: string;
-  githubUrl: string;
-}
+
 
 const ProjectSchema = new Schema<IProject>({
   title: { type: String, required: true },

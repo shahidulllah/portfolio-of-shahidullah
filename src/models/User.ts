@@ -1,18 +1,17 @@
 import { IUser } from "@/types/user.type";
-import mongoose, { Schema, Model } from "mongoose";
-
-
-
+import mongoose, { Schema } from "mongoose";
 
 const userSchema: Schema<IUser> = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   image: { type: String, required: false },
+  role: {
+    type: String,
+    required: true,
+    enum: ["user", "admin"],
+    default: "user",
+  },
 });
 
-const User: Model<IUser> = mongoose.models.User || mongoose.model<IUser>("User", userSchema);
-
-export default User;
-
-
-
+export default mongoose.models.User ||
+  mongoose.model<IUser>("User", userSchema);

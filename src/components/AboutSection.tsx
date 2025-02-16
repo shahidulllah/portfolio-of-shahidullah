@@ -57,22 +57,22 @@ const AboutSection = () => {
   const selectedTab = TAB_DATA.find((t) => t.id === tab);
 
   return (
-    <section className="text-white" id="about">
-      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-6 xl:gap-16 sm:py-16 xl:px-24 bg-slate-900/50">
-        <div className="bg-slate-800/50 rounded-full mx-auto p-4 lg:p-6 border-2 flex items-center justify-center w-[240px] h-[295px] lg:w-[400px] lg:h-[490px]">
+    <section className="text-black dark:text-white" id="about">
+      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-6 xl:gap-16 sm:py-16 xl:px-24">
+        <div className="bg-slate-800/50 rounded-full mx-auto p-2 lg:p-2 border-2 flex items-center justify-center w-[240px] h-[295px] lg:w-[315px] lg:h-[390px]">
           <Image
             className="rounded-full"
             src="/images/about.png"
-            width={370}
-            height={370}
+            width={350}
+            height={350}
             alt="About pic"
           />
         </div>
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 text-center lg:text-left mt-4">
+          <h2 className="text-3xl lg:text-4xl font-bold dark:text-white text-black mb-4 text-center lg:text-left mt-4">
             About Me
           </h2>
-          <p className="text-base lg:text-lg text-justify">
+          <p className="text-base text-justify">
             Hi, I&apos;m a Junior Web Developer skilled in JavaScript, React,
             Node.js, Express, MongoDB, HTML, CSS, and Tailwind CSS and other
             tools. I have completed several full-stack projects, showcasing my
@@ -83,7 +83,7 @@ const AboutSection = () => {
             experiences. In my free time, I enjoy exploring new technologies and
             contributing to open-source projects.
           </p>
-          <div className="flex flex-row justify-start mt-8 flex-wrap">
+          <div className="flex flex-row justify-start mt-8 flex-wrap gap-4">
             <TabButton
               selectTab={() => handleTabChange("skills")}
               active={tab === "skills"}

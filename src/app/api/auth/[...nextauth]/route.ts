@@ -1,9 +1,10 @@
-import NextAuth from "next-auth";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import NextAuth, { AuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { connectDB } from "@/lib/mongodb";
 import User from "@/models/User";
 
-export const authOptions = {
+export const authOptions: AuthOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -11,9 +12,10 @@ export const authOptions = {
     }),
   ],
   callbacks: {
-    async signIn({ user }) {
+    async signIn({ user }: { user: any }) {
       await connectDB();
       const existingUser = await User.findOne({ email: user.email });
+
       if (!existingUser) {
         await User.create({
           name: user.name,
@@ -24,9 +26,12 @@ export const authOptions = {
       }
       return true;
     },
-    async session({ session }) {
+    async session({ session }: { session: any }) {
       const dbUser = await User.findOne({ email: session.user?.email });
-      if (dbUser) session.user.role = dbUser.role;
+
+      if (dbUser) {
+        session.user.role = dbUser.role;
+      }
       return session;
     },
   },

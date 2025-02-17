@@ -13,7 +13,7 @@ export default async function ProjectsPage() {
   console.log("Projects: ", projects);
 
   return (
-    <section className="py-10 px-6 mt-20 max-w-7xl mx-auto">
+    <section className="py-10 px-6 mt-10 lg:mt-16 max-w-7xl mx-auto">
       <h1 className="text-3xl font-bold text-center mb-6 text-white">
         Projects
       </h1>

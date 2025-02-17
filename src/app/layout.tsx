@@ -1,10 +1,9 @@
 import "../styles/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import Providers from "@/components/Providers";
-import { usePathname } from "next/navigation";
+import NavbarWrapper from "@/components/wrapper/NavbarWrapper";
+import FooterWrapper from "@/components/wrapper/FooterWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,17 +17,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const pathName = usePathname();
-  const isDashboard = pathName.startsWith("/dashboard");
   return (
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          {!isDashboard && <Navbar />}
+          <NavbarWrapper />
           <div className="min-h-screen bg-gradient-to-r from-[#141330] to-[#57618c] dark:from-gray-900 dark:to-black">
             {children}
           </div>
-          {!isDashboard && <Footer />}
+          <FooterWrapper />
         </Providers>
       </body>
     </html>

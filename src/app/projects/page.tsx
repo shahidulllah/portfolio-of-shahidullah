@@ -14,7 +14,9 @@ export default async function ProjectsPage() {
 
   return (
     <section className="py-10 px-6 mt-20 max-w-7xl mx-auto">
-      <h1 className="text-3xl font-bold text-center mb-6 text-white">Projects</h1>
+      <h1 className="text-3xl font-bold text-center mb-6 text-white">
+        Projects
+      </h1>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project) => (
           <div key={project._id} className="bg-white p-4 rounded-lg shadow-lg">
@@ -27,7 +29,7 @@ export default async function ProjectsPage() {
                 className="rounded-md"
               />
             ) : (
-              <div className="w-[400px] h-[250px] bg-gray-300 flex items-center justify-center text-gray-600">
+              <div className=" h-[250px] bg-gray-300 flex items-center justify-center text-gray-600">
                 No Image
               </div>
             )}

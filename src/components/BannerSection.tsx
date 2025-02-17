@@ -10,9 +10,9 @@ function BannerSection() {
     <section className="relative lg:py-20 py-10 px-6 bg-gradient-to-r from-[#141330] to-[#57618c] dark:from-gray-900 dark:to-black text-white mt-[45px] lg:mt-[65px] border-b border-[#33353F]">
       <div className="grid grid-cols-1 lg:max-w-7xl mx-auto sm:grid-cols-12 items-center">
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
+          initial={{ opacity: 0, scale: 0.1 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.1 }}
           className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
         >
           <h1 className="mb-5 lg:leading-tight font-extrabold">
@@ -56,9 +56,9 @@ function BannerSection() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
+          initial={{ opacity: 0, scale: 0.1 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.1 }}
           className="rounded-full bg-gradient-to-br from-yellow-400 via-orange-500 to-red-600 dark:bg-gray-800 w-[250px] h-[250px] lg:w-[360px] lg:h-[360px] relative col-span-4 place-self-center mt-4 lg:mt-0 hidden lg:block shadow-xl"
         >
           <Image

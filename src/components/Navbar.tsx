@@ -10,6 +10,8 @@ import {
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
+import { useSession, signIn, signOut } from "next-auth/react";
+import { LogOut } from "lucide-react";
 
 const navLinks = [
   { title: "Home", path: "/" },
@@ -23,6 +25,8 @@ const Navbar = () => {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+  const { data: session } = useSession();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -67,6 +71,57 @@ const Navbar = () => {
               <MoonIcon className="h-6 w-6 text-slate-200" />
             )}
           </button>
+
+          {/* Login/Profile Section */}
+          {!session ? (
+            <button
+              onClick={() => signIn("google")}
+              className="bg-white text-black px-4 py-2 rounded"
+            >
+              Login
+            </button>
+          ) : (
+            <div className="relative">
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="flex items-center space-x-2"
+              >
+                <Image
+                  src={session.user?.image || "/images/default-profile.png"}
+                  alt="User"
+                  width={35}
+                  height={35}
+                  className="rounded-full border border-gray-400"
+                />
+              </button>
+
+              {/* Dropdown Menu */}
+              {dropdownOpen && (
+                <div className="absolute right-0 mt-2 w-64 bg-[#4e5b91] dark:bg-gray-900 shadow-lg rounded-lg py-3 px-4 z-50 transition-all duration-300">
+                  <div className="mb-4">
+                    <h4 className="text-lg font-semibold text-center text-white dark:text-white">
+                      {session.user?.name || "User Name"}
+                    </h4>
+                    <p className="text-sm text-gray-400 text-center ">
+                      {session.user?.email || "user@example.com"}
+                    </p>
+                  </div>
+                  <Link
+                    href="/dashboard"
+                    className="block px-4 py-2 text-white hover:bg-gray-500 dark:hover:bg-gray-800 border-b-2 "
+                  >
+                    Dashboard
+                  </Link>
+                  <button
+                    onClick={() => signOut()}
+                    className="block w-full text-left px-4 py-2 text-gray-300 hover:bg-gray-500 dark:hover:bg-gray-800"
+                  >
+                    <LogOut className="inline-block w-5 h-5 mr-2" /> Logout
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Mobile Menu Button */}

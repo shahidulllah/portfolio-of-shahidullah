@@ -31,7 +31,7 @@ export default function RootLayout({
           {/* <SessionProvider> */}
           <NextUIProvider>
             <Navbar />
-           <div className="min-h-screen"> {children}</div>
+           <div className="min-h-screen bg-gradient-to-r from-[#141330] to-[#57618c] dark:from-gray-900 dark:to-black"> {children}</div>
             <Footer />
           </NextUIProvider>
           {/* </SessionProvider> */}

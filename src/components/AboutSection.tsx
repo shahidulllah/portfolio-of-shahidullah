@@ -8,7 +8,7 @@ const TAB_DATA = [
     title: "Skills",
     id: "skills",
     content: (
-      <ul className="list-disc pl-2">
+      <ul className="list-disc pl-2 text-white">
         <li>JavaScript</li>
         <li>React.js</li>
         <li>Node.js</li>
@@ -24,7 +24,7 @@ const TAB_DATA = [
     title: "Education",
     id: "education",
     content: (
-      <ul className="list-disc pl-2">
+      <ul className="list-disc pl-2 text-white">
         <li>National University</li>
         <li>Bachelor of Honours Degree, Department of Philosophy</li>
         <li>Ananda Mohon University and College, Mymensingh, Bangladesh</li>
@@ -36,7 +36,7 @@ const TAB_DATA = [
     title: "Certifications",
     id: "certifications",
     content: (
-      <ul className="list-disc pl-2">
+      <ul className="list-disc pl-2 text-white">
         <li>Complete Web Development Course With Jhankar Mahbub</li>
         <li>Programming Hero</li>
       </ul>
@@ -69,10 +69,10 @@ const AboutSection = () => {
           />
         </div>
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-3xl lg:text-4xl font-bold dark:text-white text-black mb-4 text-center lg:text-left mt-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4 text-center lg:text-left mt-4">
             About Me
           </h2>
-          <p className="text-base text-justify">
+          <p className="text-base text-justify text-white">
             Hi, I&apos;m a Junior Web Developer skilled in JavaScript, React,
             Node.js, Express, MongoDB, HTML, CSS, and Tailwind CSS and other
             tools. I have completed several full-stack projects, showcasing my
@@ -83,7 +83,7 @@ const AboutSection = () => {
             experiences. In my free time, I enjoy exploring new technologies and
             contributing to open-source projects.
           </p>
-          <div className="flex flex-row justify-start mt-8 flex-wrap gap-4">
+          <div className="flex flex-row justify-start mt-8 flex-wrap gap-4 text-white">
             <TabButton
               selectTab={() => handleTabChange("skills")}
               active={tab === "skills"}

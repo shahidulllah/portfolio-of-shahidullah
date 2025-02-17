@@ -9,99 +9,113 @@ import {
 } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { useTheme } from "next-themes";
-import MenuOverlay from "../utils/MenuOverLay";
-import NavLink from "../utils/NavLink";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
-  {
-    title: "Home",
-    path: "/",
-  },
-  {
-    title: "Projects",
-    path: "/projects",
-  },
-  {
-    title: "Blog",
-    path: "/blogs",
-  },
-  {
-    title: "Contact",
-    path: "/contact",
-  },
+  { title: "Home", path: "/" },
+  { title: "Projects", path: "/projects" },
+  { title: "Blog", path: "/blogs" },
+  { title: "Contact", path: "/contact" },
 ];
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   return (
-    <nav className="fixed border-b border-[#33353F] top-0 left-0 right-0 z-10 bg-gradient-to-r from-[#141330] to-[#57618c] dark:from-gray-900 dark:to-black py-1">
-      <div className="flex flex-wrap items-center justify-between lg:max-w-7xl mx-auto px-4">
-        <Link href={"/"}>
+    <nav className="fixed top-0 left-0 right-0 z-20 border-b border-gray-600 bg-gradient-to-r from-[#141330] to-[#57618c] dark:from-gray-900 dark:to-black py-2">
+      <div className="flex items-center justify-between lg:max-w-7xl mx-auto px-6">
+        {/* Logo */}
+        <Link href="/">
           <Image
             src="/images/logo.png"
-            alt="hero image"
+            alt="Logo"
             className="px-3 lg:px-0"
             width={65}
             height={65}
           />
         </Link>
-        <div className="flex items-center space-x-4">
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center space-x-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              href={link.path}
+              className={`relative px-1 py-1 text-white transition duration-300 hover:text-white ${
+                pathname === link.path ? "border-b-2 border-[#d7e05b] " : ""
+              }`}
+            >
+              {link.title}
+            </Link>
+          ))}
+
+          {/* Theme Toggle Button */}
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="dark:bg-gray-800 lg:hidden"
+            className="hidden lg:flex"
           >
             {mounted && theme === "dark" ? (
-              <SunIcon className="h-5 w-5 text-yellow-500" />
+              <SunIcon className="h-6 w-6 text-yellow-500" />
             ) : (
-              <MoonIcon className="h-5 w-5 text-slate-200" />
+              <MoonIcon className="h-6 w-6 text-slate-200" />
             )}
           </button>
-          <div className="mobile-menu block md:hidden">
-            {!navbarOpen ? (
-              <button
-                onClick={() => setNavbarOpen(true)}
-                className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
-              >
-                <Bars3Icon className="h-5 w-5" />
-              </button>
-            ) : (
-              <button
-                onClick={() => setNavbarOpen(false)}
-                className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
-              >
-                <XMarkIcon className="h-5 w-5" />
-              </button>
-            )}
-          </div>
         </div>
-        <div className="menu hidden md:block md:w-auto" id="navbar">
-          <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
-            {navLinks.map((link, index) => (
-              <li key={index}>
-                <NavLink href={link.path} title={link.title} />
-              </li>
-            ))}
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="dark:bg-gray-800 hidden lg:flex"
-            >
-              {mounted && theme === "dark" ? (
-                <SunIcon className="h-5 w-5 text-yellow-500" />
-              ) : (
-                <MoonIcon className="h-5 w-5 text-slate-200" />
-              )}
-            </button>
-          </ul>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden flex items-center space-x-4">
+          <button
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className=""
+          >
+            {mounted && theme === "dark" ? (
+              <SunIcon className="h-6 w-6 text-yellow-500" />
+            ) : (
+              <MoonIcon className="h-6 w-6 text-slate-200" />
+            )}
+          </button>
+
+          <button
+            onClick={() => setNavbarOpen(!navbarOpen)}
+            className="p-2 rounded-md text-white border border-gray-400"
+          >
+            {navbarOpen ? (
+              <XMarkIcon className="h-6 w-6" />
+            ) : (
+              <Bars3Icon className="h-6 w-6" />
+            )}
+          </button>
         </div>
       </div>
-      {navbarOpen ? <MenuOverlay links={navLinks} /> : null}
+
+      {/* Mobile Navigation Overlay */}
+      {navbarOpen && (
+        <div className="absolute top-[57px] left-0 w-full bg-[#141330] dark:bg-black border-t border-gray-600 shadow-md md:hidden text-center">
+          <ul className="flex flex-col space-y-4 p-6">
+            {navLinks.map((link) => (
+              <li key={link.path}>
+                <Link
+                  href={link.path}
+                  className={`px-3 py-1 justify-center text-gray-300 text-lg transition duration-300 hover:text-white ${
+                    pathname === link.path
+                      ? "border-b-2 border-yellow-500 text-yellow-500"
+                      : ""
+                  }`}
+                >
+                  {link.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 };

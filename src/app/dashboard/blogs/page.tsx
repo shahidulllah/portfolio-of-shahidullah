@@ -1,4 +1,5 @@
 "use client";
+
 import { IBlog } from "@/types/blog.type";
 import { useEffect, useState } from "react";
 
@@ -8,7 +9,7 @@ export default function BlogManagement() {
 
   useEffect(() => {
     async function fetchBlogs() {
-      const res = await fetch("/api/blogs");
+      const res = await fetch(`${process.env.BASE_URL}/api/blogs`);
       const data = await res.json();
       setBlogs(data);
     }

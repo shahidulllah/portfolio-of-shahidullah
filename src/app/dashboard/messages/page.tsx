@@ -1,4 +1,5 @@
 "use client";
+
 import { IContact } from "@/types/contact.type";
 import { useEffect, useState } from "react";
 
@@ -7,7 +8,7 @@ export default function MessageManagement() {
 
   useEffect(() => {
     async function fetchMessages() {
-      const res = await fetch("/api/contact");
+      const res = await fetch(`${process.env.BASE_URL}/api/contact`);
       const data = await res.json();
       setMessages(data);
     }

@@ -8,7 +8,9 @@ export default function LoginPage() {
 
   useEffect(() => {
     const checkSession = async () => {
-      const session = await fetch("/api/auth/session").then((res) => res.json());
+      const session = await fetch(`${process.env.BASE_URL}/api/auth/session`).then((res) =>
+        res.json()
+      );
       if (session?.user) router.push("/dashboard");
     };
     checkSession();

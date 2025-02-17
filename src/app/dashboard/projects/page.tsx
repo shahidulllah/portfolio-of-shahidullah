@@ -1,4 +1,5 @@
 "use client";
+
 import { IProject } from "@/types/project.type";
 import { useEffect, useState } from "react";
 
@@ -7,7 +8,7 @@ export default function ProjectManagement() {
 
   useEffect(() => {
     async function fetchProjects() {
-      const res = await fetch("/api/projects");
+      const res = await fetch(`${process.env.BASE_URL}/api/projects`);
       const data = await res.json();
       setProjects(data);
     }

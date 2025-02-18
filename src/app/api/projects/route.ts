@@ -16,7 +16,7 @@ export async function GET() {
   }
 }
 
-// Add a new project (Admin only)
+// Add a new project (TO DO: Admin only)
 export async function POST(req: Request) {
   try {
     await connectDB();

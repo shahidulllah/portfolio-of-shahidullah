@@ -5,6 +5,7 @@ import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
+import { toast } from "sonner";
 
 const EmailSection = () => {
   const [formData, setFormData] = useState({
@@ -27,8 +28,11 @@ const EmailSection = () => {
       body: JSON.stringify(formData),
     });
     if (res.ok) {
-      alert("Message sent successfully!");
+      toast.success("Message sent successfully!");
+      
       setFormData({ name: "", email: "", message: "" });
+    } else {
+      toast.error("Failed to send message. Please try again.");
     }
   };
 

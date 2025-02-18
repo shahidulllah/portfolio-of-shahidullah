@@ -66,7 +66,7 @@ export default function DashboardLayout({
         } md:translate-x-0 transition-transform md:flex flex-col min-h-full`}
       >
         <h2 className="text-2xl font-bold text-center">Dashboard</h2>
-        <ul className="space-y-2">
+        <ul className="space-y-2 h-full">
           {navItems.map((item) => (
             <li key={item.href}>
               <Link
@@ -85,7 +85,7 @@ export default function DashboardLayout({
         </ul>
         <button
           onClick={() => signOut()}
-          className="flex items-center gap-2 w-full mt-auto bg-red-500 px-4 py-2 rounded hover:bg-red-600 transition"
+          className="flex items-center gap-2 w-full mt-auto bg-red-900 px-4 py-2 rounded hover:bg-red-600 transition"
         >
           <LogOut size={20} /> Logout
         </button>

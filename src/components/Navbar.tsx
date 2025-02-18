@@ -106,7 +106,7 @@ const Navbar = () => {
                     </p>
                   </div>
                   <Link
-                    href="/dashboard/projects"
+                    href="/dashboard"
                     className="block px-4 py-2 text-white hover:bg-gray-500 dark:hover:bg-gray-800 border-b-2 "
                   >
                     Dashboard

@@ -19,3 +19,35 @@ export async function POST(req: Request) {
     );
   }
 }
+
+// Fetch all messages
+export async function GET() {
+  try {
+    await connectDB();
+    const messages = await Contact.find();
+    return NextResponse.json(messages, { status: 200 });
+  } catch (error) {
+    return NextResponse.json(
+      { message: "Error fetching messages", error },
+      { status: 500 }
+    );
+  }
+}
+
+// Delete a message
+export async function DELETE(req: Request) {
+  try {
+    await connectDB();
+    const { id } = await req.json();
+    await Contact.findByIdAndDelete(id);
+    return NextResponse.json(
+      { message: "Message deleted successfully" },
+      { status: 200 }
+    );
+  } catch (error) {
+    return NextResponse.json(
+      { message: "Error deleting message", error },
+      { status: 500 }
+    );
+  }
+}

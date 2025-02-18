@@ -1,32 +1,83 @@
 "use client";
-
-import { IContact } from "@/types/contact.type";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
+import { Trash2 } from "lucide-react";
+import { IContact } from "@/types/contact.type";
 
 export default function MessageManagement() {
   const [messages, setMessages] = useState<IContact[]>([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function fetchMessages() {
-      const res = await fetch(`${process.env.BASE_URL}/api/contact`);
+      setLoading(true);
+      const res = await fetch("/api/contact");
       const data = await res.json();
       setMessages(data);
+      setLoading(false);
     }
     fetchMessages();
   }, []);
 
+  const handleDelete = async (id: string) => {
+    const res = await fetch("/api/contact", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id }),
+    });
+
+    if (res.ok) {
+      setMessages(messages.filter((msg) => msg._id !== id));
+      toast.success("Message deleted successfully!");
+    } else {
+      toast.error("Failed to delete message.");
+    }
+  };
+
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-4 text-center text-white">Messages</h1>
-      <div className="space-y-4">
-        {messages.map((msg) => (
-          <div key={msg._id} className="bg-white p-4 shadow rounded">
-            <h2 className="text-xl font-semibold">{msg.name}</h2>
-            <p className="text-gray-600">{msg.email}</p>
-            <p className="text-gray-600">{msg.message}</p>
-          </div>
-        ))}
-      </div>
+    <div className="min-h-screen bg-gray-900 text-white px-4 py-8 sm:px-6 lg:px-8">
+      <h1 className="text-3xl font-bold mb-6">Contact Messages</h1>
+
+      {loading && (
+        <p className="text-white mb-4 text-center">Loading messages...</p>
+      )}
+
+      {messages.length === 0 && !loading ? (
+        <p className="text-center text-gray-400">No messages found.</p>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {messages.map((msg) => (
+            <div
+              key={msg._id}
+              className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col"
+            >
+              <div>
+                <div className="flex justify-between">
+                  <h2 className="text-xl text-gray-300 font-semibold">
+                    <span className="">Name: </span>
+                    {""} <span>{msg.name}</span>
+                  </h2>
+                  <button
+                    onClick={() => handleDelete(msg._id)}
+                    className="text-white rounded flex items-center"
+                  >
+                    <Trash2 size={20} />
+                  </button>
+                </div>
+                <p className="text-gray-400 mb-3 text-sm">
+                  <span className="font-semibold">From: </span>
+                  {""}
+                  <span className="">{msg.email}</span>
+                </p>
+                <p className="pb-1 text-gray-400">Message:</p>
+                <div className="bg-gray-700 min-h-20 rounded-lg p-2">
+                  <p className="text-gray-300 ">{msg.message}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

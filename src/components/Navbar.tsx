@@ -10,7 +10,7 @@ import {
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import { LogOut } from "lucide-react";
 
 const navLinks = [
@@ -74,12 +74,11 @@ const Navbar = () => {
 
           {/* Login/Profile Section */}
           {!session ? (
-            <button
-              onClick={() => signIn("google")}
-              className="bg-white text-black px-4 py-2 rounded"
-            >
-              Login
-            </button>
+            <Link href='/login'>
+              <button className="bg-white text-black px-4 py-1 rounded-full">
+                Login
+              </button>
+            </Link>
           ) : (
             <div className="relative">
               <button
@@ -107,7 +106,7 @@ const Navbar = () => {
                     </p>
                   </div>
                   <Link
-                    href="/dashboard"
+                    href="/dashboard/projects"
                     className="block px-4 py-2 text-white hover:bg-gray-500 dark:hover:bg-gray-800 border-b-2 "
                   >
                     Dashboard

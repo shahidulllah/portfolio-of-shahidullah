@@ -17,7 +17,7 @@ export default function MessageManagement() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Messages</h1>
+      <h1 className="text-2xl font-bold mb-4 text-center text-white">Messages</h1>
       <div className="space-y-4">
         {messages.map((msg) => (
           <div key={msg._id} className="bg-white p-4 shadow rounded">

@@ -18,7 +18,7 @@ export default function BlogManagement() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Manage Blogs</h1>
+      <h1 className="text-2xl font-bold mb-4 text-center text-white">Manage Blogs</h1>
       <div className="space-y-4">
         {blogs.map((blog) => (
           <div key={blog._id} className="bg-white p-4 shadow rounded">

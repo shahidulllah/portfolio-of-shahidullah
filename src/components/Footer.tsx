@@ -19,6 +19,7 @@ const Footer = () => {
                 alt="hero image"
                 width={350}
                 height={350}
+                priority
               />
             </Link>
           </div>

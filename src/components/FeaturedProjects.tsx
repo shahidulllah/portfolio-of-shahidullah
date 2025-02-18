@@ -48,6 +48,7 @@ export default function FeaturedProjects() {
                   width={400}
                   height={250}
                   className="rounded-md"
+                  priority
                 />
               ) : (
                 <div className="h-[250px] bg-gray-300 flex items-center justify-center text-gray-600">

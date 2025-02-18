@@ -91,6 +91,7 @@ const Navbar = () => {
                   width={35}
                   height={35}
                   className="rounded-full border border-gray-400"
+                  priority
                 />
               </button>
 

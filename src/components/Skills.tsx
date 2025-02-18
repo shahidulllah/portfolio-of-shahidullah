@@ -23,7 +23,7 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section className="py-16 px-6  bg-gradient-to-r from-[#141330] to-[#57618c] dark:from-gray-900 dark:to-black text-white text-center">
+    <section className="py-16 px-6  bg-gradient-to-r from-[#141330] to-[#57618c] dark:from-gray-900 dark:to-black text-white text-center border-b border-[#33353F]">
       <div className="max-w-7xl mx-auto">
         {/* Scrolling Animation */}
         <div className="relative overflow-hidden w-full">

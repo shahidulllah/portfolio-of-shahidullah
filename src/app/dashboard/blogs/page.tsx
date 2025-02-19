@@ -1,9 +1,10 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 import { IBlog } from "@/types/blog.type";
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
-import { Trash2, PlusCircle } from "lucide-react";
+import { Trash2, PlusCircle, Pencil } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function BlogManagement() {
   const [blogs, setBlogs] = useState<IBlog[]>([]);
@@ -15,6 +16,8 @@ export default function BlogManagement() {
   });
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [currentBlogId, setCurrentBlogId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -28,6 +31,7 @@ export default function BlogManagement() {
     fetchBlogs();
   }, []);
 
+  // Handle adding a new blog
   const handleAddBlog = async () => {
     const res = await fetch("/api/blogs", {
       method: "POST",
@@ -37,17 +41,63 @@ export default function BlogManagement() {
 
     if (res.ok) {
       const blogData = await res.json();
-
       setNewBlog({ title: "", content: "", category: "", image: "" });
       setIsModalOpen(false);
       toast.success("Blog added successfully!");
-
       setBlogs((prevBlogs) => [...prevBlogs, blogData]);
     } else {
       toast.error("Failed to add blog. Please try again.");
     }
   };
 
+  // Handle editing a blog
+  const handleEditBlog = async () => {
+    if (!currentBlogId) return;
+
+    const res = await fetch(`/api/blogs/${currentBlogId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newBlog),
+    });
+
+    if (res.ok) {
+      const updatedBlog: IBlog = await res.json();
+
+      const sanitizedBlog = {
+        _id: updatedBlog._id,
+        title: updatedBlog.title,
+        content: updatedBlog.content,
+        category: updatedBlog.category,
+        image: updatedBlog.image || "",
+      } as IBlog;
+
+      setBlogs((prevBlogs) =>
+        prevBlogs.map((blog) =>
+          blog._id === currentBlogId ? sanitizedBlog : blog
+        )
+      );
+
+      setIsModalOpen(false);
+      toast.success("Blog updated successfully!");
+    } else {
+      toast.error("Failed to update blog.");
+    }
+  };
+
+  // Handle opening edit modal
+  const openEditModal = (blog: IBlog) => {
+    setNewBlog({
+      title: blog.title,
+      content: blog.content,
+      category: blog.category,
+      image: blog.image || "",
+    });
+    setCurrentBlogId(blog._id);
+    setIsEditMode(true);
+    setIsModalOpen(true);
+  };
+
+  // Handle deleting a blog
   const handleDelete = async (id: string) => {
     await fetch(`/api/blogs/${id}`, { method: "DELETE" });
     setBlogs(blogs.filter((blog) => blog._id !== id));
@@ -58,9 +108,13 @@ export default function BlogManagement() {
     <div className="min-h-screen bg-gray-900 text-white px-4 py-8 sm:px-6 lg:px-8">
       <h1 className="text-3xl font-bold mb-6">Blog Management</h1>
 
-      {/* Button to open modal */}
+      {/* Button to open modal for adding blog */}
       <button
-        onClick={() => setIsModalOpen(true)}
+        onClick={() => {
+          setIsEditMode(false);
+          setNewBlog({ title: "", content: "", category: "", image: "" });
+          setIsModalOpen(true);
+        }}
         className="flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded mb-6"
       >
         <PlusCircle className="mr-2" />
@@ -78,17 +132,38 @@ export default function BlogManagement() {
             className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col space-y-3"
           >
             {/* Blog Image */}
-            {blog.image && (
-              <img
+            {blog.image && blog.image.startsWith("http") ? (
+              <Image
                 src={blog.image}
                 alt={blog.title}
-                className="w-full h-48 object-cover rounded-md"
+                width={400}
+                height={250}
+                className="rounded-md text-gray-400 border border-gray-700"
               />
+            ) : (
+              <div className="h-[200px] flex items-center justify-center text-gray-600 border border-gray-700 rounded-md">
+                No Image
+              </div>
             )}
 
-            <h2 className="text-xl font-semibold">{blog.title}</h2>
-            <p className="text-gray-400">{blog.content.substring(0, 100)}...</p>
+            <h2 className="text-xl font-semibold line-clamp-1">{blog.title}</h2>
+            <span className="text-sm text-gray-500 font-semibold uppercase">
+              {blog.category}
+            </span>
+            <Link href={`/blogs/${blog._id}`}>
+              <p className="text-gray-400 line-clamp-2">{blog.content}</p>
+            </Link>
+
+            {/* Edit & Delete Buttons */}
             <div className="flex justify-between items-center mt-3">
+              <button
+                onClick={() => openEditModal(blog)}
+                className="bg-yellow-600 hover:bg-yellow-500 text-white px-4 py-2 rounded flex items-center"
+              >
+                <Pencil className="mr-2" />
+                Edit
+              </button>
+
               <button
                 onClick={() => handleDelete(blog._id)}
                 className="bg-red-900 hover:bg-red-700 text-white px-4 py-2 rounded flex items-center"
@@ -101,11 +176,13 @@ export default function BlogManagement() {
         ))}
       </div>
 
-      {/* Modal for adding blog */}
+      {/* Modal for adding/editing blog */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-gray-800 p-6 rounded-lg w-96 space-y-4">
-            <h3 className="text-2xl font-semibold">Add New Blog</h3>
+            <h3 className="text-2xl font-semibold">
+              {isEditMode ? "Edit Blog" : "Add New Blog"}
+            </h3>
             <input
               type="text"
               placeholder="Title"
@@ -143,10 +220,14 @@ export default function BlogManagement() {
             />
             <div className="flex justify-between mt-4">
               <button
-                onClick={handleAddBlog}
-                className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded"
+                onClick={isEditMode ? handleEditBlog : handleAddBlog}
+                className={`px-4 py-2 rounded text-white ${
+                  isEditMode
+                    ? "bg-yellow-600 hover:bg-yellow-500"
+                    : "bg-green-600 hover:bg-green-700"
+                }`}
               >
-                Add Blog
+                {isEditMode ? "Update Blog" : "Add Blog"}
               </button>
               <button
                 onClick={() => setIsModalOpen(false)}

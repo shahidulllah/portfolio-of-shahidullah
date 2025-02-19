@@ -42,32 +42,33 @@ export default function BlogPage() {
           {blogs.map((blog) => (
             <div
               key={blog._id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              className="bg-gray-800 dark:bg-gray-900 p-4 rounded-lg shadow-lg flex flex-col space-y-3"
             >
               {/* Blog Image */}
-              <div className="relative w-full h-52">
+              <div className="relative w-full h-48">
                 <Image
                   src={blog.image}
                   alt={blog.title}
                   layout="fill"
                   objectFit="cover"
-                  className="rounded-t-lg"
+                  className="rounded-t-lg text-gray-400"
+                  priority
                 />
               </div>
 
               {/* Blog Content */}
               <div className="p-5">
-                <span className="text-sm text-blue-500 font-semibold uppercase">
+                <span className="text-sm text-gray-500 font-semibold uppercase">
                   {blog.category}
                 </span>
-                <h2 className="text-xl font-semibold mt-2">{blog.title}</h2>
-                <p className="text-gray-600 text-sm mt-3 line-clamp-3">
+                <h2 className="text-xl text-white font-semibold mt-2">{blog.title}</h2>
+                <p className="text-gray-600 text-sm mt-3 line-clamp-2">
                   {blog.content}
                 </p>
 
                 {/* Read More Button */}
                 <Link
-                  href={`/blog/${blog._id}`}
+                  href={`/blogs/${blog._id}`}
                   className="inline-block mt-4 text-blue-600 font-medium hover:text-blue-800 transition-colors"
                 >
                   Read More →

@@ -2,6 +2,25 @@ import { connectDB } from "@/lib/mongodb";
 import Blog from "@/models/Blog";
 import { NextResponse } from "next/server";
 
+// Fetch a single blog by ID
+export async function GET(
+  req: Request,
+  { params }: { params: { id: string } }
+) {
+  try {
+    await connectDB();
+    const blog = await Blog.findById(params.id);
+    if (!blog)
+      return NextResponse.json({ message: "Blog not found" }, { status: 404 });
+    return NextResponse.json(blog, { status: 200 });
+  } catch (error) {
+    return NextResponse.json(
+      { message: "Error fetching blog", error },
+      { status: 500 }
+    );
+  }
+}
+
 // Update a blog
 export async function PUT(
   req: Request,

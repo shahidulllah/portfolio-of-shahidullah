@@ -46,6 +46,7 @@ function BannerSection() {
           <div>
             <Link
               href="https://drive.google.com/file/d/1kgnMEap6qKHCua06XVxvQJYIpu6AuRqW/view?usp=sharing"
+              target="blank"
               className="px-1 inline-block py-1 sm:w-fit rounded-full bg-gradient-to-br from-yellow-400 via-orange-500 to-red-600 hover:bg-opacity-80 text-white mt-3 shadow-lg"
             >
               <span className="block bg-black dark:bg-gray-800 hover:bg-opacity-90 rounded-full px-5 py-2">

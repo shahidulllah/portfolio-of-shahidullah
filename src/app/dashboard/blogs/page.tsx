@@ -115,7 +115,7 @@ export default function BlogManagement() {
           setNewBlog({ title: "", content: "", category: "", image: "" });
           setIsModalOpen(true);
         }}
-        className="flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded mb-6"
+        className="flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full mb-6"
       >
         <PlusCircle className="mr-2" />
         Add New Blog
@@ -166,7 +166,7 @@ export default function BlogManagement() {
 
               <button
                 onClick={() => handleDelete(blog._id)}
-                className=" text-red-500 px-4 py-2 rounded flex items-center"
+                className=" text-red-600 px-4 py-2 rounded flex items-center"
               >
                 <Trash2 className="mr-2" />
               </button>

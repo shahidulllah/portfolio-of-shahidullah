@@ -2,7 +2,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
-import { Trash2, PlusCircle } from "lucide-react";
+import { Trash2, PlusCircle, Pencil } from "lucide-react";
 import { IProject } from "@/types/project.type";
 
 export default function ProjectManagement() {
@@ -16,6 +16,8 @@ export default function ProjectManagement() {
   });
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [currentProjectId, setCurrentProjectId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -29,6 +31,7 @@ export default function ProjectManagement() {
     fetchProjects();
   }, []);
 
+  // Handle adding a new project
   const handleAddProject = async () => {
     const res = await fetch("/api/projects", {
       method: "POST",
@@ -53,6 +56,47 @@ export default function ProjectManagement() {
     }
   };
 
+  // Handle updating a project
+  const handleEditProject = async () => {
+    if (!currentProjectId) return;
+
+    const res = await fetch(`/api/projects/${currentProjectId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newProject),
+    });
+
+    if (res.ok) {
+      const updatedProject = await res.json();
+
+      setProjects((prevProjects) =>
+        prevProjects.map((project) =>
+          project._id === currentProjectId ? { ...updatedProject } : project
+        )
+      );
+
+      setIsModalOpen(false);
+      toast.success("Project updated successfully!");
+    } else {
+      toast.error("Failed to update project.");
+    }
+  };
+
+  // Handle opening edit modal
+  const openEditModal = (project: IProject) => {
+    setNewProject({
+      title: project.title,
+      description: project.description,
+      image: project.image || "",
+      liveUrl: project.liveUrl || "",
+      githubUrl: project.githubUrl || "",
+    });
+    setCurrentProjectId(project._id);
+    setIsEditMode(true);
+    setIsModalOpen(true);
+  };
+
+  // Handle deleting a project
   const handleDelete = async (id: string) => {
     await fetch(`/api/projects/${id}`, { method: "DELETE" });
     setProjects(projects.filter((project) => project._id !== id));
@@ -63,13 +107,23 @@ export default function ProjectManagement() {
     <div className="min-h-screen bg-gray-900 text-white px-4 py-8 sm:px-6 lg:px-8">
       <h1 className="text-3xl font-bold mb-6">Project Management</h1>
 
-      {/* Button to open modal */}
+      {/* Button to open modal for adding project */}
       <button
-        onClick={() => setIsModalOpen(true)}
-        className="flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded mb-6"
+        onClick={() => {
+          setIsEditMode(false);
+          setNewProject({
+            title: "",
+            description: "",
+            image: "",
+            liveUrl: "",
+            githubUrl: "",
+          });
+          setIsModalOpen(true);
+        }}
+        className="flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full mb-6"
       >
         <PlusCircle className="mr-2" />
-        Add New Project
+        Upload New Project
       </button>
 
       {/* Project List */}
@@ -111,22 +165,29 @@ export default function ProjectManagement() {
                 GitHub
               </a>
               <button
+                onClick={() => openEditModal(project)}
+                className="text-yellow-500 px-4 py-2 rounded flex items-center"
+              >
+                <Pencil className="mr-2" />
+              </button>
+              <button
                 onClick={() => handleDelete(project._id)}
-                className="bg-red-900 hover:bg-red-700 text-white px-4 py-2 rounded flex items-center"
+                className="text-red-600 px-4 py-2 rounded flex items-center"
               >
                 <Trash2 className="mr-2" />
-                Delete
               </button>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Modal for adding project */}
+      {/* Modal for adding/editing project */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-gray-800 p-6 rounded-lg w-96 space-y-4">
-            <h3 className="text-2xl font-semibold">Add New Project</h3>
+            <h3 className="text-2xl font-semibold">
+              {isEditMode ? "Edit Project" : "Add New Project"}
+            </h3>
             <input
               type="text"
               placeholder="Title"
@@ -173,10 +234,14 @@ export default function ProjectManagement() {
             />
             <div className="flex justify-between mt-4">
               <button
-                onClick={handleAddProject}
-                className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded"
+                onClick={isEditMode ? handleEditProject : handleAddProject}
+                className={`px-4 py-2 rounded text-white ${
+                  isEditMode
+                    ? "bg-yellow-600 hover:bg-yellow-500"
+                    : "bg-green-600 hover:bg-green-700"
+                }`}
               >
-                Add Project
+                {isEditMode ? "Update Project" : "Add Project"}
               </button>
               <button
                 onClick={() => setIsModalOpen(false)}

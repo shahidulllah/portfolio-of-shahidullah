@@ -14,9 +14,9 @@ export default function DashboardHome() {
   }
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-6 text-yellow-600">Welcome, {session.user?.name}</h1>
-      <p className="text-gray-300 mb-6">Manage your blogs, projects, and messages from here.</p>
+    <div className="p-6 flex flex-col items-center justify-center">
+      <h1 className="text-3xl font-bold mb-6 text-yellow-600 text-center">Welcome, {session.user?.name}</h1>
+      <p className="text-gray-300 mb-6 text-center">Manage your blogs, projects, and messages from here.</p>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Manage Blogs */}

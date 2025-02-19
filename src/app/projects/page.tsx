@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { IProject } from "@/types/project.type";
+import Link from "next/link";
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState<IProject[]>([]);
@@ -39,42 +40,32 @@ export default function ProjectsPage() {
       ) : (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
-            <div
+            <Link
               key={project._id}
-              className="bg-white p-4 rounded-lg shadow-lg"
+              href={`/projects/${project._id}`}
+              className="block"
             >
-              {project.image && project.image.startsWith("http") ? (
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={400}
-                  height={250}
-                  className="rounded-md"
-                />
-              ) : (
-                <div className="h-[250px] bg-gray-300 flex items-center justify-center text-gray-600">
-                  No Image
-                </div>
-              )}
-              <h2 className="text-xl font-semibold mt-3">{project.title}</h2>
-              <p className="text-gray-600">{project.description}</p>
-              <div className="flex gap-3 mt-3">
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  className="text-blue-600"
-                >
-                  Live Demo
-                </a>
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  className="text-gray-600"
-                >
-                  GitHub
-                </a>
+              <div className="bg-gray-900 p-4 rounded-lg shadow-lg">
+                {project.image && project.image.startsWith("http") ? (
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={400}
+                    height={250}
+                    className="rounded-md"
+                    priority
+                  />
+                ) : (
+                  <div className="h-[180px] bg-gray-300 rounded-lg flex items-center justify-center text-gray-600">
+                    No Image
+                  </div>
+                )}
+                <h2 className="text-xl text-gray-400 font-semibold mt-3">
+                  {project.title}
+                </h2>
+                <p className="text-gray-500">{project.description}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       )}

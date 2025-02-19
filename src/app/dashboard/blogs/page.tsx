@@ -139,6 +139,7 @@ export default function BlogManagement() {
                 width={400}
                 height={250}
                 className="rounded-md text-gray-400 border border-gray-700"
+                priority
               />
             ) : (
               <div className="h-[200px] flex items-center justify-center text-gray-600 border border-gray-700 rounded-md">
@@ -158,18 +159,16 @@ export default function BlogManagement() {
             <div className="flex justify-between items-center mt-3">
               <button
                 onClick={() => openEditModal(blog)}
-                className="bg-yellow-600 hover:bg-yellow-500 text-white px-4 py-2 rounded flex items-center"
+                className=" text-white px-2 py-2 rounded flex items-center"
               >
                 <Pencil className="mr-2" />
-                Edit
               </button>
 
               <button
                 onClick={() => handleDelete(blog._id)}
-                className="bg-red-900 hover:bg-red-700 text-white px-4 py-2 rounded flex items-center"
+                className=" text-red-500 px-4 py-2 rounded flex items-center"
               >
                 <Trash2 className="mr-2" />
-                Delete
               </button>
             </div>
           </div>

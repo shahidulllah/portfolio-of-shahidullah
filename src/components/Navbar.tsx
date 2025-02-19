@@ -75,7 +75,7 @@ const Navbar = () => {
           {/* Login/Profile Section */}
           {!session ? (
             <Link href='/login'>
-              <button className="bg-white text-black px-4 py-1 rounded-full">
+              <button className="bg-white text-black px-4 py-2 rounded-full">
                 Login
               </button>
             </Link>

@@ -2,14 +2,16 @@ import { connectDB } from "@/lib/mongodb";
 import Project from "@/models/Project";
 import { NextResponse } from "next/server";
 
+interface PageProps {
+  params: Promise<{ id: string }>;
+}
+
 // Fetch a single project by ID
-export async function GET(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
+export async function GET(req: Request, { params }: PageProps) {
+  const { id } = await params;
   try {
     await connectDB();
-    const project = await Project.findById(params.id);
+    const project = await Project.findById(id);
 
     if (!project) {
       return NextResponse.json(
@@ -28,14 +30,12 @@ export async function GET(
 }
 
 //  Update a project
-export async function PUT(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
+export async function PUT(req: Request, { params }: PageProps) {
+  const { id } = await params;
   try {
     await connectDB();
     const data = await req.json();
-    const updatedProject = await Project.findByIdAndUpdate(params.id, data, {
+    const updatedProject = await Project.findByIdAndUpdate(id, data, {
       new: true,
     });
     return NextResponse.json(updatedProject, { status: 200 });
@@ -48,13 +48,11 @@ export async function PUT(
 }
 
 // Delete a project
-export async function DELETE(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
+export async function DELETE(req: Request, { params }: PageProps) {
+  const { id } = await params;
   try {
     await connectDB();
-    await Project.findByIdAndDelete(params.id);
+    await Project.findByIdAndDelete(id);
     return NextResponse.json(
       { message: "Project deleted successfully" },
       { status: 200 }

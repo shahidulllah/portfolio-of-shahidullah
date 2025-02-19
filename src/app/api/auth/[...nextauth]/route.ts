@@ -1,9 +1,21 @@
-import NextAuth, { AuthOptions, Session, User } from "next-auth";
+import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { connectDB } from "@/lib/mongodb";
 import UserModel from "@/models/User";
+import { NextAuthOptions } from "next-auth";
 
-export const authOptions: AuthOptions = {
+declare module "next-auth" {
+  interface Session {
+    user: {
+      name: string;
+      email: string;
+      image?: string;
+      role: string;
+    };
+  }
+}
+
+const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -11,7 +23,7 @@ export const authOptions: AuthOptions = {
     }),
   ],
   callbacks: {
-    async signIn({ user }: { user: User }) {
+    async signIn({ user }) {
       await connectDB();
       const existingUser = await UserModel.findOne({ email: user.email });
 
@@ -25,8 +37,11 @@ export const authOptions: AuthOptions = {
       }
       return true;
     },
-    async session({ session }: { session: Session }) {
-      const dbUser = await UserModel.findOne({ email: session.user?.email });
+    async session({ session }) {
+      if (!session.user?.email) {
+        return session;
+      }
+      const dbUser = await UserModel.findOne({ email: session.user.email });
 
       if (dbUser) {
         session.user.role = dbUser.role;

@@ -2,14 +2,16 @@ import { connectDB } from "@/lib/mongodb";
 import Blog from "@/models/Blog";
 import { NextResponse } from "next/server";
 
+interface PageProps {
+  params: Promise<{ id: string }>;
+}
+
 // Fetch a single blog by ID
-export async function GET(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
+export async function GET(req: Request, { params }: PageProps) {
+  const { id } = await params;
   try {
     await connectDB();
-    const blog = await Blog.findById(params.id);
+    const blog = await Blog.findById(id);
     if (!blog)
       return NextResponse.json({ message: "Blog not found" }, { status: 404 });
     return NextResponse.json(blog, { status: 200 });
@@ -22,14 +24,12 @@ export async function GET(
 }
 
 // Update a blog
-export async function PUT(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
+export async function PUT(req: Request, { params }: PageProps) {
+  const { id } = await params;
   try {
     await connectDB();
     const data = await req.json();
-    const updatedBlog = await Blog.findByIdAndUpdate(params.id, data, {
+    const updatedBlog = await Blog.findByIdAndUpdate(id, data, {
       new: true,
     });
     return NextResponse.json(updatedBlog, { status: 200 });
@@ -42,13 +42,11 @@ export async function PUT(
 }
 
 // Delete a blog
-export async function DELETE(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
+export async function DELETE(req: Request, { params }: PageProps) {
+  const { id } = await params;
   try {
     await connectDB();
-    await Blog.findByIdAndDelete(params.id);
+    await Blog.findByIdAndDelete(id);
     return NextResponse.json(
       { message: "Blog deleted successfully" },
       { status: 200 }

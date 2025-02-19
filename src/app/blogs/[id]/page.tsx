@@ -61,7 +61,8 @@ export default function BlogDetails() {
             alt={blog.title}
             layout="fill"
             objectFit="cover"
-            className="rounded-lg"
+            className="rounded-lg border border-gray-500"
+            priority
           />
         </div>
       )}

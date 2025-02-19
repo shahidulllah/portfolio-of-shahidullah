@@ -108,7 +108,7 @@ const Navbar = () => {
                   </div>
                   <Link
                     href="/dashboard"
-                    className="block px-4 py-2 text-white hover:bg-gray-500 dark:hover:bg-gray-800 border-b-2 "
+                    className="block px-4 py-2 text-white hover:bg-gray-500 dark:hover:bg-gray-800 hover:rounded-md border-b-2 "
                   >
                     Dashboard
                   </Link>

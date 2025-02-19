@@ -74,7 +74,7 @@ const Navbar = () => {
 
           {/* Login/Profile Section */}
           {!session ? (
-            <Link href='/login'>
+            <Link href="/login">
               <button className="bg-white text-black px-4 py-2 rounded-full">
                 Login
               </button>
@@ -86,7 +86,10 @@ const Navbar = () => {
                 className="flex items-center space-x-2"
               >
                 <Image
-                  src={session.user?.image || "/images/default-profile.png"}
+                  src={
+                    session.user?.image ||
+                    "https://i.ibb.co.com/VTxD6sh/service-ico4.webp"
+                  }
                   alt="User"
                   width={35}
                   height={35}
@@ -126,6 +129,58 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center space-x-4">
+          {!session ? (
+            <Link href="/login">
+              <button className="bg-white text-black px-4 py-2 rounded-full">
+                Login
+              </button>
+            </Link>
+          ) : (
+            <div className="relative">
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="flex items-center space-x-2"
+              >
+                <Image
+                  src={
+                    session.user?.image ||
+                    "https://i.ibb.co.com/VTxD6sh/service-ico4.webp"
+                  }
+                  alt="User"
+                  width={35}
+                  height={35}
+                  className="rounded-full border border-gray-400"
+                  priority
+                />
+              </button>
+
+              {/* Dropdown Menu */}
+              {dropdownOpen && (
+                <div className="absolute right-0 mt-2 w-64 bg-[#4e5b91] dark:bg-gray-900 shadow-lg rounded-lg py-3 px-4 z-50 transition-all duration-300">
+                  <div className="mb-4">
+                    <h4 className="text-lg font-semibold text-center text-white dark:text-white">
+                      {session.user?.name || "User Name"}
+                    </h4>
+                    <p className="text-sm text-gray-400 text-center ">
+                      {session.user?.email || "user@example.com"}
+                    </p>
+                  </div>
+                  <Link
+                    href="/dashboard"
+                    className="block px-4 py-2 text-white hover:bg-gray-500 dark:hover:bg-gray-800 hover:rounded-md border-b-2 "
+                  >
+                    Dashboard
+                  </Link>
+                  <button
+                    onClick={() => signOut()}
+                    className="block w-full text-left px-4 py-2 text-gray-300 hover:bg-gray-500 dark:hover:bg-gray-800"
+                  >
+                    <LogOut className="inline-block w-5 h-5 mr-2" /> Logout
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className=""

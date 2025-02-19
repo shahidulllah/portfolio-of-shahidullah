@@ -2,6 +2,31 @@ import { connectDB } from "@/lib/mongodb";
 import Project from "@/models/Project";
 import { NextResponse } from "next/server";
 
+// Fetch a single project by ID
+export async function GET(
+  req: Request,
+  { params }: { params: { id: string } }
+) {
+  try {
+    await connectDB();
+    const project = await Project.findById(params.id);
+
+    if (!project) {
+      return NextResponse.json(
+        { message: "Project not found" },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json(project, { status: 200 });
+  } catch (error) {
+    return NextResponse.json(
+      { message: "Error fetching project", error },
+      { status: 500 }
+    );
+  }
+}
+
 //  Update a project
 export async function PUT(
   req: Request,

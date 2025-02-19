@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import NextAuth, { AuthOptions } from "next-auth";
+import NextAuth, { AuthOptions, Session, User } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { connectDB } from "@/lib/mongodb";
-import User from "@/models/User";
+import UserModel from "@/models/User";
 
 export const authOptions: AuthOptions = {
   providers: [
@@ -12,12 +11,12 @@ export const authOptions: AuthOptions = {
     }),
   ],
   callbacks: {
-    async signIn({ user }: { user: any }) {
+    async signIn({ user }: { user: User }) {
       await connectDB();
-      const existingUser = await User.findOne({ email: user.email });
+      const existingUser = await UserModel.findOne({ email: user.email });
 
       if (!existingUser) {
-        await User.create({
+        await UserModel.create({
           name: user.name,
           email: user.email,
           image: user.image,
@@ -26,8 +25,8 @@ export const authOptions: AuthOptions = {
       }
       return true;
     },
-    async session({ session }: { session: any }) {
-      const dbUser = await User.findOne({ email: session.user?.email });
+    async session({ session }: { session: Session }) {
+      const dbUser = await UserModel.findOne({ email: session.user?.email });
 
       if (dbUser) {
         session.user.role = dbUser.role;
@@ -39,4 +38,5 @@ export const authOptions: AuthOptions = {
 };
 
 const handler = NextAuth(authOptions);
+
 export { handler as GET, handler as POST };

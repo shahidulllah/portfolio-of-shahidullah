@@ -73,7 +73,6 @@ function BannerSection() {
         </motion.div>
       </div>
     </section>
-  
   );
 }
 

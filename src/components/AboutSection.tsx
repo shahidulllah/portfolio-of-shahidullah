@@ -46,7 +46,7 @@ const TAB_DATA = [
 
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
-  const [, startTransition] = useTransition(); 
+  const [, startTransition] = useTransition();
 
   const handleTabChange = (id: React.SetStateAction<string>) => {
     startTransition(() => {

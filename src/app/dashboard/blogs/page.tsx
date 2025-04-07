@@ -223,7 +223,7 @@ export default function BlogManagement() {
                 className={`px-4 py-2 rounded text-white ${
                   isEditMode
                     ? "bg-yellow-600 hover:bg-yellow-500"
-                    : "bg-green-600 hover:bg-green-700"
+                    : "bg-purple-700 hover:bg-purple-700"
                 }`}
               >
                 {isEditMode ? "Update Blog" : "Add Blog"}

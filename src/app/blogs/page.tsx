@@ -45,26 +45,28 @@ export default function BlogPage() {
               className="bg-gray-800 dark:bg-gray-900 p-4 rounded-lg shadow-lg flex flex-col space-y-3"
             >
               {/* Blog Image */}
-             {blog.image && blog.image.startsWith("http") ? (
-                             <Image
-                               src={blog.image}
-                               alt={blog.title}
-                               width={400}
-                               height={250}
-                               className="rounded-md text-gray-400 border border-gray-700"
-                             />
-                           ) : (
-                             <div className="h-[220px] flex items-center justify-center text-gray-600 border border-gray-700 rounded-md">
-                               No Image
-                             </div>
-                           )}
+              {blog.image && blog.image.startsWith("http") ? (
+                <Image
+                  src={blog.image}
+                  alt={blog.title}
+                  width={400}
+                  height={250}
+                  className="rounded-md text-gray-400 border border-gray-700"
+                />
+              ) : (
+                <div className="h-[220px] flex items-center justify-center text-gray-600 border border-gray-700 rounded-md">
+                  No Image
+                </div>
+              )}
 
               {/* Blog Content */}
               <div className="p-5">
                 <span className="text-sm text-gray-500 font-semibold uppercase">
                   {blog.category}
                 </span>
-                <h2 className="text-xl text-white font-semibold mt-2 line-clamp-1">{blog.title}</h2>
+                <h2 className="text-xl text-white font-semibold mt-2 line-clamp-1">
+                  {blog.title}
+                </h2>
                 <p className="text-gray-600 text-sm mt-3 line-clamp-2">
                   {blog.content}
                 </p>

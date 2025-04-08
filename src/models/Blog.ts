@@ -1,11 +1,10 @@
 import { IBlog } from "@/types/blog.type";
 import mongoose, { Schema } from "mongoose";
 
-
 const BlogSchema = new Schema<IBlog>({
   title: { type: String, required: true },
   content: { type: String, required: true },
-  image: { type: String, default: ""},
+  image: { type: String, default: "" },
   category: { type: String, required: true },
 });
 

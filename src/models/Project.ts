@@ -1,8 +1,6 @@
 import { IProject } from "@/types/project.type";
 import mongoose, { Schema } from "mongoose";
 
-
-
 const ProjectSchema = new Schema<IProject>({
   title: { type: String, required: true },
   description: { type: String, required: true },

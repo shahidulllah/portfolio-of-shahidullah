@@ -1,10 +1,9 @@
 import Link from "next/link";
 import React from "react";
 
-
 interface NavLinkProps {
-  href: string; 
-  title: string; 
+  href: string;
+  title: string;
 }
 
 const NavLink: React.FC<NavLinkProps> = ({ href, title }) => {

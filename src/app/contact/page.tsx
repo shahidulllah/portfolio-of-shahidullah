@@ -29,7 +29,7 @@ const EmailSection = () => {
     });
     if (res.ok) {
       toast.success("Message sent successfully!");
-      
+
       setFormData({ name: "", email: "", message: "" });
     } else {
       toast.error("Failed to send message. Please try again.");

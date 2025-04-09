@@ -73,7 +73,7 @@ export default function ProjectDetails() {
             target="_blank"
             className="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-full font-medium transition"
           >
-            Live Demo 
+            Live Demo
           </Link>
         )}
         {project.githubUrl && (

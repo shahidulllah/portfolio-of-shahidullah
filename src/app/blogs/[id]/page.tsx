@@ -37,7 +37,7 @@ export default function BlogDetails() {
   if (!blog) {
     return (
       <p className="text-center text-white text-lg font-semibold mt-10">
-        Blog not found.
+        Blog is not found..
       </p>
     );
   }

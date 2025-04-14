@@ -48,7 +48,7 @@ export async function DELETE(req: Request, { params }: PageProps) {
     await connectDB();
     await Blog.findByIdAndDelete(id);
     return NextResponse.json(
-      { message: "Blog deleted successfully" },
+      { message: "Blog is deleted successfully" },
       { status: 200 }
     );
   } catch (error) {

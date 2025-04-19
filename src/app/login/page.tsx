@@ -15,7 +15,7 @@ export default function LoginPage() {
   }, [session, status, router]);
 
   if (status === "loading")
-    return <p className="text-white text-center">Checking session...</p>;
+    return <p className="text-white text-center mt-12">Checking session...</p>;
 
   return (
     <div className="flex justify-center items-center h-screen">

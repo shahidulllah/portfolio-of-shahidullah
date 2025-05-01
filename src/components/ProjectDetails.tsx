@@ -5,6 +5,8 @@ import { IProject } from "@/types/project.type";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { SiGithub } from "react-icons/si";
+import { Eye } from "lucide-react";
 
 export default function ProjectDetails() {
   const { id } = useParams();
@@ -37,13 +39,8 @@ export default function ProjectDetails() {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="py-12 px-6 max-w-5xl mx-auto text-white mt-12"
+      className="py-12 px-6 max-w-5xl mx-auto text-black dark:text-white mt-12"
     >
-      {/* Title */}
-      <h1 className="text-4xl font-extrabold text-center bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent mb-6">
-        {project.title}
-      </h1>
-
       {/* Image */}
       {project.image && (
         <motion.div
@@ -62,16 +59,21 @@ export default function ProjectDetails() {
         </motion.div>
       )}
 
+      {/* Title */}
+      <h1 className="text-4xl font-extrabold text-center bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent mb-6">
+        {project.title}
+      </h1>
+
       {/* Description */}
       <div className="space-y-8">
         <section>
-          <h2 className="text-2xl font-bold text-yellow-400 mb-2">Overview</h2>
-          <p className="text-gray-300 leading-relaxed">{project.description}</p>
+          <h2 className="text-2xl font-bold text-yellow-500 mb-2">Overview</h2>
+          <p className="leading-relaxed">{project.description}</p>
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold text-yellow-400 mb-2">Features</h2>
-          <ul className="list-disc list-inside text-gray-300 space-y-1">
+          <h2 className="text-2xl font-bold text-yellow-500 mb-2">Features</h2>
+          <ul className="list-disc list-inside  space-y-1">
             <li>User Authentication & Role-Based Access</li>
             <li>Blog/Project CRUD functionality</li>
             <li>Responsive design with animations</li>
@@ -103,10 +105,10 @@ export default function ProjectDetails() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold text-yellow-400 mb-2">
+          <h2 className="text-2xl font-bold text-yellow-500 mb-2">
             Challenges
           </h2>
-          <p className="text-gray-300">
+          <p className="">
             One of the major challenges was integrating secure authentication
             and creating a fully modular, scalable codebase using the MVC
             pattern. Debugging asynchronous issues and optimizing performance
@@ -115,10 +117,10 @@ export default function ProjectDetails() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold text-yellow-400 mb-2">
+          <h2 className="text-2xl font-bold text-yellow-500 mb-2">
             Future Plans
           </h2>
-          <p className="text-gray-300">
+          <p className="">
             Planning to add a comment system, admin analytics dashboard, and
             email notifications. Also working on SEO improvements and public API
             documentation.
@@ -132,18 +134,18 @@ export default function ProjectDetails() {
           <Link
             href={project.liveUrl}
             target="_blank"
-            className="bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-600 transition"
+            className="bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-600 transition flex gap-2"
           >
-            🌐 Live Demo
+            <Eye /> Live Demo
           </Link>
         )}
         {project.githubUrl && (
           <Link
             href={project.githubUrl}
             target="_blank"
-            className="bg-gray-800 text-yellow-300 border border-yellow-500 px-6 py-3 rounded-full font-semibold hover:bg-gray-700 transition"
+            className="bg-gray-800 text-yellow-300 border border-yellow-500 px-6 py-3 rounded-full font-semibold hover:bg-gray-700 transition flex gap-2 items-center"
           >
-            🔗 View Code
+            <SiGithub size={20} /> View Code
           </Link>
         )}
       </div>

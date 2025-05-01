@@ -8,15 +8,23 @@ import { DownloadIcon, Eye } from "lucide-react";
 
 function BannerSection() {
   return (
-    <section className="relative lg:py-20 py-10 px-6  dark:from-gray-900 dark:to-black text-white mt-[45px] lg:mt-[65px] border-b border-[#33353F]">
-      <div className="grid grid-cols-1 lg:max-w-7xl mx-auto sm:grid-cols-12 items-center">
+    <section className="relative lg:py-12 py-14 px-6 bg-gradient-to-br from-[#a8a1b4] via-[#cedee3] to-[#d2dee3] dark:from-[#0f0c29] dark:via-[#302b63] dark:to-[#24243e] text-black dark:text-white mt-[45px] lg:mt-[65px] overflow-hidden">
+      <div className="absolute w-[500px] h-[500px] bg-pink-500 opacity-30 rounded-full mix-blend-multiply filter blur-3xl animate-pulse top-[-100px] left-[-100px] z-0" />
+      <div className="absolute w-[400px] h-[400px] bg-yellow-400 opacity-20 rounded-full mix-blend-multiply filter blur-3xl animate-ping top-[300px] right-[-120px] z-0" />
+
+      <div className="grid grid-cols-1 lg:max-w-6xl mx-auto sm:grid-cols-12 items-center relative z-10">
         <motion.div
-          initial={{ opacity: 0, scale: 0.1 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.1 }}
+          transition={{ duration: 0.4 }}
           className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
         >
-          <h1 className="mb-5 lg:leading-tight font-extrabold">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-5 lg:leading-tight font-extrabold"
+          >
             <span className="text-transparent text-4xl sm:text-4xl lg:text-5xl bg-clip-text bg-gradient-to-br from-yellow-300 to-red-600">
               Hello, I&apos;m{" "}
             </span>
@@ -37,14 +45,26 @@ function BannerSection() {
               repeat={Infinity}
               className="text-3xl sm:text-3xl lg:text-4xl"
             />
-          </h1>
-          <p className="text-gray-200 text-base mb-6 lg:w-[650px] text-justify">
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-base mb-6 lg:w-[650px] text-justify"
+          >
             Passionate junior web developer skilled in the MERN stack,
             experienced in creating dynamic web applications with HTML, CSS,
             Tailwind, JavaScript, React, Node.js, MongoDB, and Express. Eager to
             contribute to innovative projects.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 mt-6"
+          >
             {/* Preview Resume */}
             <Link
               href="https://drive.google.com/file/d/1DAt5fkZ18TuYLom2LmUlzl03ANkksyU-/view?usp=sharing"
@@ -71,13 +91,14 @@ function BannerSection() {
               />
               <span className="font-medium">Download Resume</span>
             </a>
-          </div>
+          </motion.div>
         </motion.div>
 
+        {/* Hero Image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.1 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.1 }}
+          transition={{ duration: 0.3 }}
           className="rounded-full bg-gradient-to-br from-yellow-400 via-orange-500 to-red-600 dark:bg-gray-800 w-[250px] h-[250px] lg:w-[360px] lg:h-[360px] relative col-span-4 place-self-center mt-4 lg:mt-0 hidden lg:block shadow-xl"
         >
           <Image

@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           <NavbarWrapper />
-          <div className="min-h-screen dark:from-gray-900 dark:to-black">
+          <div className="min-h-screen dark:bg-gradient-to-r dark:from-[#141330] dark:to-[#282e48]">
             {children}
           </div>
           <FooterWrapper />

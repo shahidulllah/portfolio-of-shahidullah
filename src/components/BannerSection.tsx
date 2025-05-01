@@ -8,7 +8,7 @@ import { DownloadIcon, Eye } from "lucide-react";
 
 function BannerSection() {
   return (
-    <section className="relative lg:py-20 py-10 px-6 bg-gradient-to-r from-[#141330] to-[#57618c] dark:from-gray-900 dark:to-black text-white mt-[45px] lg:mt-[65px] border-b border-[#33353F]">
+    <section className="relative lg:py-20 py-10 px-6  dark:from-gray-900 dark:to-black text-white mt-[45px] lg:mt-[65px] border-b border-[#33353F]">
       <div className="grid grid-cols-1 lg:max-w-7xl mx-auto sm:grid-cols-12 items-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.1 }}

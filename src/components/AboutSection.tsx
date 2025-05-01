@@ -77,7 +77,7 @@ const AboutSection = () => {
   return (
     <section className="text-black dark:text-white">
       <div className="md:grid  min-h-[700px] md:grid-cols-2 gap-8 items-center py-8 px-6 xl:gap-16 sm:py-16 xl:px-24">
-        <div className="bg-slate-800/50 rounded-full mx-auto p-2 lg:p-2 border-2 flex items-center justify-center w-[240px] h-[295px] lg:w-[315px] lg:h-[390px]">
+        <div className=" rounded-full mx-auto p-2 lg:p-2 border-2 flex items-center justify-center w-[240px] h-[295px] lg:w-[315px] lg:h-[390px]">
           <Image
             className="rounded-full"
             src="/images/about.png"

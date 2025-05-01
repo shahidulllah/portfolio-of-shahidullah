@@ -8,7 +8,7 @@ import { DownloadIcon, Eye } from "lucide-react";
 
 function BannerSection() {
   return (
-    <section className="relative lg:py-12 py-14 px-6 bg-gradient-to-br from-[#a8a1b4] via-[#cedee3] to-[#d2dee3] dark:from-[#0f0c29] dark:via-[#302b63] dark:to-[#24243e] text-black dark:text-white mt-[45px] lg:mt-[65px] overflow-hidden">
+    <section className="relative lg:py-12 py-14 px-6 bg-gradient-to-br from-[#f8f7f9] via-[#edefef] to-[#e7e9ea] dark:from-[#0f0c29] dark:via-[#302b63] dark:to-[#24243e] text-black dark:text-white mt-[45px] lg:mt-[65px] overflow-hidden">
       <div className="absolute w-[500px] h-[500px] bg-pink-500 opacity-30 rounded-full mix-blend-multiply filter blur-3xl animate-pulse top-[-100px] left-[-100px] z-0" />
       <div className="absolute w-[400px] h-[400px] bg-yellow-400 opacity-20 rounded-full mix-blend-multiply filter blur-3xl animate-ping top-[300px] right-[-120px] z-0" />
 

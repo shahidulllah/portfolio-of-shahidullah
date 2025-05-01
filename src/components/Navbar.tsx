@@ -16,7 +16,8 @@ import { LogOut } from "lucide-react";
 const navLinks = [
   { title: "Home", path: "/" },
   { title: "Projects", path: "/projects" },
-  { title: "Blog", path: "/blogs" },
+  { title: "Blogs", path: "/blogs" },
+  { title: "Videos", path: "/videos" },
   { title: "Contact", path: "/contact" },
 ];
 
@@ -33,7 +34,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-20 border-b border-gray-600 bg-gradient-to-r from-[#141330] to-[#57618c] dark:from-gray-900 dark:to-black py-2">
+    <nav className="fixed top-0 left-0 right-0 z-20 dark:bg-gradient-to-r dark:from-[#141330] dark:to-[#57618c] bg-gradient-to-br from-[#ab9cc3] via-[#82b2c1] to-[#d2dee3] py-2 text-black dark:text-white">
       <div className="flex items-center justify-between lg:max-w-7xl mx-auto px-6">
         {/* Logo */}
         <Link href="/">
@@ -52,7 +53,7 @@ const Navbar = () => {
             <Link
               key={link.path}
               href={link.path}
-              className={`relative px-1 py-1 text-white transition duration-300 hover:text-white ${
+              className={`relative px-1 py-1 transition duration-300 hover:text-white ${
                 pathname === link.path ? "border-b-2 border-[#d7e05b] " : ""
               }`}
             >
@@ -68,14 +69,14 @@ const Navbar = () => {
             {mounted && theme === "dark" ? (
               <SunIcon className="h-6 w-6 text-yellow-500" />
             ) : (
-              <MoonIcon className="h-6 w-6 text-slate-200" />
+              <MoonIcon className="h-6 w-6 text-black" />
             )}
           </button>
 
           {/* Login/Profile Section */}
           {!session ? (
             <Link href="/login">
-              <button className="bg-white text-black px-4 py-2 rounded-full">
+              <button className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white px-4 py-2 rounded-full">
                 Login
               </button>
             </Link>

@@ -33,39 +33,65 @@ export default function FeaturedProjects() {
       {loading ? (
         <p className="text-lg">Loading...</p>
       ) : (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Link
-              key={project._id}
-              href={`/projects/${project._id}`}
-              className="block"
-            >
+            <div key={project._id}>
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col space-y-3"
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                viewport={{ once: true }}
+                className="group relative rounded-xl overflow-hidden bg-gradient-to-br from-[#1f2937] to-[#111827] border border-gray-700 shadow-md transition-all duration-300 hover:scale-[1.03] hover:shadow-yellow-500/30 hover:ring-2 hover:ring-yellow-400"
               >
+                {/* Project Image */}
                 {project.image && project.image.startsWith("http") ? (
                   <Image
                     src={project.image}
                     alt={project.title}
                     width={400}
                     height={250}
-                    className="rounded-md"
+                    className="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-110"
                     priority
                   />
                 ) : (
-                  <div className="h-[250px] bg-gray-300 flex items-center justify-center text-gray-600">
+                  <div className="h-[220px] bg-gray-300 flex items-center justify-center text-gray-600">
                     No Image
                   </div>
                 )}
-                <h3 className="text-2xl font-semibold">{project.title}</h3>
-                <p className="text-gray-400">
-                  {project.description.substring(0, 100)}...
-                </p>
+
+                {/* Content */}
+                <div className="p-5 space-y-4">
+                  <h3 className="text-xl font-bold text-white transition-colors duration-300 group-hover:text-yellow-400">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm">
+                    {project.description.substring(0, 100)}...
+                  </p>
+
+                  {/* Details Button */}
+                  <div className="mt-4">
+                    <Link key={project._id} href={`/projects/${project._id}`}>
+                      <button className="flex items-center gap-2 text-sm font-medium text-yellow-400 border border-yellow-500 px-4 py-2 rounded-full transition-all duration-300 hover:bg-yellow-500 hover:text-black hover:scale-105 hover:shadow-md">
+                        View Details
+                        <svg
+                          className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </button>
+                    </Link>
+                  </div>
+                </div>
               </motion.div>
-            </Link>
+            </div>
           ))}
         </div>
       )}

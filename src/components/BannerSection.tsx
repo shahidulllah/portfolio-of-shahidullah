@@ -99,7 +99,7 @@ function BannerSection() {
           initial={{ opacity: 0, scale: 0.1 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }}
-          className="rounded-full bg-gradient-to-br from-yellow-400 via-orange-500 to-red-600 dark:bg-gray-800 w-[250px] h-[250px] lg:w-[360px] lg:h-[360px] relative col-span-4 place-self-center mt-4 lg:mt-0 hidden lg:block shadow-xl"
+          className="rounded-full bg-gradient-to-br from-yellow-400 via-orange-500 to-red-600 dark:bg-gray-800 w-[250px] h-[250px] lg:w-[357px] lg:h-[357px] relative col-span-4 place-self-center mt-4 lg:mt-0 hidden lg:block shadow-xl"
         >
           <Image
             src="/images/hero.png"

@@ -17,7 +17,7 @@ const TabButton: React.FC<TabButtonProps> = ({
 
   return (
     <button onClick={selectTab} className="relative">
-      <p className={`mr-3 font-bold ${buttonClasses}`}>{children}</p>
+      <p className={`mr-4 font-bold ${buttonClasses}`}>{children}</p>
     </button>
   );
 };

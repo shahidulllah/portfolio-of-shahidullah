@@ -8,7 +8,7 @@ const TAB_DATA = [
     title: "Skills",
     id: "skills",
     content: (
-      <div className="flex gap-20">
+      <div className="flex gap-24">
         <div>
           <h1 className="font-bold underline">Technical Skills:</h1>
           <ul className="list-disc pl-2">
@@ -32,6 +32,11 @@ const TAB_DATA = [
         </div>
       </div>
     ),
+  },
+  {
+    title: "Achievement",
+    id: "achievement",
+    content: <h1 className="text-center">N/A</h1>,
   },
   {
     title: "Experience",
@@ -102,7 +107,7 @@ const AboutSection = () => {
             experiences. In my free time, I enjoy exploring new technologies and
             contributing to open-source projects.
           </p>
-          <div className="flex flex-row justify-start mt-8 text-lg flex-wrap gap-4">
+          <div className="flex flex-row justify-start mt-8 text-md flex-wrap gap-4">
             <TabButton
               selectTab={() => handleTabChange("skills")}
               active={tab === "skills"}
@@ -114,6 +119,12 @@ const AboutSection = () => {
               active={tab === "experience"}
             >
               Experience
+            </TabButton>
+            <TabButton
+              selectTab={() => handleTabChange("achievement")}
+              active={tab === "achievement"}
+            >
+              Achievements
             </TabButton>
             <TabButton
               selectTab={() => handleTabChange("education")}

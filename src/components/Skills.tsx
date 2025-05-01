@@ -1,24 +1,34 @@
 "use client";
 import { motion } from "framer-motion";
 import {
-  Code,
-  Database,
-  Server,
-  GitBranch,
-  PaintBucket,
-  Smartphone,
-} from "lucide-react";
+  SiCss3,
+  SiExpress,
+  SiGit,
+  SiGithub,
+  SiHtml5,
+  SiJavascript,
+  SiMongodb,
+  SiMongoose,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiReact,
+  SiRedux,
+} from "react-icons/si";
 
 // Skill List with Icons
 const skills = [
-  { name: "HTML", icon: <Code size={40} /> },
-  { name: "CSS", icon: <PaintBucket size={40} /> },
-  { name: "JavaScript", icon: <Code size={40} /> },
-  { name: "React", icon: <Smartphone size={40} /> },
-  { name: "Next.js", icon: <Server size={40} /> },
-  { name: "Node.js", icon: <Server size={40} /> },
-  { name: "MongoDB", icon: <Database size={40} /> },
-  { name: "Git", icon: <GitBranch size={40} /> },
+  { name: "HTML", icon: <SiHtml5 size={40} /> },
+  { name: "CSS", icon: <SiCss3 size={40} /> },
+  { name: "JavaScript", icon: <SiJavascript size={40} /> },
+  { name: "React", icon: <SiReact size={40} /> },
+  { name: "Next.js", icon: <SiNextdotjs size={40} /> },
+  { name: "Node.js", icon: <SiNodedotjs size={40} /> },
+  { name: "Express.js", icon: <SiExpress size={40} /> },
+  { name: "Redux", icon: <SiRedux size={40} /> },
+  { name: "MongoDB", icon: <SiMongodb size={40} /> },
+  { name: "Mongoose", icon: <SiMongoose size={40} /> },
+  { name: "Git", icon: <SiGit size={40} /> },
+  { name: "GitHub", icon: <SiGithub size={40} /> },
 ];
 
 export default function Skills() {
@@ -36,7 +46,7 @@ export default function Skills() {
             animate={{ x: "-100%" }}
             transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
           >
-            {skills.map((skill, index) => (
+            {[...skills, ...skills].map((skill, index) => (
               <motion.div
                 key={index}
                 className="flex flex-col items-center space-y-2 bg-gray-800 p-4 rounded-lg shadow-lg min-w-[120px]"

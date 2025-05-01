@@ -13,6 +13,7 @@ import {
   SiNodedotjs,
   SiReact,
   SiRedux,
+  SiTypescript,
 } from "react-icons/si";
 
 // Skill List with Icons
@@ -21,6 +22,7 @@ const skills = [
   { name: "CSS", icon: <SiCss3 size={40} /> },
   { name: "JavaScript", icon: <SiJavascript size={40} /> },
   { name: "React", icon: <SiReact size={40} /> },
+  { name: "Typescript", icon: <SiTypescript size={40} /> },
   { name: "Next.js", icon: <SiNextdotjs size={40} /> },
   { name: "Node.js", icon: <SiNodedotjs size={40} /> },
   { name: "Express.js", icon: <SiExpress size={40} /> },

@@ -36,7 +36,7 @@ const TAB_DATA = [
   {
     title: "Experience",
     id: "experience",
-    content: <h1>N/A</h1>,
+    content: <h1 className="text-center">N/A</h1>,
   },
   {
     title: "Education",

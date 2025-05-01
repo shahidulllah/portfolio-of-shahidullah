@@ -27,7 +27,7 @@ export default function FeaturedProjects() {
   }, []);
 
   return (
-    <section className="py-12 px-6 max-w-7xl mx-auto text-white text-center">
+    <section className="py-12 px-6 max-w-7xl mx-auto text-center">
       <h2 className="text-4xl font-bold mb-8">Featured Projects</h2>
 
       {loading ? (

@@ -10,7 +10,7 @@ const TAB_DATA = [
     content: (
       <div className="flex gap-20">
         <div>
-          <h1 className="font-bold">Technical Skills:</h1>
+          <h1 className="font-bold underline">Technical Skills:</h1>
           <ul className="list-disc pl-2">
             <li>JavaScript</li>
             <li>React.js</li>
@@ -23,20 +23,20 @@ const TAB_DATA = [
           </ul>
         </div>
         <div>
-          <h1 className="font-bold">Soft Skills:</h1>
+          <h1 className="font-bold underline">Soft Skills:</h1>
           <ul className="list-disc pl-2">
-            <li>JavaScript</li>
-            <li>React.js</li>
-            <li>Node.js</li>
-            <li>Express</li>
-            <li>MongoDB</li>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>Tailwind</li>
+            <li>Communication</li>
+            <li>Aduptibility</li>
+            <li>Hard worker</li>
           </ul>
         </div>
       </div>
     ),
+  },
+  {
+    title: "Experience",
+    id: "experience",
+    content: <h1>N/A</h1>,
   },
   {
     title: "Education",
@@ -76,7 +76,7 @@ const AboutSection = () => {
 
   return (
     <section className="text-black dark:text-white">
-      <div className="md:grid  min-h-[680px] md:grid-cols-2 gap-8 items-center py-8 px-6 xl:gap-16 sm:py-16 xl:px-24">
+      <div className="md:grid  min-h-[700px] md:grid-cols-2 gap-8 items-center py-8 px-6 xl:gap-16 sm:py-16 xl:px-24">
         <div className="bg-slate-800/50 rounded-full mx-auto p-2 lg:p-2 border-2 flex items-center justify-center w-[240px] h-[295px] lg:w-[315px] lg:h-[390px]">
           <Image
             className="rounded-full"
@@ -102,12 +102,18 @@ const AboutSection = () => {
             experiences. In my free time, I enjoy exploring new technologies and
             contributing to open-source projects.
           </p>
-          <div className="flex flex-row justify-start mt-8 text-xl flex-wrap gap-4">
+          <div className="flex flex-row justify-start mt-8 text-lg flex-wrap gap-4">
             <TabButton
               selectTab={() => handleTabChange("skills")}
               active={tab === "skills"}
             >
               Skills
+            </TabButton>
+            <TabButton
+              selectTab={() => handleTabChange("experience")}
+              active={tab === "experience"}
+            >
+              Experience
             </TabButton>
             <TabButton
               selectTab={() => handleTabChange("education")}
@@ -122,7 +128,7 @@ const AboutSection = () => {
               Certifications
             </TabButton>
           </div>
-          <div className="mt-8">
+          <div className="mt-4 border p-4">
             {selectedTab ? selectedTab.content : "No content found"}
           </div>
         </div>

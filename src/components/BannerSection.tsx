@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
+import { DownloadIcon, Eye } from "lucide-react";
 
 function BannerSection() {
   return (
@@ -43,14 +44,23 @@ function BannerSection() {
             Tailwind, JavaScript, React, Node.js, MongoDB, and Express. Eager to
             contribute to innovative projects.
           </p>
-          <div>
+          <div className="flex gap-5">
             <Link
-              href="https://drive.google.com/file/d/1kgnMEap6qKHCua06XVxvQJYIpu6AuRqW/view?usp=sharing"
+              href="https://drive.google.com/file/d/1DAt5fkZ18TuYLom2LmUlzl03ANkksyU-/view?usp=sharing"
               target="blank"
               className="px-1 inline-block py-1 sm:w-fit rounded-full bg-gradient-to-br from-yellow-400 via-orange-500 to-red-600 hover:bg-opacity-80 text-white mt-3 shadow-lg"
             >
-              <span className="block bg-black dark:bg-gray-800 hover:bg-opacity-90 rounded-full px-5 py-2">
-                Download Resume
+              <span className="flex items-center gap-3 bg-black dark:bg-gray-800 hover:bg-opacity-90 rounded-full px-5 py-2">
+                <Eye size={20} /> Preview Resume
+              </span>
+            </Link>
+            <Link
+              href="https://drive.google.com/file/d/1DAt5fkZ18TuYLom2LmUlzl03ANkksyU-/view?usp=sharing"
+              target="blank"
+              className="px-1 inline-block py-1 sm:w-fit rounded-full bg-gradient-to-br from-yellow-400 via-orange-500 to-red-600 hover:bg-opacity-80 text-white mt-3 shadow-lg"
+            >
+              <span className="flex gap-3 bg-black dark:bg-gray-800 hover:bg-opacity-90 rounded-full px-5 py-2">
+                <DownloadIcon size={20} /> Download Resume
               </span>
             </Link>
           </div>

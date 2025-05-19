@@ -13,7 +13,10 @@ export async function GET(req: Request, { params }: PageProps) {
     await connectDB();
     const blog = await Blog.findById(id);
     if (!blog)
-      return NextResponse.json({ message: "Blog is not found" }, { status: 404 });
+      return NextResponse.json(
+        { message: "Blog is not found" },
+        { status: 404 }
+      );
     return NextResponse.json(blog, { status: 200 });
   } catch (error) {
     return NextResponse.json(

@@ -1,7 +1,7 @@
-import AboutSection from "@/components/AboutSection";
-import BannerSection from "@/components/BannerSection";
-import FeaturedProjects from "@/components/FeaturedProjects";
-import Skills from "@/components/Skills";
+import AboutSection from "@/components/home/AboutSection";
+import BannerSection from "@/components/home/BannerSection";
+import FeaturedProjects from "@/components/home/FeaturedProjects";
+import Skills from "@/components/home/Skills";
 
 const page = () => {
   return (

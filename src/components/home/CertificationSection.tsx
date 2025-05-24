@@ -1,0 +1,66 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+
+const certifications = [
+  {
+    title: "Web Development Course",
+    provider: "Programming Hero",
+    image: "/certs/phero.png",
+    link: "https://www.programming-hero.com/certificate/your-certificate-id",
+  },
+  {
+    title: "JavaScript Algorithms & Data Structures",
+    provider: "freeCodeCamp",
+    image: "/certs/freecodecamp-js.png",
+    link: "https://www.freecodecamp.org/certification/your-username/javascript-algorithms-and-data-structures",
+  },
+  {
+    title: "Frontend Developer Career Path",
+    provider: "Scrimba",
+    image: "/certs/scrimba.png",
+    link: "https://scrimba.com/certificate/your-cert-id",
+  },
+];
+
+export default function CertificationsSection() {
+  return (
+    <section className="py-16 px-6 lg:px-28 bg-[#0d0f1a] text-white">
+      <motion.h2
+        className="text-3xl md:text-4xl font-bold text-center mb-12"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        Certifications & Badges
+      </motion.h2>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {certifications.map((cert, idx) => (
+          <motion.div
+            key={idx}
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="bg-gray-800 rounded-lg overflow-hidden shadow-md border border-gray-700"
+          >
+            <Link href={cert.link} target="_blank" className="block">
+              <Image
+                src={cert.image}
+                alt={cert.title}
+                width={400}
+                height={200}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4">
+                <h3 className="text-lg font-semibold">{cert.title}</h3>
+                <p className="text-sm text-gray-400 mt-1">{cert.provider}</p>
+              </div>
+            </Link>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+}

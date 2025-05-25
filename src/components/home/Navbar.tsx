@@ -34,7 +34,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed lg:max-w-7xl mx-auto lg:rounded-full top-0 lg:top-2 left-0 right-0 z-20 dark:bg-gradient-to-r dark:from-[#141330] dark:to-[#57618c] bg-gradient-to-br from-[#ab9cc3] via-[#82b2c1] to-[#d2dee3] py-[2px] text-black dark:text-white">
+    <nav className="fixed lg:max-w-7xl mx-auto lg:rounded-full top-0 lg:top-2 left-0 right-0 z-20 dark:bg-gradient-to-r dark:from-[#141330] dark:to-[#57618c] bg-gradient-to-r from-[#818bb6] via-[#82b2c1] to-[#aabec6] py-[2px] text-black dark:text-white shadow-md shadow-slate-700">
       <div className="flex items-center justify-between lg:max-w-6xl mx-auto">
         {/* Logo */}
         <Link href="/">

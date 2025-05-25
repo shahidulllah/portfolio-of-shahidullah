@@ -27,7 +27,7 @@ export default function FeaturedProjects() {
   }, []);
 
   return (
-    <section className="py-12 dark:bg-gradient-to-r dark:from-[#141330] dark:to-[#57618c] bg-gradient-to-r from-[#818bb6] via-[#82b2c1] to-[#aabec6]">
+    <section className="py-12 dark:bg-gradient-to-r dark:from-[#141330] dark:to-[#57618c] bg-gradient-to-r from-[#818bb6] via-[#82b2c1] to-[#aabec6] shadow-lg shadow-slate-700">
       <div className="px-6 max-w-7xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-8">Featured Projects</h2>
 

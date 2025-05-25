@@ -9,14 +9,14 @@ import NavbarWrapper from "../wrapper/NavbarWrapper";
 
 function BannerSection() {
   return (
-    <section className="relative lg:py-20 py-14 px-6 bg-gradient-to-r from-slate-400 to-slate-700 dark:from-[#0f0c29] dark:via-[#302b63] dark:to-[#24243e] text-black dark:text-white mt-[45px] lg:mt-[65px] overflow-hidden">
+    <section className="relative lg:py-20 py-14 px-6 bg-gradient-to-r from-slate-400 to-slate-700 dark:from-[#0f0c29] dark:via-[#302b63] dark:to-[#24243e] text-black dark:text-white overflow-hidden">
       <div className="absolute w-[500px] h-[500px] bg-purple-400 opacity-30 rounded-full mix-blend-multiply filter blur-3xl animate-pulse top-[-100px] left-[-100px] z-0" />
       <div className="absolute w-[400px] h-[400px] bg-yellow-400 opacity-20 rounded-full mix-blend-multiply filter blur-3xl animate-ping top-[300px] right-[-120px] z-0" />
-      
+
       <div className="grid grid-cols-1 lg:max-w-6xl mx-auto sm:grid-cols-12 items-center relative z-10">
         <div className="absolute top-0 left-auto right-auto">
-        <NavbarWrapper/>
-      </div>
+          <NavbarWrapper />
+        </div>
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}

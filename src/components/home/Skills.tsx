@@ -35,7 +35,7 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section className="py-10 px-6 bg-gradient-to-br from-[#ab9cc3] via-[#82b2c1] to-[#d2dee3] dark:bg-gradient-to-r dark:from-[#2c2b4b] dark:to-[#323a57] text-center border-y border-[#33353F]">
+    <section className="py-10 px-6 bg-gradient-to-r from-[#9d94ad] via-[#68909c] to-[#637780] dark:bg-gradient-to-r dark:from-[#2c2b4b] dark:to-[#323a57] text-center border-y border-[#33353F]">
       <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-center">
         Technical Skills
       </h2>

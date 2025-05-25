@@ -8,26 +8,26 @@ const certifications = [
   {
     title: "Web Development Course",
     provider: "Programming Hero",
-    image: "/certs/phero.png",
+    image: "/images/Phero.png",
     link: "https://www.programming-hero.com/certificate/your-certificate-id",
   },
   {
     title: "JavaScript Algorithms & Data Structures",
     provider: "freeCodeCamp",
-    image: "/certs/freecodecamp-js.png",
+    image: "/images/Phero.png",
     link: "https://www.freecodecamp.org/certification/your-username/javascript-algorithms-and-data-structures",
   },
   {
     title: "Frontend Developer Career Path",
     provider: "Scrimba",
-    image: "/certs/scrimba.png",
+    image: "/images/Phero.png",
     link: "https://scrimba.com/certificate/your-cert-id",
   },
 ];
 
 export default function CertificationsSection() {
   return (
-    <section className="py-16 px-6 lg:px-28dark:bg-gradient-to-r dark:from-[#141330] dark:to-[#57618c] bg-gradient-to-r from-[#818bb6] via-[#82b2c1] to-[#aabec6] text-black dark:text-white">
+    <section className="py-16 px-6 text-black dark:text-white">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-center mb-12"
@@ -44,7 +44,7 @@ export default function CertificationsSection() {
               key={idx}
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="bg-gray-800 rounded-lg overflow-hidden shadow-md border border-gray-700"
+              className="bg-slate-600 rounded-lg overflow-hidden shadow-md border border-gray-700"
             >
               <Link href={cert.link} target="_blank" className="block">
                 <Image
@@ -55,7 +55,7 @@ export default function CertificationsSection() {
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-4">
-                  <h3 className="text-lg font-semibold">{cert.title}</h3>
+                  <h3 className="text-lg font-semibold line-clamp-1">{cert.title}</h3>
                   <p className="text-sm text-gray-400 mt-1">{cert.provider}</p>
                 </div>
               </Link>

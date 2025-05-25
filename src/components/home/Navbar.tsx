@@ -34,8 +34,8 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed lg:max-w-6xl mx-auto rounded-3xl top-2 left-0 right-0 z-20 dark:bg-gradient-to-r dark:from-[#141330] dark:to-[#57618c] bg-gradient-to-br from-[#ab9cc3] via-[#82b2c1] to-[#d2dee3] py-1 text-black dark:text-white">
-      <div className="flex items-center justify-between lg:max-w-7xl mx-auto px-6">
+    <nav className="fixed lg:max-w-7xl mx-auto lg:rounded-full top-0 lg:top-2 left-0 right-0 z-20 dark:bg-gradient-to-r dark:from-[#141330] dark:to-[#57618c] bg-gradient-to-br from-[#ab9cc3] via-[#82b2c1] to-[#d2dee3] py-[2px] text-black dark:text-white">
+      <div className="flex items-center justify-between lg:max-w-6xl mx-auto">
         {/* Logo */}
         <Link href="/">
           <Image
@@ -76,7 +76,7 @@ const Navbar = () => {
           {/* Login/Profile Section */}
           {!session ? (
             <Link href="/login">
-              <button className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white px-4 py-2 rounded-full">
+              <button className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white px-4 py-1 rounded-full">
                 Login
               </button>
             </Link>

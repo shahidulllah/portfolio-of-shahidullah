@@ -5,17 +5,15 @@ import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import { DownloadIcon, Eye } from "lucide-react";
-import NavbarWrapper from "../wrapper/NavbarWrapper";
 
 function BannerSection() {
   return (
-    <section className="relative lg:py-20 py-14 px-6 bg-gradient-to-r from-slate-400 to-slate-700 dark:from-[#0f0c29] dark:via-[#302b63] dark:to-[#24243e] text-black dark:text-white overflow-hidden">
+    <section className="relative lg:py-32 py-24 px-6 bg-gradient-to-r from-slate-400 to-slate-700 dark:from-[#0f0c29] dark:via-[#302b63] dark:to-[#24243e] text-black dark:text-white overflow-hidden">
       <div className="absolute w-[500px] h-[500px] bg-purple-400 opacity-30 rounded-full mix-blend-multiply filter blur-3xl animate-pulse top-[-100px] left-[-100px] z-0" />
       <div className="absolute w-[400px] h-[400px] bg-yellow-400 opacity-20 rounded-full mix-blend-multiply filter blur-3xl animate-ping top-[300px] right-[-120px] z-0" />
 
       <div className="grid grid-cols-1 lg:max-w-6xl mx-auto sm:grid-cols-12 items-center relative z-10">
         <div className="absolute top-0 left-auto right-auto">
-          <NavbarWrapper />
         </div>
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -103,7 +101,7 @@ function BannerSection() {
           initial={{ opacity: 0, scale: 0.1 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }}
-          className="rounded-full bg-gradient-to-br from-yellow-400 via-orange-500 to-red-600 dark:bg-gray-800 w-[250px] h-[250px] lg:w-[357px] lg:h-[357px] relative col-span-4 place-self-center mt-4 lg:mt-0 hidden lg:block shadow-xl"
+          className="rounded-full bg-gradient-to-br from-yellow-400 via-orange-500 to-red-600 dark:bg-gray-800 w-[250px] h-[250px] lg:w-[357px] lg:h-[357px] relative col-span-4 place-self-center mt-4 lg:mt-0 shadow-xl"
         >
           <Image
             src="/images/hero.png"

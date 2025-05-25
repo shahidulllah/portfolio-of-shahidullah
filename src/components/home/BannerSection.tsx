@@ -5,7 +5,7 @@ import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import { DownloadIcon, Eye } from "lucide-react";
-import Navbar from "./Navbar";
+import NavbarWrapper from "../wrapper/NavbarWrapper";
 
 function BannerSection() {
   return (
@@ -15,7 +15,7 @@ function BannerSection() {
       
       <div className="grid grid-cols-1 lg:max-w-6xl mx-auto sm:grid-cols-12 items-center relative z-10">
         <div className="absolute top-0 left-auto right-auto">
-        <Navbar />
+        <NavbarWrapper/>
       </div>
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}

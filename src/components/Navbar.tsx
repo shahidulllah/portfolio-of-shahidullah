@@ -34,7 +34,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed lg:max-w-7xl mx-auto rounded-full z-20 dark:bg-gradient-to-r dark:from-[#141330] dark:to-[#57618c] bg-gradient-to-br from-[#ab9cc3] via-[#82b2c1] to-[#d2dee3] py-1 text-black dark:text-white">
+    <nav className="fixed top-0 left-0 right-0 z-20 dark:bg-gradient-to-r dark:from-[#141330] dark:to-[#57618c] bg-gradient-to-br from-[#ab9cc3] via-[#82b2c1] to-[#d2dee3] py-1 text-black dark:text-white">
       <div className="flex items-center justify-between lg:max-w-7xl mx-auto px-6">
         {/* Logo */}
         <Link href="/">

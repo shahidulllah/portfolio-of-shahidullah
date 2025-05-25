@@ -80,7 +80,7 @@ const AboutSection = () => {
   const selectedTab = TAB_DATA.find((t) => t.id === tab);
 
   return (
-    <section className="text-black dark:text-white">
+    <section className="text-black dark:text-white bg-gradient-to-br from-[#ab9cc3] via-[#82b2c1] to-[#d2dee3] dark:bg-gradient-to-r dark:from-[#141330] dark:to-[#57618c]">
       <div className="md:grid  min-h-[700px] md:grid-cols-2 gap-8 items-center py-8 px-6 xl:gap-16 sm:py-16 xl:px-24">
         <div className=" rounded-full mx-auto p-2 lg:p-2 border-2 flex items-center justify-center w-[240px] h-[295px] lg:w-[315px] lg:h-[390px]">
           <Image

@@ -28,38 +28,40 @@ const certifications = [
 export default function CertificationsSection() {
   return (
     <section className="py-16 px-6 lg:px-28dark:bg-gradient-to-r dark:from-[#141330] dark:to-[#57618c] bg-gradient-to-r from-[#818bb6] via-[#82b2c1] to-[#aabec6] text-black dark:text-white">
-      <motion.h2
-        className="text-3xl md:text-4xl font-bold text-center mb-12"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        Certifications & Badges
-      </motion.h2>
+      <div className="max-w-6xl mx-auto">
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Certifications & Badges
+        </motion.h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        {certifications.map((cert, idx) => (
-          <motion.div
-            key={idx}
-            whileHover={{ scale: 1.03 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="bg-gray-800 rounded-lg overflow-hidden shadow-md border border-gray-700"
-          >
-            <Link href={cert.link} target="_blank" className="block">
-              <Image
-                src={cert.image}
-                alt={cert.title}
-                width={400}
-                height={200}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4">
-                <h3 className="text-lg font-semibold">{cert.title}</h3>
-                <p className="text-sm text-gray-400 mt-1">{cert.provider}</p>
-              </div>
-            </Link>
-          </motion.div>
-        ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {certifications.map((cert, idx) => (
+            <motion.div
+              key={idx}
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="bg-gray-800 rounded-lg overflow-hidden shadow-md border border-gray-700"
+            >
+              <Link href={cert.link} target="_blank" className="block">
+                <Image
+                  src={cert.image}
+                  alt={cert.title}
+                  width={400}
+                  height={200}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold">{cert.title}</h3>
+                  <p className="text-sm text-gray-400 mt-1">{cert.provider}</p>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

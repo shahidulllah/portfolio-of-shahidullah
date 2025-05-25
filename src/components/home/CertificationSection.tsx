@@ -27,7 +27,7 @@ const certifications = [
 
 export default function CertificationsSection() {
   return (
-    <section className="py-16 px-6 lg:px-28 bg-[#0d0f1a] text-white">
+    <section className="py-16 px-6 lg:px-28dark:bg-gradient-to-r dark:from-[#141330] dark:to-[#57618c] bg-gradient-to-r from-[#818bb6] via-[#82b2c1] to-[#aabec6] text-black dark:text-white">
       <motion.h2
         className="text-3xl md:text-4xl font-bold text-center mb-12"
         initial={{ opacity: 0, y: 20 }}

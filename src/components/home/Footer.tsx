@@ -9,8 +9,8 @@ import { SiGithub } from "react-icons/si";
 
 const Footer = () => {
   return (
-    <div className="w-full bg-gradient-to-r from-[#191732] to-[#57618c]">
-      <footer className="footer border z-10 border-t-[#33353F] border-l-transparent border-r-transparent text-white lg:max-w-6xl mx-auto">
+    <div className="w-full bg-gradient-to-r from-[#464460] to-[#222a48]">
+      <footer className="footer text-white lg:max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 justify-center items-center w-full">
           <div className="flex flex-col items-center justify-center">
             <Link href={"/"}>

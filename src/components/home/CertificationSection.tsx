@@ -55,7 +55,9 @@ export default function CertificationsSection() {
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-4">
-                  <h3 className="text-lg font-semibold line-clamp-1">{cert.title}</h3>
+                  <h3 className="text-lg font-semibold line-clamp-1">
+                    {cert.title}
+                  </h3>
                   <p className="text-sm text-gray-400 mt-1">{cert.provider}</p>
                 </div>
               </Link>

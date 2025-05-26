@@ -33,8 +33,8 @@ export default function NewsletterSignupSection() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             📬 Join My Newsletter
           </h2>
-          <p className="text-gray-400 mb-8">
-            Stay updated with my latest projects, blogs, and development tips.
+          <p className="mb-8 text-center">
+            Stay updated with my latest projects, blogs, and development tips.<br/>
             No spam — just good stuff.
           </p>
 

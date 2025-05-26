@@ -14,10 +14,10 @@ const page = () => {
       <Skills />
       <AboutSection />
       <FeaturedProjects />
-      <CertificationsSection/>
-      <ServicesSection/>
-      <FaqSection/>
-      <NewsletterSignupSection/>
+      <CertificationsSection />
+      <ServicesSection />
+      <FaqSection />
+      <NewsletterSignupSection />
     </div>
   );
 };

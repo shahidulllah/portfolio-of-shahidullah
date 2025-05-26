@@ -3,6 +3,7 @@ import BannerSection from "@/components/home/BannerSection";
 import CertificationsSection from "@/components/home/CertificationSection";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 import NewsletterSignupSection from "@/components/home/Newsletter";
+import ServicesSection from "@/components/home/ServicesSection";
 import Skills from "@/components/home/Skills";
 
 const page = () => {
@@ -13,6 +14,7 @@ const page = () => {
       <AboutSection />
       <FeaturedProjects />
       <CertificationsSection/>
+      <ServicesSection/>
       <NewsletterSignupSection/>
     </div>
   );

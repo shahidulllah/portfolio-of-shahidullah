@@ -27,7 +27,7 @@ const services = [
 export default function ServicesSection() {
   return (
     <section className="py-16 px-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto text-black dark:text-white">
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-center mb-12"
           initial={{ opacity: 0, y: 30 }}
@@ -46,11 +46,11 @@ export default function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.2, duration: 0.5 }}
               viewport={{ once: true }}
-              className="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl border border-gray-700"
+              className="bg-slate-600 dark:bg-slate-800 p-6 rounded-lg shadow-md hover:shadow-xl border border-gray-700"
             >
               <div className="mb-4">{service.icon}</div>
               <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-              <p className="text-gray-400">{service.description}</p>
+              <p className="text-gray-900 dark:text-gray-400">{service.description}</p>
             </motion.div>
           ))}
         </div>

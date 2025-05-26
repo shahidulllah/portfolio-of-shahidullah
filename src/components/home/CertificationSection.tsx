@@ -44,7 +44,7 @@ export default function CertificationsSection() {
               key={idx}
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="bg-slate-600 rounded-lg overflow-hidden shadow-md border border-gray-700"
+              className="bg-slate-600 dark:bg-slate-800 rounded-lg overflow-hidden shadow-md border border-gray-700"
             >
               <Link href={cert.link} target="_blank" className="block">
                 <Image

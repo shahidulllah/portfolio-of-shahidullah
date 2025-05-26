@@ -31,7 +31,7 @@ export default function NewsletterSignupSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            📬 Join My Newsletter
+           Join My Newsletter
           </h2>
           <p className="mb-8 text-center">
             Stay updated with my latest projects, blogs, and development tips.<br/>
@@ -51,7 +51,7 @@ export default function NewsletterSignupSection() {
             />
             <button
               type="submit"
-              className="bg-blue-600 hover:bg-blue-700 transition text-white px-6 py-3 rounded-md font-medium"
+              className="bg-slate-600 hover:bg-slate-700 transition text-white px-6 py-3 rounded-md font-medium"
             >
               Subscribe
             </button>

@@ -6,4 +6,5 @@ export interface IBlog extends Document {
   content: string;
   image?: string;
   category: string;
+  createdAt: string;
 }

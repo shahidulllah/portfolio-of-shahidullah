@@ -37,10 +37,10 @@ const EmailSection = () => {
   };
 
   return (
-    <section className="">
+    <section className="py-24 px-6">
       <div
         id="contact"
-        className="grid md:grid-cols-2 my-12 md:my-12 py-12 lg:py-20 gap-4 relative p-4 max-w-7xl mx-auto"
+        className="grid md:grid-cols-2 gap-4 relative max-w-6xl mx-auto mt-8"
       >
         <div className="z-9 my flex flex-col justify-center text-center lg:text-left">
           <h5 className="text-3xl font-bold text-black dark:text-white my-2">

@@ -76,7 +76,7 @@ const Navbar = () => {
           {/* Login/Profile Section */}
           {!session ? (
             <Link href="/login">
-              <button className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white px-4 py-1 rounded-full">
+              <button className="bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] text-white px-4 py-1 rounded-full">
                 Login
               </button>
             </Link>

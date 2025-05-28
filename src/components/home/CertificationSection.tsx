@@ -55,10 +55,10 @@ export default function CertificationsSection() {
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-4">
-                  <h3 className="text-lg text-gray-800 font-semibold line-clamp-1">
+                  <h3 className="text-lg dark:text-white font-semibold line-clamp-1">
                     {cert.title}
                   </h3>
-                  <p className="text-sm text-gray-800 mt-1">{cert.provider}</p>
+                  <p className="text-sm dark:gray-300 mt-1">{cert.provider}</p>
                 </div>
               </Link>
             </motion.div>

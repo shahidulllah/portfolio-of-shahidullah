@@ -76,7 +76,7 @@ const Navbar = () => {
           {/* Login/Profile Section */}
           {!session ? (
             <Link href="/login">
-              <button className="bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] dark:text-white px-4 py-1 rounded-full">
+              <button className="bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] dark:text-white px-4 py-1 rounded-full transition-all duration-300 hover:bg-gray-900/30 hover:text-black hover:scale-105 hover:shadow-md border border-gray-500 dark:border-gray-400">
                 Login
               </button>
             </Link>

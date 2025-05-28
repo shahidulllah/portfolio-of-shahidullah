@@ -42,7 +42,7 @@ export default function FeaturedProjects() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.15 }}
                   viewport={{ once: true }}
-                  className="group relative rounded-xl overflow-hidden bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] border-gray-700 shadow-md transition-all duration-300 hover:scale-[1.03] hover:shadow-yellow-500/30 hover:ring-2 hover:ring-yellow-500/20"
+                  className="group relative rounded-xl overflow-hidden bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] border-gray-700 shadow-md transition-all duration-300 hover:scale-[1.03] hover:shadow-slate-500 hover:ring-2 hover:ring-slate-500"
                 >
                   {/* Project Image */}
                   {project.image && project.image.startsWith("http") ? (
@@ -65,14 +65,14 @@ export default function FeaturedProjects() {
                     <h3 className="text-xl font-bold transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-gray-900 text-sm">
+                    <p className="dark:text-white text-sm">
                       {project.description.substring(0, 100)}...
                     </p>
 
                     {/* Details Button */}
                     <div className="mt-4">
                       <Link key={project._id} href={`/projects/${project._id}`}>
-                        <button className="flex items-center gap-2 text-sm font-medium text-gray-900 border border-gray-600 px-4 py-2 rounded-full transition-all duration-300 hover:bg-gray-900/30 hover:text-black hover:scale-105 hover:shadow-md">
+                        <button className="flex items-center gap-2 text-sm font-medium dark:text-white border border-gray-600 px-4 py-2 rounded-full transition-all duration-300 hover:bg-gray-900/30 hover:text-black hover:scale-105 hover:shadow-md">
                           View Details
                           <svg
                             className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"

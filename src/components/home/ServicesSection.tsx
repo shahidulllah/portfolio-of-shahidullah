@@ -46,7 +46,7 @@ export default function ServicesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.2, duration: 0.5 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-r from-[#a19474] to-[#599cb7] p-6 rounded-lg shadow-md hover:shadow-xl border border-gray-700"
+              className="bg-gradient-to-r from-[#a19474] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] p-6 rounded-lg shadow-md hover:shadow-xl border border-gray-700"
             >
               <div className="mb-4">{service.icon}</div>
               <h3 className="text-xl font-semibold mb-2">{service.title}</h3>

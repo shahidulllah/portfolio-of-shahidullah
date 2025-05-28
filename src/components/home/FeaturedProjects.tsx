@@ -42,7 +42,7 @@ export default function FeaturedProjects() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.15 }}
                   viewport={{ once: true }}
-                  className="group relative rounded-xl overflow-hidden bg-gradient-to-br from-[#1f2937] to-[#111827] border border-gray-700 shadow-md transition-all duration-300 hover:scale-[1.03] hover:shadow-yellow-500/30 hover:ring-2 hover:ring-yellow-400"
+                  className="group relative rounded-xl overflow-hidden bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] border-gray-700 shadow-md transition-all duration-300 hover:scale-[1.03] hover:shadow-yellow-500/30 hover:ring-2 hover:ring-yellow-400"
                 >
                   {/* Project Image */}
                   {project.image && project.image.startsWith("http") ? (
@@ -62,7 +62,7 @@ export default function FeaturedProjects() {
 
                   {/* Content */}
                   <div className="p-5 space-y-4">
-                    <h3 className="text-xl font-bold text-white transition-colors duration-300 group-hover:text-yellow-400">
+                    <h3 className="text-xl font-bold transition-colors">
                       {project.title}
                     </h3>
                     <p className="text-gray-400 text-sm">

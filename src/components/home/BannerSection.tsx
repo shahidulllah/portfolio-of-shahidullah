@@ -88,7 +88,7 @@ function BannerSection() {
               href="https://drive.google.com/file/d/1DAt5fkZ18TuYLom2LmUlzl03ANkksyU-/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] text-gray-900 shadow-lg shadow-slate-700 border border-slate-400 dark:text-white transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              className="group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] text-gray-900 shadow-lg shadow-slate-700 border border-slate-500 dark:text-white transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
               <Eye
                 size={20}
@@ -101,7 +101,7 @@ function BannerSection() {
             <a
               href="https://drive.google.com/uc?export=download&id=1DAt5fkZ18TuYLom2LmUlzl03ANkksyU-"
               download
-              className="group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] text-gray-900 shadow-lg shadow-slate-700 border border-slate-400 dark:text-white transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              className="group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] text-gray-900 shadow-lg shadow-slate-700 border border-slate-500 dark:text-white transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
               <DownloadIcon
                 size={20}

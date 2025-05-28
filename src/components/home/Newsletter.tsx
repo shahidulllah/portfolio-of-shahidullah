@@ -51,7 +51,7 @@ export default function NewsletterSignupSection() {
             />
             <button
               type="submit"
-              className="bg-slate-600 hover:bg-slate-700 transition text-white px-6 py-3 rounded-md font-medium"
+              className="bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] transition dark:text-white px-6 py-3 rounded-md font-medium"
             >
               Subscribe
             </button>

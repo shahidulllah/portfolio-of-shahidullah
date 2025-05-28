@@ -44,7 +44,7 @@ export default function CertificationsSection() {
               key={idx}
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:bg-slate-800 rounded-lg overflow-hidden shadow-md border border-gray-900"
+              className="bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] rounded-lg overflow-hidden shadow-lg border border-gray-600"
             >
               <Link href={cert.link} target="_blank" className="block">
                 <Image
@@ -55,7 +55,7 @@ export default function CertificationsSection() {
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-4">
-                  <h3 className="text-lg font-semibold line-clamp-1">
+                  <h3 className="text-lg text-gray-800 font-semibold line-clamp-1">
                     {cert.title}
                   </h3>
                   <p className="text-sm text-gray-800 mt-1">{cert.provider}</p>

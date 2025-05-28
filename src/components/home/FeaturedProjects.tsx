@@ -42,7 +42,7 @@ export default function FeaturedProjects() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.15 }}
                   viewport={{ once: true }}
-                  className="group relative rounded-xl overflow-hidden bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] border-gray-700 shadow-md transition-all duration-300 hover:scale-[1.03] hover:shadow-slate-500 hover:ring-2 hover:ring-slate-500"
+                  className="group relative rounded-xl overflow-hidden bg-gradient-to-r from-[#c0b18a] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] border-gray-700 shadow-md transition-all duration-300 hover:scale-[1.03] hover:shadow-slate-500 hover:ring-2 hover:ring-slate-500"
                 >
                   {/* Project Image */}
                   {project.image && project.image.startsWith("http") ? (

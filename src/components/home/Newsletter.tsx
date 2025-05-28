@@ -45,13 +45,13 @@ export default function NewsletterSignupSection() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="w-full sm:w-auto px-4 py-3 bg-slate-700 placeholder:text-gray-400 dark:border rounded-md text-black focus:outline-none"
+              className="w-full sm:w-auto px-4 py-3 bg-slate-700 placeholder:text-gray-400 dark:border rounded-xl text-gray-300 focus:outline-none"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
             <button
               type="submit"
-              className="bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] transition dark:text-white px-6 py-3 dark:border rounded-md font-medium"
+              className="bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] dark:text-white px-6 py-3 dark:border rounded-xl font-medium transition-all duration-300 hover:bg-gray-900/30 hover:text-black hover:scale-105 hover:shadow-md border border-gray-500 dark:border-gray-400"
             >
               Subscribe
             </button>

@@ -152,7 +152,7 @@ export default function ProjectsPage() {
                   transition={{ delay: index * 0.05, duration: 0.3 }}
                 >
                   <Link href={`/projects/${project._id}`}>
-                    <div className="bg-gray-900 p-4 rounded-lg shadow-lg border border-gray-800 hover:shadow-xl transition">
+                    <div className="bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] dark:text-white p-4 rounded-lg shadow-lg border border-gray-800 hover:shadow-xl transition">
                       {project.image && project.image.startsWith("http") ? (
                         <Image
                           src={project.image}
@@ -167,10 +167,10 @@ export default function ProjectsPage() {
                         </div>
                       )}
                       <div className="mt-3">
-                        <h2 className="text-xl text-white font-semibold">
+                        <h2 className="text-xl font-semibold">
                           {project.title}
                         </h2>
-                        <p className="text-sm text-gray-400 mt-1 line-clamp-3">
+                        <p className="text-sm dark:text-gray-400 mt-1 line-clamp-3">
                           {project.description}
                         </p>
                         {project.category && (
@@ -200,7 +200,7 @@ export default function ProjectsPage() {
                   onClick={() => handlePageChange(i + 1)}
                   className={`px-4 py-1 rounded ${
                     currentPage === i + 1
-                      ? "bg-slate-700 text-white"
+                      ? "bg-slate-700 dark:slate-900 dark:border text-white"
                       : "bg-gray-800 text-white"
                   }`}
                 >

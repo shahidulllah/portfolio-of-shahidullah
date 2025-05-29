@@ -118,7 +118,7 @@ export default function ProjectDetailsPage() {
             <h2 className="text-2xl font-bold mb-3">
               📊 Challenges & Solutions
             </h2>
-            <ul className="list-disc list-inside space-y-2">
+            <ol className=" space-y-2">
               <li>
                 <strong>Challenge:</strong> Implementing role-based dashboard
                 with secure APIs.
@@ -133,7 +133,7 @@ export default function ProjectDetailsPage() {
                 <strong>Solution:</strong> Tailwind + Framer Motion allowed
                 consistent animation and layout scaling.
               </li>
-            </ul>
+            </ol>
           </section>
 
           {/* What I Learned */}

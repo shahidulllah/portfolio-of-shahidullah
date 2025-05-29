@@ -32,7 +32,7 @@ export default function FeaturedProjects() {
         <h2 className="text-4xl font-bold mb-8">Featured Projects</h2>
 
         {loading ? (
-          <p className="text-lg">Loading...</p>
+          <p className="text-lg text-white">Loading projects...</p>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (

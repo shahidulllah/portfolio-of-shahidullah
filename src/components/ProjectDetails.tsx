@@ -1,14 +1,14 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { IProject } from "@/types/project.type";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { SiGithub } from "react-icons/si";
-import { Eye } from "lucide-react";
+import { motion } from "framer-motion";
+import { Eye, Github } from "lucide-react";
 
-export default function ProjectDetails() {
+export default function ProjectDetailsPage() {
   const { id } = useParams();
   const [project, setProject] = useState<IProject | null>(null);
   const [loading, setLoading] = useState(true);
@@ -20,7 +20,7 @@ export default function ProjectDetails() {
         const data = await res.json();
         setProject(data);
       } catch (error) {
-        console.error("Failed to fetch project details", error);
+        console.error("Error fetching project", error);
       } finally {
         setLoading(false);
       }
@@ -30,141 +30,157 @@ export default function ProjectDetails() {
   }, [id]);
 
   if (loading)
-    return <p className="text-center text-white mt-10">Loading...</p>;
+    return <p className="text-center text-white py-16">Loading project...</p>;
+
   if (!project)
-    return <p className="text-center text-white mt-10">Project not found.</p>;
+    return <p className="text-center text-red-400 py-16">Project not found.</p>;
 
   return (
-    <div className="px-6 py-24">
-      <motion.section
+    <section className="py-20 px-6">
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.6 }}
         className="max-w-6xl mx-auto text-black dark:text-white"
       >
-        {/* Image */}
+        {/* Title */}
+        <h1 className="text-3xl md:text-4xl font-bold  mb-6 mt-8">
+         <strong> Title: </strong> {project.title}
+        </h1>
+        {/* Project Image */}
         {project.image && (
-          <motion.div
-            initial={{ scale: 0.95, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            className="relative w-full h-[350px] md:h-[450px] mb-8 rounded-xl overflow-hidden border border-gray-700 shadow-lg mt-8"
-          >
+          <div className="relative w-full h-[300px] md:h-[400px] mb-10 rounded-xl overflow-hidden border border-gray-700 shadow-lg">
             <Image
               src={project.image}
-              alt={`${project.title} image`}
-              layout="fill"
-              objectFit="cover"
-              className="rounded-xl"
+              alt={project.title}
+              fill
+              className="object-cover object-center"
+              priority
             />
-          </motion.div>
+          </div>
         )}
 
-        {/* Title */}
-        <h1 className="text-4xl font-extrabold text-center bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent mb-6">
-          {project.title}
-        </h1>
+        {/* Category */}
+        {project.category && (
+          <p className="text-sm text-center mb-10 text-gray-600 dark:text-white/70">
+            Category:{" "}
+            <span className="bg-blue-800 text-white px-3 py-1 rounded-full text-xs">
+              {project.category}
+            </span>
+          </p>
+        )}
 
         {/* Description */}
-        <div className="space-y-8">
-          <section>
-            <h2 className="text-2xl font-bold text-yellow-500 mb-2">
-              Overview
-            </h2>
-            <p className="leading-relaxed">{project.description}</p>
-          </section>
+        <div className="text-lg leading-relaxed space-y-6 text-justify">
+          <p className="mb-14">{project.description}</p>
 
-          <section>
-            <h2 className="text-2xl font-bold text-yellow-500 mb-2">
-              Features
+          {/* Technologies */}
+          <div>
+            <h2 className="text-2xl font-semibold mb-2">
+              🔧 Technologies Used
             </h2>
-            <ul className="list-disc list-inside  space-y-1">
-              <li>User Authentication & Role-Based Access</li>
-              <li>Blog/Project CRUD functionality</li>
-              <li>Responsive design with animations</li>
-              <li>Search, Sort & Filter support</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-yellow-400 mb-2">
-              Technologies Used
-            </h2>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-3">
               {[
                 "Next.js",
                 "TypeScript",
                 "Tailwind CSS",
-                "Framer Motion",
                 "MongoDB",
                 "Express",
               ].map((tech) => (
                 <span
                   key={tech}
-                  className="bg-gray-800 border border-yellow-500 text-yellow-300 text-sm px-3 py-1 rounded-full"
+                  className="text-sm px-3 py-1 rounded-full bg-[#262656] text-white border border-[#599cb7]"
                 >
                   {tech}
                 </span>
               ))}
             </div>
-          </section>
+          </div>
+        </div>
 
+        {/* Extra Sections */}
+        <div className="mt-16 space-y-12 text-black dark:text-white">
+          {/* Goals */}
           <section>
-            <h2 className="text-2xl font-bold text-yellow-500 mb-2">
-              Challenges
+            <h2 className="text-2xl font-bold mb-3 ">
+              🚀 Project Goals
             </h2>
-            <p className="">
-              One of the major challenges was integrating secure authentication
-              and creating a fully modular, scalable codebase using the MVC
-              pattern. Debugging asynchronous issues and optimizing performance
-              were also key parts of the learning curve.
+            <p className="leading-relaxed">
+              The main objective of this project was to build a full-stack
+              portfolio and blog management platform with user authentication,
+              real-time CRUD operations, and a seamless, responsive UI for
+              personal branding.
             </p>
           </section>
 
+          {/* Challenges */}
           <section>
-            <h2 className="text-2xl font-bold text-yellow-500 mb-2">
-              Future Plans
+            <h2 className="text-2xl font-bold mb-3">
+              📊 Challenges & Solutions
             </h2>
-            <p className="">
-              Planning to add a comment system, admin analytics dashboard, and
-              email notifications. Also working on SEO improvements and public
-              API documentation.
+            <ul className="list-disc list-inside space-y-2">
+              <li>
+                <strong>Challenge:</strong> Implementing role-based dashboard
+                with secure APIs.
+                <br />
+                <strong>Solution:</strong> Used NextAuth for social login and
+                protected routes with middleware and `getSession`.
+              </li>
+              <li>
+                <strong>Challenge:</strong> Keeping the UI responsive and clean
+                across all screens.
+                <br />
+                <strong>Solution:</strong> Tailwind + Framer Motion allowed
+                consistent animation and layout scaling.
+              </li>
+            </ul>
+          </section>
+
+          {/* What I Learned */}
+          <section>
+            <h2 className="text-2xl font-bold mb-3">
+              📈 What I Learned
+            </h2>
+            <p className="leading-relaxed">
+              I gained deeper understanding of full-stack architecture using the
+              MERN stack, handling secure auth flows, building scalable APIs,
+              and refining UI/UX consistency across devices and themes.
             </p>
           </section>
         </div>
 
-        {/* Action Buttons */}
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
+        {/* CTA Buttons */}
+        <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
           {project.liveUrl && (
             <Link
               href={project.liveUrl}
               target="_blank"
-              className="bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-600 transition flex gap-2"
+              className="flex items-center gap-2 px-6 py-2 rounded-full font-semibold text-black bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] hover:scale-105 transition shadow-md"
             >
-              <Eye /> Live Demo
+              <Eye className="w-4 h-4" /> Live Preview
             </Link>
           )}
           {project.githubUrl && (
             <Link
               href={project.githubUrl}
               target="_blank"
-              className="bg-gray-800 text-yellow-300 border border-yellow-500 px-6 py-3 rounded-full font-semibold hover:bg-gray-700 transition flex gap-2 items-center"
+              className="flex items-center gap-2 px-6 py-2 rounded-full font-semibold text-yellow-300 bg-[#1a1a2e] border border-[#599cb7] hover:scale-105 transition shadow-md"
             >
-              <SiGithub size={20} /> View Code
+              <Github className="w-4 h-4" /> GitHub Repo
             </Link>
           )}
         </div>
 
-        {/* Back Button */}
-        <div className="mt-12 text-center">
+        {/* Back Link */}
+        <div className="text-center mt-12">
           <Link
             href="/projects"
-            className="text-blue-400 hover:underline text-lg"
+            className="dark:text-blue-400 text-blue-900 hover:underline text-sm"
           >
             ← Back to Projects
           </Link>
         </div>
-      </motion.section>
-    </div>
+      </motion.div>
+    </section>
   );
 }

@@ -155,7 +155,7 @@ export default function ProjectDetailsPage() {
             <Link
               href={project.liveUrl}
               target="_blank"
-              className="flex items-center gap-2 px-6 py-2 rounded-full font-semibold text-black bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] hover:scale-105 transition shadow-md"
+              className="flex items-center gap-2 px-6 py-2 rounded-full font-semibold bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] dark:text-white hover:scale-105 transition shadow-md"
             >
               <Eye className="w-4 h-4" /> Live Preview
             </Link>
@@ -164,7 +164,7 @@ export default function ProjectDetailsPage() {
             <Link
               href={project.githubUrl}
               target="_blank"
-              className="flex items-center gap-2 px-6 py-2 rounded-full font-semibold text-yellow-300 bg-[#1a1a2e] border border-[#599cb7] hover:scale-105 transition shadow-md"
+              className="flex items-center gap-2 px-6 py-2 rounded-full font-semibold bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] dark:text-white hover:scale-105 transition shadow-md"
             >
               <Github className="w-4 h-4" /> GitHub Repo
             </Link>

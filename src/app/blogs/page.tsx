@@ -125,9 +125,9 @@ export default function BlogPage() {
       </div>
 
       {loading ? (
-        <div className="text-center text-white font-semibold">Loading...</div>
+        <div className="text-center text-white font-semibold py-24">Loading blogs...</div>
       ) : paginatedBlogs.length === 0 ? (
-        <div className="text-center text-gray-400 font-medium">
+        <div className="text-center text-gray-400 font-medium py-24">
           No blogs found.
         </div>
       ) : (
@@ -141,14 +141,14 @@ export default function BlogPage() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05, duration: 0.3 }}
               >
-                <div className="bg-gray-800 p-4 rounded-lg shadow-lg border border-gray-700 flex flex-col">
+                <div className="bg-gradient-to-r from-[#baab86] to-[#4d889f] dark:from-[#314155] dark:to-[#262656] dark:text-white p-4 rounded-lg shadow-lg border border-gray-700 flex flex-col">
                   {blog.image && blog.image.startsWith("http") ? (
                     <Image
                       src={blog.image}
                       alt={blog.title}
                       width={400}
                       height={220}
-                      className="rounded-md object-cover w-full h-[220px]"
+                      className="border border-gray-500 rounded-md object-cover w-full h-[220px]"
                     />
                   ) : (
                     <div className="h-[220px] flex items-center justify-center text-gray-600 border border-gray-700 rounded-md">
@@ -157,18 +157,18 @@ export default function BlogPage() {
                   )}
 
                   <div className="mt-4">
-                    <span className="text-xs text-gray-400 uppercase">
+                    <span className="text-xs uppercase">
                       {blog.category}
                     </span>
-                    <h2 className="text-xl font-semibold text-white mt-1 line-clamp-1">
+                    <h2 className="text-xl font-semibold mt-1 line-clamp-1">
                       {blog.title}
                     </h2>
-                    <p className="text-sm text-gray-400 mt-2 line-clamp-2">
+                    <p className="text-sm mt-2 line-clamp-2">
                       {blog.content}
                     </p>
                     <Link
                       href={`/blogs/${blog._id}`}
-                      className="inline-block mt-4 text-blue-500 hover:underline text-sm"
+                      className="inline-block mt-4 hover:underline text-sm"
                     >
                       Read More →
                     </Link>
@@ -183,7 +183,7 @@ export default function BlogPage() {
             <button
               onClick={() => handlePage(page - 1)}
               disabled={page === 1}
-              className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-40"
+              className="px-4 py-1 bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] dark:text-white transition-all duration-300 hover:bg-gray-900/30 hover:text-black hover:scale-105 hover:shadow-md border border-gray-500 dark:border-gray-400 rounded"
             >
               Prev
             </button>
@@ -191,9 +191,9 @@ export default function BlogPage() {
               <button
                 key={i}
                 onClick={() => handlePage(i + 1)}
-                className={`px-4 py-2 rounded ${
+                className={`px-4 py-1 rounded ${
                   page === i + 1
-                    ? "bg-blue-600 text-white"
+                    ? "bg-slate-700 dark:slate-900 dark:border text-white"
                     : "bg-gray-700 text-white"
                 }`}
               >
@@ -203,7 +203,7 @@ export default function BlogPage() {
             <button
               onClick={() => handlePage(page + 1)}
               disabled={page === totalPages}
-              className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-40"
+              className="px-4 py-1 bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] text-gray-800 dark:text-white transition-all duration-300 hover:bg-gray-900/30 hover:text-black hover:scale-105 hover:shadow-md border border-gray-500 dark:border-gray-400 rounded"
             >
               Next
             </button>

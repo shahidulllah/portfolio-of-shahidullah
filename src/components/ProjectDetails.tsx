@@ -30,10 +30,10 @@ export default function ProjectDetailsPage() {
   }, [id]);
 
   if (loading)
-    return <p className="text-center text-white py-16">Loading project...</p>;
+    return <p className="text-center text-white py-24">Loading project details...</p>;
 
   if (!project)
-    return <p className="text-center text-red-400 py-16">Project not found.</p>;
+    return <p className="text-center text-red-400 py-24">Project not found.</p>;
 
   return (
     <section className="py-20 px-6">

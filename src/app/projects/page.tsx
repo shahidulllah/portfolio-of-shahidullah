@@ -133,11 +133,11 @@ export default function ProjectsPage() {
 
         {/* Projects */}
         {loading ? (
-          <div className="text-center text-white font-medium">
+          <div className="text-center text-white font-medium py-24">
             Loading projects...
           </div>
         ) : paginatedProjects.length === 0 ? (
-          <div className="text-center text-gray-400 font-medium">
+          <div className="text-center text-gray-400 font-medium py-24">
             No projects found.
           </div>
         ) : (
@@ -152,7 +152,7 @@ export default function ProjectsPage() {
                   transition={{ delay: index * 0.05, duration: 0.3 }}
                 >
                   <Link href={`/projects/${project._id}`}>
-                    <div className="bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] dark:text-white p-4 rounded-lg shadow-lg border border-gray-800 hover:shadow-xl transition">
+                    <div className="bg-gradient-to-r from-[#b0a27f] to-[#4b849b] dark:from-[#314155] dark:to-[#262656] dark:text-white p-4 rounded-lg shadow-lg border border-gray-800 hover:shadow-xl transition">
                       {project.image && project.image.startsWith("http") ? (
                         <Image
                           src={project.image}

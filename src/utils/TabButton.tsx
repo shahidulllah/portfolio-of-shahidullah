@@ -12,7 +12,7 @@ const TabButton: React.FC<TabButtonProps> = ({
   children,
 }) => {
   const buttonClasses = active
-    ? "text-transparent bg-clip-text bg-gradient-to-br from-yellow-300 to-red-600 border-b-2 border-yellow-500"
+    ? " border-b-2 border-yellow-500"
     : "text-[#ADB0BE] dark:text-[#ADB0BE] ";
 
   return (

@@ -190,7 +190,7 @@ export default function ProjectsPage() {
               <button
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="px-4 py-2 bg-gray-800 text-white rounded disabled:opacity-40"
+                className="px-4 py-1 bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] dark:text-white transition-all duration-300 hover:bg-gray-900/30 hover:text-black hover:scale-105 hover:shadow-md border border-gray-500 dark:border-gray-400 rounded"
               >
                 Prev
               </button>
@@ -198,9 +198,9 @@ export default function ProjectsPage() {
                 <button
                   key={i + 1}
                   onClick={() => handlePageChange(i + 1)}
-                  className={`px-4 py-2 rounded ${
+                  className={`px-4 py-1 rounded ${
                     currentPage === i + 1
-                      ? "bg-blue-600 text-white"
+                      ? "bg-slate-700 text-white"
                       : "bg-gray-800 text-white"
                   }`}
                 >
@@ -210,7 +210,7 @@ export default function ProjectsPage() {
               <button
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="px-4 py-2 bg-gray-800 text-white rounded disabled:opacity-40"
+                className="px-4 py-1 bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] text-gray-800 dark:text-white transition-all duration-300 hover:bg-gray-900/30 hover:text-black hover:scale-105 hover:shadow-md border border-gray-500 dark:border-gray-400 rounded"
               >
                 Next
               </button>

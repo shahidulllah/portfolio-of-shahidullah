@@ -7,6 +7,5 @@ export interface IProject extends Document {
   image: string;
   liveUrl: string;
   githubUrl: string;
-  category: string;
   createdAt: string;
 }

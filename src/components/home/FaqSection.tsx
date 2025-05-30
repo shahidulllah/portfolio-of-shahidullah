@@ -23,7 +23,7 @@ const faqs = [
   {
     question: "How can I contact you?",
     answer:
-      "You can reach out via the contact form on this website or email me directly at your@email.com.",
+      "You can reach out via the contact form on this website or email me directly at mdshahidsumon177@gmail.com.",
   },
 ];
 

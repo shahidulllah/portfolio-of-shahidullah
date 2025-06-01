@@ -100,7 +100,7 @@ export default function ProjectDetailsPage() {
           </section>
         )}
 
-        {/* Goals */}
+        {/*Goals*/}
         {project.goals && (
           <section className="mb-14">
             <h2 className="text-2xl font-bold mb-3 flex items-center gap-2">
@@ -111,7 +111,7 @@ export default function ProjectDetailsPage() {
           </section>
         )}
 
-        {/* Challenges */}
+        {/*Challenges*/}
         {project.challenges?.length > 0 && (
           <section className="mb-14">
             <h2 className="text-2xl font-bold mb-3 flex items-center gap-2">

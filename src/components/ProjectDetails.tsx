@@ -6,7 +6,7 @@ import { IProject } from "@/types/project.type";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Eye, Github } from "lucide-react";
+import { Eye, Github, Goal, Hammer, Lightbulb, Wrench } from "lucide-react";
 
 export default function ProjectDetailsPage() {
   const { id } = useParams();
@@ -29,11 +29,13 @@ export default function ProjectDetailsPage() {
     if (id) fetchProject();
   }, [id]);
 
-  if (loading)
+  if (loading) {
     return <p className="text-center text-white py-24">Loading project details...</p>;
+  }
 
-  if (!project)
+  if (!project) {
     return <p className="text-center text-red-400 py-24">Project not found.</p>;
+  }
 
   return (
     <section className="py-20 px-6">
@@ -44,9 +46,10 @@ export default function ProjectDetailsPage() {
         className="max-w-6xl mx-auto text-black dark:text-white"
       >
         {/* Title */}
-        <h1 className="text-3xl md:text-4xl font-bold  mb-6 mt-8">
-         <strong> Title: </strong> {project.title}
+        <h1 className="text-3xl md:text-4xl font-bold mb-6 mt-8">
+          <strong>Title:</strong> {project.title}
         </h1>
+
         {/* Project Image */}
         {project.image && (
           <div className="relative w-full h-[300px] md:h-[400px] mb-10 rounded-xl overflow-hidden border border-gray-700 shadow-lg">
@@ -71,22 +74,19 @@ export default function ProjectDetailsPage() {
         )}
 
         {/* Description */}
-        <div className="text-lg leading-relaxed space-y-6 text-justify">
-          <p className="mb-14">{project.description}</p>
+        <div className="text-lg leading-relaxed space-y-6 text-justify mb-14">
+          <p>{project.description}</p>
+        </div>
 
-          {/* Technologies */}
-          <div>
-            <h2 className="text-2xl font-semibold mb-2">
-              🔧 Technologies Used
+        {/* Technologies */}
+        {project.technologies?.length > 0 && (
+          <section className="mb-14">
+            <h2 className="text-2xl font-semibold mb-2 flex items-center gap-2">
+              <Wrench className="w-6 h-6 text-yellow-500" />
+              Technologies Used
             </h2>
             <div className="flex flex-wrap gap-3">
-              {[
-                "Next.js",
-                "TypeScript",
-                "Tailwind CSS",
-                "MongoDB",
-                "Express",
-              ].map((tech) => (
+              {project.technologies.map((tech) => (
                 <span
                   key={tech}
                   className="text-sm px-3 py-1 rounded-full bg-[#262656] text-white border border-[#599cb7]"
@@ -95,59 +95,45 @@ export default function ProjectDetailsPage() {
                 </span>
               ))}
             </div>
-          </div>
-        </div>
-
-        {/* Extra Sections */}
-        <div className="mt-16 space-y-12 text-black dark:text-white">
-          {/* Goals */}
-          <section>
-            <h2 className="text-2xl font-bold mb-3 ">
-              🚀 Project Goals
-            </h2>
-            <p className="leading-relaxed">
-              The main objective of this project was to build a full-stack
-              portfolio and blog management platform with user authentication,
-              real-time CRUD operations, and a seamless, responsive UI for
-              personal branding.
-            </p>
           </section>
+        )}
 
-          {/* Challenges */}
-          <section>
-            <h2 className="text-2xl font-bold mb-3">
-              📊 Challenges & Solutions
+        {/* Goals */}
+        {project.goals && (
+          <section className="mb-14">
+            <h2 className="text-2xl font-bold mb-3 flex items-center gap-2">
+              <Goal className="w-6 h-6 text-blue-500" />
+              Project Goals
             </h2>
-            <ol className=" space-y-2">
-              <li>
-                <strong>Challenge:</strong> Implementing role-based dashboard
-                with secure APIs.
-                <br />
-                <strong>Solution:</strong> Used NextAuth for social login and
-                protected routes with middleware and `getSession`.
-              </li>
-              <li>
-                <strong>Challenge:</strong> Keeping the UI responsive and clean
-                across all screens.
-                <br />
-                <strong>Solution:</strong> Tailwind + Framer Motion allowed
-                consistent animation and layout scaling.
-              </li>
-            </ol>
+            <p className="leading-relaxed">{project.goals}</p>
           </section>
+        )}
 
-          {/* What I Learned */}
-          <section>
-            <h2 className="text-2xl font-bold mb-3">
-              📈 What I Learned
+        {/* Challenges */}
+        {project.challenges?.length > 0 && (
+          <section className="mb-14">
+            <h2 className="text-2xl font-bold mb-3 flex items-center gap-2">
+              <Hammer className="w-6 h-6 text-red-500" />
+              Challenges & Solutions
             </h2>
-            <p className="leading-relaxed">
-              I gained deeper understanding of full-stack architecture using the
-              MERN stack, handling secure auth flows, building scalable APIs,
-              and refining UI/UX consistency across devices and themes.
-            </p>
+            <ul className="list-disc ml-5 space-y-2">
+              {project.challenges.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
           </section>
-        </div>
+        )}
+
+        {/* Learnings */}
+        {project.learnings && (
+          <section className="mb-14">
+            <h2 className="text-2xl font-bold mb-3 flex items-center gap-2">
+              <Lightbulb className="w-6 h-6 text-green-500" />
+              What I Learned
+            </h2>
+            <p className="leading-relaxed">{project.learnings}</p>
+          </section>
+        )}
 
         {/* CTA Buttons */}
         <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">

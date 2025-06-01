@@ -30,7 +30,9 @@ export default function ProjectDetailsPage() {
   }, [id]);
 
   if (loading) {
-    return <p className="text-center text-white py-24">Loading project details...</p>;
+    return (
+      <p className="text-center text-white py-24">Loading project details...</p>
+    );
   }
 
   if (!project) {

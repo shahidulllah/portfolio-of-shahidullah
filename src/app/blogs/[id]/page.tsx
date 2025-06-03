@@ -103,7 +103,7 @@ export default function BlogDetails() {
         </article>
 
         {/* Tags */}
-        {blog.tags?.length > 0 && (
+        {blog.tags && blog.tags?.length > 0 && (
           <div className="mt-10">
             <h4 className="font-semibold text-gray-300 mb-2">Tags:</h4>
             <div className="flex flex-wrap gap-2">

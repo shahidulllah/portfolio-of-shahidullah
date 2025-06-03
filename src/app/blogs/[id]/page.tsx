@@ -29,7 +29,7 @@ export default function BlogDetails() {
   if (loading) {
     return (
       <p className="text-center text-white text-lg font-semibold py-24">
-        Loading...
+        Loading blog details...
       </p>
     );
   }

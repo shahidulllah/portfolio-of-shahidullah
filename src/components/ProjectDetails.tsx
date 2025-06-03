@@ -116,7 +116,7 @@ export default function ProjectDetailsPage() {
           <section className="mb-14">
             <h2 className="text-2xl font-bold mb-3 flex items-center gap-2">
               <Hammer className="w-6 h-6 text-red-500" />
-              Challenges & Solutions
+              Challenges I&apos;ve faced
             </h2>
             <ul className="list-disc ml-5 space-y-2">
               {project.challenges.map((item, index) => (

@@ -7,7 +7,11 @@ export interface IBlog extends Document {
   image: string;
   category: string;
   createdAt: string;
-  author?: string;
+  author?: {
+    name: string;
+    avatar?: string;
+    bio?: string;
+  };
   tags?: string[];
   summary?: string;
 }

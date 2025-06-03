@@ -102,6 +102,33 @@ export default function BlogDetails() {
           <p>{blog.content}</p>
         </article>
 
+        {/* Author Info */}
+        {blog.author?.name && (
+          <div className="mt-12 border-t border-gray-700 pt-8 flex items-center gap-4">
+            {blog.author.avatar ? (
+              <Image
+                src={blog.author.avatar}
+                alt={blog.author.name}
+                width={60}
+                height={60}
+                className="rounded-full border border-gray-600"
+              />
+            ) : (
+              <div className="w-[60px] h-[60px] bg-gray-700 rounded-full flex items-center justify-center text-white font-bold">
+                {blog.author.name.charAt(0)}
+              </div>
+            )}
+            <div>
+              <p className="text-sm text-white font-medium">
+                {blog.author.name}
+              </p>
+              {blog.author.bio && (
+                <p className="text-xs text-gray-400">{blog.author.bio}</p>
+              )}
+            </div>
+          </div>
+        )}
+
         {/* Tags */}
         {blog.tags && blog.tags?.length > 0 && (
           <div className="mt-10">

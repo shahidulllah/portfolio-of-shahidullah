@@ -9,7 +9,11 @@ const BlogSchema = new Schema<IBlog>(
     category: { type: String, required: true },
     summary: { type: String },
     tags: { type: [String] },
-    author: { type: String, default: "Anonymous" },
+    author: {
+      name: { type: String, required: true },
+      avatar: { type: String },
+      bio: { type: String },
+    },
   },
   { timestamps: true }
 );

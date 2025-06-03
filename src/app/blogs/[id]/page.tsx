@@ -109,8 +109,8 @@ export default function BlogDetails() {
               <Image
                 src={blog.author.avatar}
                 alt={blog.author.name}
-                width={60}
-                height={60}
+                width={50}
+                height={50}
                 className="rounded-full border border-gray-600"
               />
             ) : (
@@ -119,11 +119,11 @@ export default function BlogDetails() {
               </div>
             )}
             <div>
-              <p className="text-sm text-white font-medium">
+              <p className="text-sm dark:text-gray-300 text-gray-900 font-medium">
                 {blog.author.name}
               </p>
               {blog.author.bio && (
-                <p className="text-xs text-gray-400">{blog.author.bio}</p>
+                <p className="text-xs dark:text-gray-400 text-gray-700">{blog.author.bio}</p>
               )}
             </div>
           </div>

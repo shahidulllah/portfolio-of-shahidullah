@@ -57,7 +57,7 @@ export default function BlogDetails() {
       transition={{ duration: 0.5 }}
       className="py-16 px-6"
     >
-      <div className="max-w-6xl mx-auto dark:text-white">
+      <div className="max-w-6xl mx-auto dark:text-white mt-14">
         {/* Title */}
         <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
           {blog.title}
@@ -68,7 +68,7 @@ export default function BlogDetails() {
           <span className="uppercase tracking-wide font-medium">
             {blog.category || "Uncategorized"}
           </span>
-          <span className="flex items-center gap-2 text-gray-400">
+          <span className="flex items-center gap-2 dark:text-gray-300">
             <Clock className="w-4 h-4" /> {readingTime} min read
           </span>
           <span className="text-xs border-l dark:text-gray-300 pl-4">
@@ -123,7 +123,7 @@ export default function BlogDetails() {
         <div className="mt-12 text-center">
           <Link
             href="/blogs"
-            className="inline-flex items-center gap-2 text-blue-400 hover:underline"
+            className="inline-flex items-center gap-2 hover:underline"
           >
             <ArrowLeft className="w-4 h-4" /> Back to Blogs
           </Link>

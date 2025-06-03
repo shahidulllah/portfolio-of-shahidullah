@@ -1,9 +1,12 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { IBlog } from "@/types/blog.type";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft, Clock } from "lucide-react";
 
 export default function BlogDetails() {
   const { id } = useParams();
@@ -25,6 +28,11 @@ export default function BlogDetails() {
 
     if (id) fetchBlog();
   }, [id]);
+
+  // Estimate reading time
+  const readingTime = blog?.content
+    ? Math.max(1, Math.round(blog.content.split(" ").length / 200))
+    : 1;
 
   if (loading) {
     return (
@@ -51,20 +59,30 @@ export default function BlogDetails() {
     >
       <div className="max-w-6xl mx-auto dark:text-white">
         {/* Title */}
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight lg:mt-16">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
           {blog.title}
         </h1>
 
         {/* Meta info */}
-        <div className="flex flex-col sm:flex-row sm:items-center text-sm space-y-2 sm:space-y-0 sm:space-x-6 mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center text-sm space-y-2 sm:space-y-0 sm:space-x-6 mb-6">
           <span className="uppercase tracking-wide font-medium">
             {blog.category || "Uncategorized"}
           </span>
+          <span className="flex items-center gap-2 text-gray-400">
+            <Clock className="w-4 h-4" /> {readingTime} min read
+          </span>
           <span className="text-xs border-l dark:text-gray-300 pl-4">
-            🕒 Published on{" "}
+            Published on{" "}
             {new Date(blog.createdAt || blog._id).toLocaleDateString()}
           </span>
         </div>
+
+        {/* Summary */}
+        {blog.summary && (
+          <p className="text-gray-300 text-base italic border-l-4 border-blue-500 pl-4 mb-6">
+            {blog.summary}
+          </p>
+        )}
 
         {/* Blog Image */}
         {blog.image && (
@@ -83,6 +101,33 @@ export default function BlogDetails() {
         <article className="prose prose-invert lg:prose-lg max-w-none text-gray-900 dark:text-gray-300 leading-relaxed">
           <p>{blog.content}</p>
         </article>
+
+        {/* Tags */}
+        {blog.tags?.length > 0 && (
+          <div className="mt-10">
+            <h4 className="font-semibold text-gray-300 mb-2">Tags:</h4>
+            <div className="flex flex-wrap gap-2">
+              {blog.tags?.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-xs px-3 py-1 bg-gray-800 text-white rounded-full"
+                >
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Back link */}
+        <div className="mt-12 text-center">
+          <Link
+            href="/blogs"
+            className="inline-flex items-center gap-2 text-blue-400 hover:underline"
+          >
+            <ArrowLeft className="w-4 h-4" /> Back to Blogs
+          </Link>
+        </div>
       </div>
     </motion.section>
   );

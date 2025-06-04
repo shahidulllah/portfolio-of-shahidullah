@@ -6,7 +6,16 @@ import { IProject } from "@/types/project.type";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Eye, Github, Goal, Hammer, Lightbulb, Wrench } from "lucide-react";
+import {
+  Eye,
+  Github,
+  Goal,
+  Hammer,
+  Lightbulb,
+  Wrench,
+  ListTodo,
+  Telescope,
+} from "lucide-react";
 
 export default function ProjectDetailsPage() {
   const { id } = useParams();
@@ -100,7 +109,7 @@ export default function ProjectDetailsPage() {
           </section>
         )}
 
-        {/*Goals*/}
+        {/* Goals */}
         {project.goals && (
           <section className="mb-14">
             <h2 className="text-2xl font-bold mb-3 flex items-center gap-2">
@@ -111,12 +120,27 @@ export default function ProjectDetailsPage() {
           </section>
         )}
 
-        {/*Challenges*/}
+        {/* Features */}
+        {project.features?.length > 0 && (
+          <section className="mb-14">
+            <h2 className="text-2xl font-bold mb-3 flex items-center gap-2">
+              <ListTodo className="w-6 h-6 text-purple-500" />
+              Key Features
+            </h2>
+            <ul className="list-disc ml-5 space-y-2">
+              {project.features.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {/* Challenges */}
         {project.challenges?.length > 0 && (
           <section className="mb-14">
             <h2 className="text-2xl font-bold mb-3 flex items-center gap-2">
               <Hammer className="w-6 h-6 text-red-500" />
-              Challenges I&apos;ve faced
+              Challenges I&apos;ve Faced
             </h2>
             <ul className="list-disc ml-5 space-y-2">
               {project.challenges.map((item, index) => (
@@ -134,6 +158,17 @@ export default function ProjectDetailsPage() {
               What I Learned
             </h2>
             <p className="leading-relaxed">{project.learnings}</p>
+          </section>
+        )}
+
+        {/* Future Plans */}
+        {project.futurePlans && (
+          <section className="mb-14">
+            <h2 className="text-2xl font-bold mb-3 flex items-center gap-2">
+              <Telescope className="w-6 h-6 text-sky-500" />
+              Future Plans
+            </h2>
+            <p className="leading-relaxed">{project.futurePlans}</p>
           </section>
         )}
 

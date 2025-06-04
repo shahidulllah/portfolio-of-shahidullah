@@ -159,7 +159,7 @@ export default function ProjectsPage() {
                           alt={project.title}
                           width={400}
                           height={250}
-                          className="rounded-md object-cover w-full h-[200px]"
+                          className="rounded-md object-cover w-full h-[200px] "
                         />
                       ) : (
                         <div className="h-[200px] bg-gray-700 flex items-center justify-center rounded-md text-gray-400">

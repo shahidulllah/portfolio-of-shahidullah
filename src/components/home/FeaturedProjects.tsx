@@ -51,7 +51,7 @@ export default function FeaturedProjects() {
                       alt={project.title}
                       width={400}
                       height={250}
-                      className="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-110 border-b border-gray-300"
                       priority
                     />
                   ) : (
@@ -62,7 +62,7 @@ export default function FeaturedProjects() {
 
                   {/* Content */}
                   <div className="p-5 space-y-4">
-                    <h3 className="text-xl font-bold transition-colors">
+                    <h3 className="text-xl font-bold transition-colors line-clamp-1">
                       {project.title}
                     </h3>
                     <p className="dark:text-white text-sm">

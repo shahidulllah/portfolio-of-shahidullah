@@ -167,17 +167,46 @@ export default function ProjectsPage() {
                         </div>
                       )}
                       <div className="mt-3">
-                        <h2 className="text-xl font-semibold">
+                        <h2 className="text-xl font-semibold line-clamp-1">
                           {project.title}
                         </h2>
                         <p className="text-sm dark:text-gray-400 mt-1 line-clamp-3">
                           {project.description}
                         </p>
-                        {project.category && (
-                          <span className="inline-block mt-2 text-xs px-2 py-1 bg-blue-800 text-white rounded-full">
-                            {project.category}
-                          </span>
-                        )}
+
+                        <div className="flex justify-between items-center">
+                          <div>
+                            {project.category && (
+                              <span className="inline-block mt-2 text-xs px-2 py-1 bg-blue-800 text-white rounded-full">
+                                {project.category}
+                              </span>
+                            )}
+                          </div>
+                          {/* Details Button */}
+                          <div className="mt-4">
+                            <Link
+                              key={project._id}
+                              href={`/projects/${project._id}`}
+                            >
+                              <button className="flex items-center gap-2 text-sm font-medium dark:text-white border border-gray-600 px-4 py-2 rounded-full transition-all duration-300 hover:bg-gray-900/30 hover:text-black hover:scale-105 hover:shadow-md">
+                                View Details
+                                <svg
+                                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M9 5l7 7-7 7"
+                                  />
+                                </svg>
+                              </button>
+                            </Link>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </Link>

@@ -85,7 +85,7 @@ export default function ProjectDetailsPage() {
         )}
 
         {/* Description */}
-        <div className="text-lg leading-relaxed space-y-6 text-justify mb-14 bg-gray-400  py-4 px-2 rounded-lg">
+        <div className="text-lg leading-relaxed space-y-6 text-justify mb-14 bg-gray-400 dark:bg-gray-700 py-4 px-2 rounded-lg">
           <p>{project.description}</p>
         </div>
 

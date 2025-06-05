@@ -68,7 +68,7 @@ export default function ProjectDetailsPage() {
               src={project.image}
               alt={project.title}
               fill
-              className="object-cover object-center"
+              className="object-cover object-center "
               priority
             />
           </div>
@@ -85,7 +85,7 @@ export default function ProjectDetailsPage() {
         )}
 
         {/* Description */}
-        <div className="text-lg leading-relaxed space-y-6 text-justify mb-14">
+        <div className="text-lg leading-relaxed space-y-6 text-justify mb-14 bg-gray-400  py-4 px-2 rounded-lg">
           <p>{project.description}</p>
         </div>
 

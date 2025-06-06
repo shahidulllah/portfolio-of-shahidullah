@@ -50,7 +50,9 @@ export default function ServicesSection() {
             >
               <div className="mb-4">{service.icon}</div>
               <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-              <p className="text-gray-900 dark:text-gray-400">{service.description}</p>
+              <p className="text-gray-900 dark:text-gray-400">
+                {service.description}
+              </p>
             </motion.div>
           ))}
         </div>

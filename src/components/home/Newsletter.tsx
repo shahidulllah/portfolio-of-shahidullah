@@ -31,10 +31,11 @@ export default function NewsletterSignupSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-           Join My Newsletter
+            Join My Newsletter
           </h2>
           <p className="mb-8 text-center">
-            Stay updated with my latest projects, blogs, and development tips.<br/>
+            Stay updated with my latest projects, blogs, and development tips.
+            <br />
             No spam — just good stuff.
           </p>
 

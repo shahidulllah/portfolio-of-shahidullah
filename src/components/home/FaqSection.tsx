@@ -13,7 +13,7 @@ const faqs = [
   {
     question: "Which technologies do you specialize in?",
     answer:
-      "I specialize in the MERN stack — MongoDB, Express.js, React.js, Node.js — along with Next.js, Tailwind CSS, and TypeScript.",
+      "I specialize in the MERN stack — MongoDB, Mongoose, Express.js, React.js, Node.js, Redux — along with Next.js, Tailwind CSS, and TypeScript.",
   },
   {
     question: "Do you have experience working in teams?",

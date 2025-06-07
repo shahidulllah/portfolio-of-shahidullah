@@ -8,7 +8,7 @@ const faqs = [
   {
     question: "Are you available now to join a compnay?",
     answer:
-      "Yes, I'm available to freelance and part-time opportunities that align with my skill set and values.",
+      "Yes, I'm available to work full time, freelance and part-time opportunities that align with my skill set and values.",
   },
   {
     question: "Are you open to freelance or part-time projects?",

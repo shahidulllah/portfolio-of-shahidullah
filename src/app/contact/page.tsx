@@ -6,6 +6,7 @@ import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
 import { toast } from "sonner";
+import { Loader2 } from "lucide-react";
 
 const EmailSection = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,8 @@ const EmailSection = () => {
     email: "",
     message: "",
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -22,6 +25,7 @@ const EmailSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     const res = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -29,91 +33,121 @@ const EmailSection = () => {
     });
     if (res.ok) {
       toast.success("Message sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
     } else {
       toast.error("Failed to send message. Please try again.");
     }
+    setIsSubmitting(false);
   };
 
   return (
     <section className="py-24 px-6">
       <div
         id="contact"
-        className="grid md:grid-cols-2 gap-4 relative max-w-6xl mx-auto mt-8"
+        className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto mt-8"
       >
-        <div className="z-9 my flex flex-col justify-center text-center lg:text-left">
-          <h5 className="text-3xl font-bold text-black dark:text-white my-2">
+        {/* Contact Text */}
+        <div className="flex flex-col justify-center text-center md:text-left">
+          <h2 className="text-3xl font-bold text-black dark:text-white mb-4">
             Let&apos;s Connect
-          </h5>
-          <p className="text-black dark:text-white mb-4 max-w-md">
-            I&apos;m currently looking for new opportunities, my inbox is always
-            open. Whether you have a question or just want to say hi, I&apos;ll
-            try my best to get back to you!
+          </h2>
+          <p className="text-gray-700 dark:text-gray-300 mb-6">
+            I&apos;m currently open to opportunities! Whether you have a
+            question, idea, or want to collaborate, feel free to reach out.
+            I&apos;ll get back to you as soon as I can.
           </p>
-          <div className="socials flex flex-row gap-2 justify-center lg:justify-start">
-            <Link href="https://github.com/shahidulllah">
-              <Image src={GithubIcon} alt="Github Icon" />
+          <div className="flex gap-4 justify-center md:justify-start">
+            <Link href="https://github.com/shahidulllah" target="_blank">
+              <Image src={GithubIcon} alt="GitHub" className="w-6 h-6" />
             </Link>
-            <Link href="https://www.linkedin.com/in/shahidulllah/">
-              <Image src={LinkedinIcon} alt="Linkedin Icon" />
+            <Link
+              href="https://www.linkedin.com/in/shahidulllah/"
+              target="_blank"
+            >
+              <Image src={LinkedinIcon} alt="LinkedIn" className="w-6 h-6" />
             </Link>
           </div>
         </div>
-        <div className="mt-6">
-          <form className="flex flex-col" onSubmit={handleSubmit}>
-            <div className="mb-6">
+
+        {/* Contact Form */}
+        <div>
+          <form
+            className="bg-[#18191E] p-6 rounded-lg shadow-md space-y-6"
+            onSubmit={handleSubmit}
+          >
+            {/* Name */}
+            <div>
               <label
                 htmlFor="name"
-                className="text-black dark:text-white block mb-2 text-sm font-medium"
+                className="block text-sm font-medium text-gray-300 mb-1"
               >
                 Name
               </label>
               <input
                 onChange={handleChange}
+                value={formData.name}
                 name="name"
                 type="text"
                 id="name"
                 required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="Place your name"
+                className="w-full bg-[#1f2028] border border-gray-600 rounded-lg p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Your name"
               />
             </div>
-            <div className="mb-6">
+
+            {/* Email */}
+            <div>
               <label
                 htmlFor="email"
-                className="text-black dark:text-white block text-sm mb-2 font-medium"
+                className="block text-sm font-medium text-gray-300 mb-1"
               >
-                Your email
+                Email
               </label>
               <input
                 onChange={handleChange}
+                value={formData.email}
                 name="email"
                 type="email"
                 id="email"
                 required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="Give your E-mail"
+                className="w-full bg-[#1f2028] border border-gray-600 rounded-lg p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="your@email.com"
               />
             </div>
-            <div className="mb-6">
+
+            {/* Message */}
+            <div>
               <label
                 htmlFor="message"
-                className="text-black dark:text-white block text-sm mb-2 font-medium"
+                className="block text-sm font-medium text-gray-300 mb-1"
               >
                 Message
               </label>
               <textarea
                 onChange={handleChange}
+                value={formData.message}
                 name="message"
                 id="message"
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="Let's talk about..."
+                rows={5}
+                required
+                className="w-full bg-[#1f2028] border border-gray-600 rounded-lg p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Your message..."
               />
             </div>
+
+            {/* Submit Button */}
             <button
               type="submit"
-              className="bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] dark:text-white transition-all duration-300 hover:bg-gray-900/30 hover:text-black hover:scale-105 hover:shadow-md border border-gray-500 dark:border-gray-400 font-medium py-2.5 px-5 rounded-lg w-full"
+              disabled={isSubmitting}
+              className="flex justify-center items-center gap-2 w-full bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] text-black dark:text-white font-semibold py-2.5 px-5 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg disabled:opacity-50"
             >
-              Send Message
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="animate-spin w-4 h-4" /> Sending...
+                </>
+              ) : (
+                "Send Message"
+              )}
             </button>
           </form>
         </div>

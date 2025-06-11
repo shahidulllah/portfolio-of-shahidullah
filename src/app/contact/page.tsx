@@ -56,15 +56,15 @@ const EmailSection = () => {
             question, idea, or want to collaborate, feel free to reach out.
             I&apos;ll get back to you as soon as I can.
           </p>
-          <div className="flex gap-4 justify-center md:justify-start">
+          <div className="socials flex flex-row gap-2 justify-center lg:justify-start">
             <Link href="https://github.com/shahidulllah" target="_blank">
-              <Image src={GithubIcon} alt="GitHub" className="w-6 h-6" />
+              <Image src={GithubIcon} alt="GitHub" />
             </Link>
             <Link
               href="https://www.linkedin.com/in/shahidulllah/"
               target="_blank"
             >
-              <Image src={LinkedinIcon} alt="LinkedIn" className="w-6 h-6" />
+              <Image src={LinkedinIcon} alt="LinkedIn" />
             </Link>
           </div>
         </div>
@@ -72,14 +72,14 @@ const EmailSection = () => {
         {/* Contact Form */}
         <div>
           <form
-            className="bg-[#18191E] p-6 rounded-lg shadow-md space-y-6"
+            className="p-6 rounded-lg shadow-xl space-y-6"
             onSubmit={handleSubmit}
           >
             {/* Name */}
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-gray-300 mb-1"
+                className="block font-medium dark:text-gray-300 mb-1"
               >
                 Name
               </label>
@@ -99,7 +99,7 @@ const EmailSection = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-300 mb-1"
+                className="block font-medium dark:text-gray-300 mb-1"
               >
                 Email
               </label>
@@ -119,7 +119,7 @@ const EmailSection = () => {
             <div>
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-gray-300 mb-1"
+                className="block font-medium dark:text-gray-300 mb-1"
               >
                 Message
               </label>
@@ -130,7 +130,7 @@ const EmailSection = () => {
                 id="message"
                 rows={5}
                 required
-                className="w-full bg-[#1f2028] border border-gray-600 rounded-lg p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full bg-transparent border border-gray-600 dark:border-gray-400 rounded-lg p-3 placeholder-gray-700 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Your message..."
               />
             </div>

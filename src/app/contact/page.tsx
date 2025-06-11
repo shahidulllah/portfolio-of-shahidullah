@@ -90,7 +90,7 @@ const EmailSection = () => {
                 type="text"
                 id="name"
                 required
-                className="w-full bg-[#1f2028] border border-gray-600 rounded-lg p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full bg-transparent border border-gray-600 dark:border-gray-400 rounded-lg p-3 placeholder-gray-700 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Your name"
               />
             </div>
@@ -110,7 +110,7 @@ const EmailSection = () => {
                 type="email"
                 id="email"
                 required
-                className="w-full bg-[#1f2028] border border-gray-600 rounded-lg p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full bg-transparent border border-gray-600 dark:border-gray-400 rounded-lg p-3 placeholder-gray-700 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="your@email.com"
               />
             </div>

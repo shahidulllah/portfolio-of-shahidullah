@@ -27,10 +27,10 @@ export async function POST(req: Request) {
       subject: `📬 New Portfolio Contact – ${name}`,
       html: `
     <div style="font-family: 'Segoe UI', sans-serif; background-color: #f4f4f4; padding: 30px;">
-      <div style="max-width: 640px; margin: auto; background: #ffffff; border-radius: 10px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); overflow: hidden;">
+      <div style="max-width: 840px; margin: auto; background: #ffffff; border-radius: 10px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); overflow: hidden;">
         
         <header style="background: linear-gradient(to right, #ddcb9f, #599cb7); padding: 20px 30px;">
-          <h1 style="margin: 0; font-size: 22px; color: #fff;">📨 New Contact Message from Portfolio</h1>
+          <h1 style="margin: 0; font-size: 22px; color: black;">📨 New Contact Message from Portfolio</h1>
         </header>
 
         <section style="padding: 30px;">

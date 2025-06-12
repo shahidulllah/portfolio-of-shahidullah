@@ -16,14 +16,14 @@ export async function POST(req: Request) {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.SMTP_USER, 
-        pass: process.env.SMTP_PASS, // App Password (not your Gmail password!)
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
       },
     });
 
     const mailOptions = {
       from: `"${name}" <${email}>`,
-      to: process.env.RECEIVER_EMAIL || process.env.SMTP_USER, // receiver's email or your own
+      to: process.env.RECEIVER_EMAIL || process.env.SMTP_USER, 
       subject: `Portfolio Contact - From ${name}`,
       html: `
         <h2>New message from portfolio</h2>

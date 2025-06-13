@@ -14,7 +14,10 @@ const ProjectSchema = new Schema<IProject>(
     learnings: { type: String, required: true },
     futurePlans: { type: String, required: true },
     liveUrl: { type: String, required: true },
-    githubUrl: { type: String, required: true },
+    githubUrl: {
+      client: { type: String, required: true },
+      server: { type: String, required: true },
+    },
   },
   {
     timestamps: true,

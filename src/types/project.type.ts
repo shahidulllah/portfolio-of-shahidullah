@@ -10,7 +10,7 @@ export interface IProject extends Document {
   technologies: string[];
   goals: string;
   challenges: string[];
-  futurePlans: string;
+  futurePlans: string[];
   learnings: string;
   liveUrl: string;
   githubUrl: {

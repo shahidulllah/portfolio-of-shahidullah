@@ -12,7 +12,7 @@ const ProjectSchema = new Schema<IProject>(
     challenges: [{ type: String, required: true }],
     features: [{ type: String, required: true }],
     learnings: { type: String, required: true },
-    futurePlans: { type: String, required: true },
+    futurePlans: [{ type: String, required: true }],
     liveUrl: { type: String, required: true },
     githubUrl: {
       client: { type: String, required: true },

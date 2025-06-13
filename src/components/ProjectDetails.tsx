@@ -68,7 +68,7 @@ export default function ProjectDetailsPage() {
               src={project.image}
               alt={project.title}
               fill
-              className="object-cover object-center "
+              className="object-cover object-center"
               priority
             />
           </div>
@@ -162,15 +162,20 @@ export default function ProjectDetailsPage() {
         )}
 
         {/* Future Plans */}
-        {project.futurePlans && (
-          <section className="mb-14">
-            <h2 className="text-2xl font-bold mb-3 flex items-center gap-2">
-              <Telescope className="w-6 h-6 text-sky-500" />
-              Future Plans
-            </h2>
-            <p className="leading-relaxed">{project.futurePlans}</p>
-          </section>
-        )}
+        {Array.isArray(project.futurePlans) &&
+          project.futurePlans.length > 0 && (
+            <section className="mb-14">
+              <h2 className="text-2xl font-bold mb-3 flex items-center gap-2">
+                <Telescope className="w-6 h-6 text-sky-500" />
+                Future Plans
+              </h2>
+              <ul className="list-disc ml-5 space-y-2">
+                {project.futurePlans.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            </section>
+          )}
 
         {/* CTA Buttons */}
         <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -183,13 +188,22 @@ export default function ProjectDetailsPage() {
               <Eye className="w-4 h-4" /> Live Preview
             </Link>
           )}
-          {project.githubUrl && (
+          {project.githubUrl?.client && (
             <Link
-              href={project.githubUrl}
+              href={project.githubUrl.client}
               target="_blank"
               className="flex items-center gap-2 px-6 py-2 rounded-full font-semibold bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] dark:text-white hover:scale-105 transition shadow-md"
             >
-              <Github className="w-4 h-4" /> GitHub Repo
+              <Github className="w-4 h-4" /> GitHub (Client)
+            </Link>
+          )}
+          {project.githubUrl?.server && (
+            <Link
+              href={project.githubUrl.server}
+              target="_blank"
+              className="flex items-center gap-2 px-6 py-2 rounded-full font-semibold bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] dark:text-white hover:scale-105 transition shadow-md"
+            >
+              <Github className="w-4 h-4" /> GitHub (Server)
             </Link>
           )}
         </div>

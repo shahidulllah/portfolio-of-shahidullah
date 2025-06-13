@@ -13,7 +13,10 @@ export interface IProject extends Document {
   futurePlans: string;
   learnings: string;
   liveUrl: string;
-  githubUrl: string;
+  githubUrl: {
+    client: string;
+    server: string;
+  };
   createdAt: string;
   updatedAt: string;
 }

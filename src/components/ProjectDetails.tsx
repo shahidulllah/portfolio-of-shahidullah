@@ -177,7 +177,7 @@ export default function ProjectDetailsPage() {
             </section>
           )}
 
-        {/* CTA Buttons */}
+        {/*Buttons*/}
         <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
           {project.liveUrl && (
             <Link

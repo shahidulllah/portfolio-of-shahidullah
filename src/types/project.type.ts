@@ -20,3 +20,22 @@ export interface IProject extends Document {
   createdAt: string;
   updatedAt: string;
 }
+
+//New project interface
+export interface INewProject {
+  title: string;
+  image: string;
+  features: string[];
+  category: string;
+  description: string;
+  technologies: string[];
+  goals: string;
+  challenges: string[];
+  futurePlans: string[];
+  learnings: string;
+  liveUrl: string;
+  githubUrl: {
+    client: string;
+    server: string;
+  };
+}

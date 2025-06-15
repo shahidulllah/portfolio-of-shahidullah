@@ -3,16 +3,23 @@
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { Trash2, PlusCircle, Pencil } from "lucide-react";
-import { IProject } from "@/types/project.type";
+import { INewProject, IProject } from "@/types/project.type";
 
 export default function ProjectManagement() {
   const [projects, setProjects] = useState<IProject[]>([]);
-  const [newProject, setNewProject] = useState({
+  const [newProject, setNewProject] = useState<INewProject>({
     title: "",
     description: "",
     image: "",
     liveUrl: "",
-    githubUrl: "",
+    githubUrl: { client: "", server: "" },
+    category: "",
+    technologies: [],
+    goals: "",
+    challenges: [],
+    features: [],
+    learnings: "",
+    futurePlans: [],
   });
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -31,7 +38,23 @@ export default function ProjectManagement() {
     fetchProjects();
   }, []);
 
-  // Handle adding a new project
+  const resetForm = () => {
+    setNewProject({
+      title: "",
+      description: "",
+      image: "",
+      liveUrl: "",
+      githubUrl: { client: "", server: "" },
+      category: "",
+      technologies: [],
+      goals: "",
+      challenges: [],
+      features: [],
+      learnings: "",
+      futurePlans: [],
+    });
+  };
+
   const handleAddProject = async () => {
     const res = await fetch("/api/projects", {
       method: "POST",
@@ -41,22 +64,15 @@ export default function ProjectManagement() {
 
     if (res.ok) {
       const projectData = await res.json();
-      setNewProject({
-        title: "",
-        description: "",
-        image: "",
-        liveUrl: "",
-        githubUrl: "",
-      });
+      resetForm();
       setIsModalOpen(false);
       toast.success("Project added successfully!");
-      setProjects((prevProjects) => [...prevProjects, projectData]);
+      setProjects((prev) => [...prev, projectData]);
     } else {
       toast.error("Failed to add project. Please try again.");
     }
   };
 
-  // Handle updating a project
   const handleEditProject = async () => {
     if (!currentProjectId) return;
 
@@ -67,14 +83,11 @@ export default function ProjectManagement() {
     });
 
     if (res.ok) {
-      const updatedProject = await res.json();
-
-      setProjects((prevProjects) =>
-        prevProjects.map((project) =>
-          project._id === currentProjectId ? { ...updatedProject } : project
-        )
+      const updated = await res.json();
+      setProjects((prev) =>
+        prev.map((p) => (p._id === currentProjectId ? updated : p))
       );
-
+      resetForm();
       setIsModalOpen(false);
       toast.success("Project updated successfully!");
     } else {
@@ -82,42 +95,50 @@ export default function ProjectManagement() {
     }
   };
 
-  // Handle opening edit modal
   const openEditModal = (project: IProject) => {
     setNewProject({
       title: project.title,
       description: project.description,
       image: project.image || "",
       liveUrl: project.liveUrl || "",
-      githubUrl: project.githubUrl || "",
+      githubUrl: {
+        client: project.githubUrl?.client || "",
+        server: project.githubUrl?.server || "",
+      },
+      category: project.category || "",
+      technologies: project.technologies || [],
+      goals: project.goals || "",
+      challenges: project.challenges || [],
+      features: project.features || [],
+      learnings: project.learnings || "",
+      futurePlans: project.futurePlans || [],
     });
     setCurrentProjectId(project._id);
     setIsEditMode(true);
     setIsModalOpen(true);
   };
 
-  // Handle deleting a project
   const handleDelete = async (id: string) => {
     await fetch(`/api/projects/${id}`, { method: "DELETE" });
-    setProjects(projects.filter((project) => project._id !== id));
+    setProjects(projects.filter((p) => p._id !== id));
     toast.success("Project deleted successfully!");
   };
 
+  const handleArrayInputChange = (field: keyof IProject, value: string) => {
+    setNewProject({
+      ...newProject,
+      [field]: value.split(",").map((s) => s.trim()),
+    });
+  };
+
   return (
-    <div className="min-h-screen bg-gray-900 text-white px-4 py-8 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-900 text-white px-4 py-8">
       <h1 className="text-3xl font-bold mb-6">Project Management</h1>
 
-      {/* Button to open modal for adding project */}
       <button
         onClick={() => {
           setIsEditMode(false);
-          setNewProject({
-            title: "",
-            description: "",
-            image: "",
-            liveUrl: "",
-            githubUrl: "",
-          });
+          resetForm();
           setIsModalOpen(true);
         }}
         className="flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full mb-6"
@@ -126,17 +147,14 @@ export default function ProjectManagement() {
         Upload New Project
       </button>
 
-      {/* Project List */}
-      {loading && (
-        <p className="text-white mb-4 text-center">Loading projects...</p>
-      )}
+      {loading && <p className="text-white mb-4">Loading projects...</p>}
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {projects.map((project) => (
           <div
             key={project._id}
-            className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col space-y-3"
+            className="bg-gray-800 p-6 rounded-lg shadow-lg space-y-3"
           >
-            {/* Project Image */}
             {project.image && (
               <img
                 src={project.image}
@@ -144,101 +162,199 @@ export default function ProjectManagement() {
                 className="w-full h-48 object-cover rounded-md"
               />
             )}
-
             <h2 className="text-xl font-semibold">{project.title}</h2>
             <p className="text-gray-400">
               {project.description.substring(0, 100)}...
             </p>
-            <div className="flex justify-between items-center mt-3">
+            <div className="flex flex-wrap gap-2 text-sm text-teal-300">
+              {project.technologies.map((tech, idx) => (
+                <span key={idx}>#{tech}</span>
+              ))}
+            </div>
+            <div className="flex justify-between mt-3">
               <a
                 href={project.liveUrl}
                 target="_blank"
                 className="text-blue-400 hover:underline"
               >
-                Live Demo
+                Live
               </a>
               <a
-                href={project.githubUrl}
+                href={project.githubUrl.client}
                 target="_blank"
                 className="text-gray-400 hover:underline"
               >
-                GitHub
+                GitHub (Client)
               </a>
+              <a
+                href={project.githubUrl.server}
+                target="_blank"
+                className="text-gray-400 hover:underline"
+              >
+                Server
+              </a>
+            </div>
+            <div className="flex gap-3 mt-4">
               <button
                 onClick={() => openEditModal(project)}
-                className="text-yellow-500 px-4 py-2 rounded flex items-center"
+                className="text-yellow-500 flex items-center"
               >
-                <Pencil className="mr-2" />
+                <Pencil className="mr-1" />
+                Edit
               </button>
               <button
                 onClick={() => handleDelete(project._id)}
-                className="text-red-600 px-4 py-2 rounded flex items-center"
+                className="text-red-600 flex items-center"
               >
-                <Trash2 className="mr-2" />
+                <Trash2 className="mr-1" />
+                Delete
               </button>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Modal for adding/editing project */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-gray-800 p-6 rounded-lg w-96 space-y-4">
-            <h3 className="text-2xl font-semibold">
+          <div className="bg-gray-800 p-6 rounded-lg w-96 space-y-3 overflow-y-auto max-h-[90vh]">
+            <h3 className="text-xl font-semibold mb-2">
               {isEditMode ? "Edit Project" : "Add New Project"}
             </h3>
+
             <input
-              type="text"
               placeholder="Title"
-              className="w-full p-2 rounded bg-gray-700 text-white"
+              className="input"
               value={newProject.title}
               onChange={(e) =>
                 setNewProject({ ...newProject, title: e.target.value })
               }
             />
+
             <textarea
               placeholder="Description"
-              className="w-full p-2 rounded bg-gray-700 text-white"
+              className="input"
               value={newProject.description}
               onChange={(e) =>
                 setNewProject({ ...newProject, description: e.target.value })
               }
             />
+
             <input
-              type="text"
               placeholder="Image URL"
-              className="w-full p-2 rounded bg-gray-700 text-white"
+              className="input"
               value={newProject.image}
               onChange={(e) =>
                 setNewProject({ ...newProject, image: e.target.value })
               }
             />
+
             <input
-              type="text"
               placeholder="Live URL"
-              className="w-full p-2 rounded bg-gray-700 text-white"
+              className="input"
               value={newProject.liveUrl}
               onChange={(e) =>
                 setNewProject({ ...newProject, liveUrl: e.target.value })
               }
             />
+
             <input
-              type="text"
-              placeholder="GitHub URL"
-              className="w-full p-2 rounded bg-gray-700 text-white"
-              value={newProject.githubUrl}
+              placeholder="GitHub Client URL"
+              className="input"
+              value={newProject.githubUrl.client}
               onChange={(e) =>
-                setNewProject({ ...newProject, githubUrl: e.target.value })
+                setNewProject({
+                  ...newProject,
+                  githubUrl: {
+                    ...newProject.githubUrl,
+                    client: e.target.value,
+                  },
+                })
               }
             />
+
+            <input
+              placeholder="GitHub Server URL"
+              className="input"
+              value={newProject.githubUrl.server}
+              onChange={(e) =>
+                setNewProject({
+                  ...newProject,
+                  githubUrl: {
+                    ...newProject.githubUrl,
+                    server: e.target.value,
+                  },
+                })
+              }
+            />
+
+            <input
+              placeholder="Category"
+              className="input"
+              value={newProject.category}
+              onChange={(e) =>
+                setNewProject({ ...newProject, category: e.target.value })
+              }
+            />
+
+            <input
+              placeholder="Technologies (comma-separated)"
+              className="input"
+              value={newProject.technologies.join(", ")}
+              onChange={(e) =>
+                handleArrayInputChange("technologies", e.target.value)
+              }
+            />
+
+            <textarea
+              placeholder="Goals"
+              className="input"
+              value={newProject.goals}
+              onChange={(e) =>
+                setNewProject({ ...newProject, goals: e.target.value })
+              }
+            />
+
+            <input
+              placeholder="Challenges (comma-separated)"
+              className="input"
+              value={newProject.challenges.join(", ")}
+              onChange={(e) =>
+                handleArrayInputChange("challenges", e.target.value)
+              }
+            />
+
+            <input
+              placeholder="Features (comma-separated)"
+              className="input"
+              value={newProject.features.join(", ")}
+              onChange={(e) =>
+                handleArrayInputChange("features", e.target.value)
+              }
+            />
+
+            <textarea
+              placeholder="Learnings"
+              className="input"
+              value={newProject.learnings}
+              onChange={(e) =>
+                setNewProject({ ...newProject, learnings: e.target.value })
+              }
+            />
+
+            <input
+              placeholder="Future Plans (comma-separated)"
+              className="input"
+              value={newProject.futurePlans.join(", ")}
+              onChange={(e) =>
+                handleArrayInputChange("futurePlans", e.target.value)
+              }
+            />
+
             <div className="flex justify-between mt-4">
               <button
                 onClick={isEditMode ? handleEditProject : handleAddProject}
                 className={`px-4 py-2 rounded text-white ${
-                  isEditMode
-                    ? "bg-yellow-600 hover:bg-yellow-500"
-                    : "bg-green-600 hover:bg-green-700"
+                  isEditMode ? "bg-yellow-600" : "bg-green-600"
                 }`}
               >
                 {isEditMode ? "Update Project" : "Add Project"}

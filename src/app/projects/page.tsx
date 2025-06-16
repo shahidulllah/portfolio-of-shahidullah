@@ -97,14 +97,14 @@ export default function ProjectsPage() {
                 setSearchTerm(e.target.value);
                 setCurrentPage(1);
               }}
-              className="w-full py-2 pl-10 pr-4 rounded-lg bg-transparent dark:text-white border border-gray-700 dark:border-gray-500 dark:placeholder-gray-400 placeholder-gray-800"
+              className="w-full py-2 pl-10 pr-4 rounded-lg bg-transparent dark:text-white border border-gray-700 dark:border-gray-400 dark:placeholder-gray-400 placeholder-gray-800"
             />
-            <Search className="absolute top-2.5 left-3 h-5 w-5 text-gray-400" />
+            <Search className="absolute top-2.5 left-3 h-5 w-5 dark:text-gray-400 text-gray-800" />
           </div>
 
           {/* Category Filter */}
           <select
-            className="py-2 px-4 rounded-lg bg-transparent dark:text-white border border-gray-700 dark:border-gray-500 dark:placeholder-gray-400 placeholder-gray-800"
+            className="py-2 px-4 rounded-lg bg-transparent dark:text-gray-400 border border-gray-700 dark:border-gray-300 dark:placeholder-gray-400 placeholder-gray-800"
             value={selectedCategory}
             onChange={(e) => {
               setSelectedCategory(e.target.value);
@@ -120,7 +120,7 @@ export default function ProjectsPage() {
 
           {/* Sort Order */}
           <select
-            className="py-2 px-4 rounded-lg bg-transparent dark:text-white border border-gray-700 dark:border-gray-500 dark:placeholder-gray-400 placeholder-gray-800"
+            className="py-2 px-4 rounded-lg bg-transparent dark:text-gray-400 border border-gray-700 dark:border-gray-300 dark:placeholder-gray-400 placeholder-gray-800"
             value={sortOrder}
             onChange={(e) =>
               setSortOrder(e.target.value as "newest" | "oldest")

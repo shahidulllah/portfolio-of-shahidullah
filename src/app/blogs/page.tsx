@@ -94,7 +94,7 @@ export default function BlogPage() {
                 setSearch(e.target.value);
                 setPage(1);
               }}
-              className="w-full py-2 pl-10 pr-4 rounded-lg bg-transparent dark:text-white border border-gray-700 dark:border-gray-500 dark:placeholder-gray-400 placeholder-gray-800"
+              className="w-full py-2 pl-10 pr-4 rounded-lg bg-transparent dark:text-white border border-gray-700 dark:border-gray-400 dark:placeholder-gray-400 placeholder-gray-800"
             />
             <Search className="absolute top-2.5 left-3 h-5 w-5 dark:text-gray-400 text-gray-800" />
           </div>
@@ -105,7 +105,7 @@ export default function BlogPage() {
               setCategory(e.target.value);
               setPage(1);
             }}
-            className="px-4 py-2 rounded-lg bg-transparent dark:text-white border border-gray-700 dark:border-gray-500 dark:placeholder-gray-400 placeholder-gray-800"
+            className="px-4 py-2 rounded-lg bg-transparent dark:text-gray-400 border border-gray-700 dark:border-gray-300 dark:placeholder-gray-400 placeholder-gray-800"
           >
             {categories.map((c, i) => (
               <option key={i} value={c}>
@@ -119,7 +119,7 @@ export default function BlogPage() {
             onChange={(e) =>
               setSortOrder(e.target.value as "newest" | "oldest")
             }
-            className="px-4 py-2 rounded-lg bg-transparent dark:text-white border border-gray-700 dark:border-gray-500 dark:placeholder-gray-400 placeholder-gray-800"
+            className="px-4 py-2 rounded-lg bg-transparent dark:text-gray-400 border border-gray-700 dark:border-gray-300 dark:placeholder-gray-400 placeholder-gray-800"
           >
             <option value="newest">Newest First</option>
             <option value="oldest">Oldest First</option>

@@ -85,7 +85,7 @@ export default function ProjectsPage() {
           All Projects
         </h1>
 
-        {/* Filters */}
+        {/* Filters functionality*/}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-4 mb-10">
           {/* Search */}
           <div className="relative w-full lg:w-1/2">

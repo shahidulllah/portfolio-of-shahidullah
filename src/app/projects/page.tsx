@@ -102,7 +102,7 @@ export default function ProjectsPage() {
             <Search className="absolute top-2.5 left-3 h-5 w-5 dark:text-gray-400 text-gray-800" />
           </div>
 
-          {/* Category Filter */}
+          {/* Category Filters */}
           <select
             className="py-2 px-4 rounded-lg bg-transparent dark:text-gray-400 border border-gray-700 dark:border-gray-300 dark:placeholder-gray-400 placeholder-gray-800"
             value={selectedCategory}
@@ -118,7 +118,7 @@ export default function ProjectsPage() {
             ))}
           </select>
 
-          {/* Sort Order */}
+          {/* Sort Orders */}
           <select
             className="py-2 px-4 rounded-lg bg-transparent dark:text-gray-400 border border-gray-700 dark:border-gray-300 dark:placeholder-gray-400 placeholder-gray-800"
             value={sortOrder}
@@ -131,7 +131,7 @@ export default function ProjectsPage() {
           </select>
         </div>
 
-        {/* Projects */}
+        {/* Projects  section*/}
         {loading ? (
           <div className="text-center text-white font-medium py-24">
             Loading projects...

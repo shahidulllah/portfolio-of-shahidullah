@@ -16,7 +16,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 
-// Skill List with Icons
+// Skill List
 const skills = [
   { name: "HTML", icon: <SiHtml5 size={40} /> },
   { name: "CSS", icon: <SiCss3 size={40} /> },

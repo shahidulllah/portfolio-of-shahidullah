@@ -31,7 +31,10 @@ export default function DashboardLayout({
   }
 
   const navItems = [
-    { name: "Home", href: "/", icon: <Home size={20} /> },
+    { name: "Home", 
+      href: "/", 
+      icon: <Home size={20} />,
+    },
     {
       name: "Manage Blogs",
       href: "/dashboard/blogs",

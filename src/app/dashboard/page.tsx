@@ -15,7 +15,7 @@ export default function DashboardHome() {
   }
 
   return (
-    <div className="p-6 flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center">
       <h1 className="text-3xl font-bold mb-6 text-yellow-600 text-center">
         Welcome, {session.user?.name}
       </h1>

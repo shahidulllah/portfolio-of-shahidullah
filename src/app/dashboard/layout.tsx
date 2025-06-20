@@ -31,10 +31,7 @@ export default function DashboardLayout({
   }
 
   const navItems = [
-    { name: "Home", 
-      href: "/", 
-      icon: <Home size={20} />,
-    },
+    { name: "Home", href: "/", icon: <Home size={20} /> },
     {
       name: "Manage Blogs",
       href: "/dashboard/blogs",
@@ -95,7 +92,7 @@ export default function DashboardLayout({
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 p-6  w-full  overflow-auto">{children}</div>
+      <div className="flex-1 w-full  overflow-auto">{children}</div>
     </div>
   );
 }

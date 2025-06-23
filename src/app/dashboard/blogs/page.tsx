@@ -36,8 +36,14 @@ export default function BlogManagement() {
     fetchBlogs();
   }, []);
 
-  if (status === "loading") return <p className="text-center text-white">Loading session...</p>;
-  if (!session) return <p className="text-center text-white">You must be logged in to access this page.</p>;
+  if (status === "loading")
+    return <p className="text-center text-white">Loading session...</p>;
+  if (!session)
+    return (
+      <p className="text-center text-white">
+        You must be logged in to access this page.
+      </p>
+    );
 
   const handleAddBlog = async () => {
     const res = await fetch("/api/blogs", {
@@ -125,7 +131,9 @@ export default function BlogManagement() {
         Add New Blog
       </button>
 
-      {loading && <p className="text-white mb-4 text-center">Loading blogs...</p>}
+      {loading && (
+        <p className="text-white mb-4 text-center">Loading blogs...</p>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {blogs.map((blog) => (
@@ -186,33 +194,43 @@ export default function BlogManagement() {
               placeholder="Title"
               className="w-full p-2 rounded bg-gray-700 text-white"
               value={newBlog.title}
-              onChange={(e) => setNewBlog({ ...newBlog, title: e.target.value })}
+              onChange={(e) =>
+                setNewBlog({ ...newBlog, title: e.target.value })
+              }
             />
             <textarea
               placeholder="Content"
               className="w-full p-2 rounded bg-gray-700 text-white"
               value={newBlog.content}
-              onChange={(e) => setNewBlog({ ...newBlog, content: e.target.value })}
+              onChange={(e) =>
+                setNewBlog({ ...newBlog, content: e.target.value })
+              }
             />
             <input
               type="text"
               placeholder="Category"
               className="w-full p-2 rounded bg-gray-700 text-white"
               value={newBlog.category}
-              onChange={(e) => setNewBlog({ ...newBlog, category: e.target.value })}
+              onChange={(e) =>
+                setNewBlog({ ...newBlog, category: e.target.value })
+              }
             />
             <input
               type="text"
               placeholder="Image URL"
               className="w-full p-2 rounded bg-gray-700 text-white"
               value={newBlog.image}
-              onChange={(e) => setNewBlog({ ...newBlog, image: e.target.value })}
+              onChange={(e) =>
+                setNewBlog({ ...newBlog, image: e.target.value })
+              }
             />
             <div className="flex justify-between mt-4">
               <button
                 onClick={isEditMode ? handleEditBlog : handleAddBlog}
                 className={`px-4 py-2 rounded text-white ${
-                  isEditMode ? "bg-yellow-600 hover:bg-yellow-500" : "bg-purple-700 hover:bg-purple-700"
+                  isEditMode
+                    ? "bg-yellow-600 hover:bg-yellow-500"
+                    : "bg-purple-700 hover:bg-purple-700"
                 }`}
               >
                 {isEditMode ? "Update Blog" : "Add Blog"}

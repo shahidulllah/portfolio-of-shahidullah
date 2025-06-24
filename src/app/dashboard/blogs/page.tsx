@@ -41,7 +41,7 @@ export default function BlogManagement() {
   if (!session)
     return (
       <p className="text-center text-white">
-        You must be logged in to access this page.
+        You must be logged in to access this..
       </p>
     );
 

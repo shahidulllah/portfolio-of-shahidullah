@@ -3,7 +3,7 @@
 import { IBlog } from "@/types/blog.type";
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
-import { Trash2, PlusCircle, Pencil } from "lucide-react";
+import { Trash2, PlusCircle, Pencil, Loader2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
@@ -37,11 +37,18 @@ export default function BlogManagement() {
   }, []);
 
   if (status === "loading")
-    return <p className="text-center text-white">Loading session...</p>;
+    return (
+      <div className="text-center mt-12">
+        <p className="text-center">
+          <Loader2 />
+        </p>
+        <p className="text-center text-white">Loading session...</p>;
+      </div>
+    );
   if (!session)
     return (
       <p className="text-center text-white">
-        You must be logged in to access this..
+        You must be logged in to access this page..
       </p>
     );
 

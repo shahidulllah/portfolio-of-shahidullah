@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { Trash2 } from "lucide-react";
+import { Loader2, Trash2 } from "lucide-react";
 import { IContact } from "@/types/contact.type";
 
 export default function MessageManagement() {
@@ -39,7 +39,12 @@ export default function MessageManagement() {
       <h1 className="text-3xl font-bold mb-6">Contact Messages</h1>
 
       {loading && (
-        <p className="text-white mb-4 text-center">Loading messages...</p>
+        <div className="text-center mt-12">
+          <p className="text-white mb-4 text-center">
+            <Loader2 />
+          </p>
+          <p className="text-white mb-4 text-center">Loading messages...</p>
+        </div>
       )}
 
       {messages.length === 0 && !loading ? (

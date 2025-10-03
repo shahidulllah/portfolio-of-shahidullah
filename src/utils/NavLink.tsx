@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
+//prop type 
 interface NavLinkProps {
   href: string;
   title: string;

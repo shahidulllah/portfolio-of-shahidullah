@@ -45,7 +45,7 @@ export default function ProjectDetailsPage() {
   }
 
   if (!project) {
-    return <p className="text-center text-red-400 py-24">Project not found.</p>;
+    return <p className="text-center text-red-400 py-24">Project not found..</p>;
   }
 
   return (

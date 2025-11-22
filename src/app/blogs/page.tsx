@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo } from "react";
 import { IBlog } from "@/types/blog.type";
 import Image from "next/image";
 import Link from "next/link";
-import { Search } from "lucide-react";
+import { Loader2, Search } from "lucide-react";
 import { motion } from "framer-motion";
 
 const PAGE_SIZE = 6;
@@ -128,6 +128,7 @@ export default function BlogPage() {
 
         {loading ? (
           <div className="text-center text-white font-semibold py-24">
+            <Loader2 className="text-center w-full" />
             Loading blogs...
           </div>
         ) : paginatedBlogs.length === 0 ? (

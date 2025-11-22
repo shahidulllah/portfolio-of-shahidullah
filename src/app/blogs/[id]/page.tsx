@@ -37,8 +37,8 @@ export default function BlogDetails() {
   if (loading) {
     return (
       <div className="text-center">
-        <p className="text-white"><Loader2/></p>
         <p className="text-white text-lg font-semibold py-24">
+          <Loader2 className="w-full" />
           Loading blog details...
         </p>
       </div>

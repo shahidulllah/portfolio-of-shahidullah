@@ -6,7 +6,7 @@ import { IBlog } from "@/types/blog.type";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Clock } from "lucide-react";
+import { ArrowLeft, Clock, Loader2 } from "lucide-react";
 
 export default function BlogDetails() {
   const { id } = useParams();
@@ -36,9 +36,12 @@ export default function BlogDetails() {
 
   if (loading) {
     return (
-      <p className="text-center text-white text-lg font-semibold py-24">
-        Loading blog details...
-      </p>
+      <div className="text-center">
+        <p><Loader2/></p>
+        <p className="text-white text-lg font-semibold py-24">
+          Loading blog details...
+        </p>
+      </div>
     );
   }
 
@@ -123,7 +126,9 @@ export default function BlogDetails() {
                 {blog.author.name}
               </p>
               {blog.author.bio && (
-                <p className="text-xs dark:text-gray-400 text-gray-700">{blog.author.bio}</p>
+                <p className="text-xs dark:text-gray-400 text-gray-700">
+                  {blog.author.bio}
+                </p>
               )}
             </div>
           </div>

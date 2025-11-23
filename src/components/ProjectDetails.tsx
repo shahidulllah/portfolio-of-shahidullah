@@ -15,6 +15,7 @@ import {
   Wrench,
   ListTodo,
   Telescope,
+  Loader2,
 } from "lucide-react";
 
 export default function ProjectDetailsPage() {
@@ -40,7 +41,10 @@ export default function ProjectDetailsPage() {
 
   if (loading) {
     return (
-      <p className="text-center text-white py-24">Loading project details...</p>
+      <p className="text-center text-white py-24">
+        <Loader2 className="w-full" />
+        Loading project details...
+      </p>
     );
   }
 

@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { IProject } from "@/types/project.type";
-import { Search } from "lucide-react";
+import { Loader2, Search } from "lucide-react";
 import { motion } from "framer-motion";
 
 const PAGE_SIZE = 6;
@@ -134,6 +134,7 @@ export default function ProjectsPage() {
         {/* Projects  section*/}
         {loading ? (
           <div className="text-center text-white font-medium py-24">
+            <Loader2 className="w-full" />
             Loading projects...
           </div>
         ) : paginatedProjects.length === 0 ? (

@@ -43,7 +43,7 @@ export default function ProjectDetailsPage() {
     return (
       <p className="text-center text-white py-24">
         <Loader2 className="w-full" />
-        Loading project details...
+        Loading project details.
       </p>
     );
   }

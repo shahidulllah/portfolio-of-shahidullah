@@ -17,7 +17,7 @@ const navLinks = [
   { title: "Home", path: "/" },
   { title: "Projects", path: "/projects" },
   { title: "Blogs", path: "/blogs" },
-  { title: "Videos", path: "/videos" },
+  { title: "Tutorials", path: "/tutorials" },
   { title: "Contact", path: "/contact" },
 ];
 

@@ -42,7 +42,7 @@ export default function BlogManagement() {
         <p className="text-center">
           <Loader2 />
         </p>
-        <p className="text-center text-white">Loading session...</p>;
+        <p className="text-center text-white">Wait for a moment...</p>;
       </div>
     );
   if (!session)

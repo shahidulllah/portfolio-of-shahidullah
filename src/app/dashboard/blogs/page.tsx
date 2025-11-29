@@ -52,6 +52,7 @@ export default function BlogManagement() {
       </p>
     );
 
+//Add handler
   const handleAddBlog = async () => {
     const res = await fetch("/api/blogs", {
       method: "POST",

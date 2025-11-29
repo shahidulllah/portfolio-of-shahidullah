@@ -74,6 +74,7 @@ export default function BlogManagement() {
     }
   };
 
+  //Edit handler
   const handleEditBlog = async () => {
     if (!currentBlogId) return;
 
@@ -104,6 +105,7 @@ export default function BlogManagement() {
     }
   };
 
+  //Modal
   const openEditModal = (blog: IBlog) => {
     setNewBlog({
       title: blog.title,
@@ -116,6 +118,7 @@ export default function BlogManagement() {
     setIsModalOpen(true);
   };
 
+  //Delete handler
   const handleDelete = async (id: string) => {
     await fetch(`/api/blogs/${id}`, { method: "DELETE" });
     setBlogs((prev) => prev.filter((b) => b._id !== id));

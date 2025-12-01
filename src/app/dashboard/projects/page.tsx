@@ -1,9 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { Trash2, PlusCircle, Pencil } from "lucide-react";
 import { INewProject, IProject } from "@/types/project.type";
+import Image from "next/image";
 
 export default function ProjectManagement() {
   const [projects, setProjects] = useState<IProject[]>([]);
@@ -156,7 +156,7 @@ export default function ProjectManagement() {
             className="bg-gray-800 p-6 rounded-lg shadow-lg space-y-3"
           >
             {project.image && (
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
                 className="w-full h-48 object-cover rounded-md"

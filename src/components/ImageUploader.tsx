@@ -6,6 +6,7 @@ import { useState } from "react";
 
 export default function ImageUploader() {
   const [imageUrl, setImageUrl] = useState("");
+  console.log({imageUrl});
 
   const handleUpload = async (e: any) => {
     const file = e.target.files[0];

@@ -14,6 +14,7 @@
     "@nextui-org/react": "^2.6.11",
     "@vercel/analytics": "^1.5.0",
     "axios": "^1.7.9",
+    "cloudinary": "^2.8.0",
     "dotenv": "^16.4.7",
     "framer-motion": "^12.4.3",
     "heroicons": "^2.2.0",

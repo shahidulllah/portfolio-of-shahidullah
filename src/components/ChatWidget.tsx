@@ -12,7 +12,7 @@ export default function ChatWidget() {
       {open && (
         <div className="mb-3 w-48 p-4 bg-white shadow-xl rounded-xl border space-y-3 animate-fadeIn">
           <a
-            href="https://m.me/YOUR_FACEBOOK_USERNAME"
+            href="https://m.me/shahidullllah"
             target="_blank"
             className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-100"
           >
@@ -21,7 +21,7 @@ export default function ChatWidget() {
           </a>
 
           <a
-            href="https://wa.me/YOUR_WHATSAPP_NUMBER"
+            href="https://wa.me/+8801747162648"
             target="_blank"
             className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-100"
           >

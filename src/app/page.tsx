@@ -1,5 +1,8 @@
 import AboutSection from "@/components/home/AboutSection";
-import BannerSection from "@/components/home/BannerSection";
+// import BannerSection from "@/components/home/BannerSection";
+// import BannerSectionV1 from "@/components/home/BannerSection2";
+import BannerSectionV2 from "@/components/home/BannerSection3";
+// import BannerSectionV3 from "@/components/home/BannerSection4";
 import CertificationsSection from "@/components/home/CertificationSection";
 import FaqSection from "@/components/home/FaqSection";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
@@ -10,7 +13,7 @@ import Skills from "@/components/home/Skills";
 const page = () => {
   return (
     <div>
-      <BannerSection />
+      <BannerSectionV2 />
       <Skills />
       <AboutSection />
       <FeaturedProjects />

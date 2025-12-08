@@ -30,6 +30,7 @@ export default function BannerSectionV1() {
               width={500}
               height={500}
               className="object-cover"
+              priority
             />
           </div>
 

@@ -71,9 +71,9 @@ function BannerSection() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-base mb-6 lg:text-lg lg:w-[650px] text-center lg:text-justify"
           >
-            Passionate junior web developer skilled in the MERN stack,
+            Passionate Full Stack Developer skilled in the backend and frontend,
             experienced in creating dynamic web applications with HTML, CSS,
-            Tailwind, JavaScript, React, Node.js, MongoDB, and Express. Eager to
+            Tailwind, JavaScript, React, Next.js, Node.js, MongoDB with mongose and Express. Eager to
             contribute to innovative projects.
           </motion.p>
 

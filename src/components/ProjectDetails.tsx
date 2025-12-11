@@ -212,7 +212,7 @@ export default function ProjectDetailsPage() {
           )}
         </div>
 
-        {/* Back Link */}
+        {/* Back Link Button*/}
         <div className="text-center mt-12">
           <Link
             href="/projects"

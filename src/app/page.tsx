@@ -1,5 +1,5 @@
 import AboutSection from "@/components/home/AboutSection";
-import BannerSection from "@/components/home/BannerSection";
+// import BannerSection from "@/components/home/BannerSection";
 import BannerSectionV2 from "@/components/home/BannerSection3";
 // import BannerSectionV1 from "@/components/home/BannerSection2";
 // import BannerSectionV2 from "@/components/home/BannerSection3";

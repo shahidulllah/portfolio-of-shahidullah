@@ -36,7 +36,7 @@ export default function ImageUploader() {
       {imageUrl && (
         <Image src={imageUrl} alt="Uploaded" className="mt-4 w-40 rounded" />
       )}
-      <button className="btn btn-primary" onClick={handleUpload}>
+      <button className="border ml-4" onClick={handleUpload}>
         Upload
       </button>
     </div>

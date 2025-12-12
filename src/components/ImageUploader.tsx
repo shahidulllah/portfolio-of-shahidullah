@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export default function ImageUploader() {
   const [imageUrl, setImageUrl] = useState("");
-  console.log({imageUrl});
+  console.log("ImageUrl: ", imageUrl);
 
   const handleUpload = async (e: any) => {
     const file = e.target.files[0];
@@ -25,7 +25,7 @@ export default function ImageUploader() {
   };
 
   return (
-    <div>
+    <div className="py-12 text-center">
       <input
         type="file"
         accept="image/*"
@@ -36,6 +36,9 @@ export default function ImageUploader() {
       {imageUrl && (
         <Image src={imageUrl} alt="Uploaded" className="mt-4 w-40 rounded" />
       )}
+      <button className="btn btn-primary" onClick={handleUpload}>
+        Upload
+      </button>
     </div>
   );
 }

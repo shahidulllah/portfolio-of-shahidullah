@@ -10,6 +10,7 @@ import FeaturedProjects from "@/components/home/FeaturedProjects";
 import NewsletterSignupSection from "@/components/home/Newsletter";
 import ServicesSection from "@/components/home/ServicesSection";
 import Skills from "@/components/home/Skills";
+import ImageUploader from "@/components/ImageUploader";
 
 const page = () => {
   return (
@@ -22,6 +23,7 @@ const page = () => {
       <ServicesSection />
       <FaqSection />
       <NewsletterSignupSection />
+      <ImageUploader/>
     </div>
   );
 };

@@ -40,7 +40,7 @@ export default function BannerSectionV1() {
             transition={{ duration: 3, repeat: Infinity }}
             className="absolute -top-6 left-1/2 -translate-x-1/2 bg-white/10 px-3 py-1 rounded-full backdrop-blur-md border border-white/20 text-xs"
           >
-            MERN Stack Developer
+            Full Stack Developer
           </motion.div>
         </motion.div>
 
@@ -61,9 +61,9 @@ export default function BannerSectionV1() {
               sequence={[
                 "A Professional",
                 2000,
-                "MERN Stack",
+                "Full Stack",
                 2000,
-                "Web Developer",
+                "Developer",
                 2000,
               ]}
               speed={50}
@@ -74,8 +74,10 @@ export default function BannerSectionV1() {
           </h1>
 
           <p className="max-w-xl mt-5 text-slate-200">
-            Passionate junior web developer skilled in the MERN stack and
-            experienced in creating dynamic and responsive applications.
+            Passionate Full Stack Developer skilled in the backend and frontend,
+            experienced in creating dynamic web applications with HTML, CSS,
+            Tailwind, JavaScript, React, Next.js, Node.js, MongoDB with mongose and Express. Eager to
+            contribute to innovative projects.
           </p>
 
           {/* Buttons */}

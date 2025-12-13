@@ -53,9 +53,9 @@ function BannerSection() {
                 2500,
                 "A Professional",
                 300,
-                "MERN Stack",
+                "Full Stack",
                 500,
-                "Web Developer",
+                "Developer",
                 2000,
               ]}
               wrapper="span"

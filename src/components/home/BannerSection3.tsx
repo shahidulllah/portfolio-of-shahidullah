@@ -45,12 +45,12 @@ export default function BannerSectionV2() {
             Hey, I&apos;m <span className="text-purple-300">Shahidullah</span>
             <br />
             <TypeAnimation
-              sequence={[
-                "A MERN Stack Developer",
+             sequence={[
+                "A Professional",
                 2000,
-                "A Professional Coder",
+                "Full Stack",
                 2000,
-                "A JavaScript Enthusiast",
+                "Developer",
                 2000,
               ]}
               speed={50}
@@ -61,8 +61,10 @@ export default function BannerSectionV2() {
           </h1>
 
           <p className="mt-5 text-slate-300 max-w-xl">
-            I build modern, fast, scalable web applications using MERN stack
-            with clean UI and smooth UX.
+            Passionate Full Stack Developer skilled in the backend and frontend,
+            experienced in creating dynamic web applications with HTML, CSS,
+            Tailwind, JavaScript, React, Next.js, Node.js, MongoDB with mongose
+            and Express. Eager to contribute to innovative projects.
           </p>
 
           <div className="flex flex-wrap gap-4 mt-7">

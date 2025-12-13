@@ -65,11 +65,11 @@ export default function BannerSectionV3() {
             <br />
             <TypeAnimation
               sequence={[
-                "MERN Stack Developer",
-                2500,
-                "React Specialist",
+                "A Professional",
                 2000,
-                "JavaScript Lover",
+                "Full Stack",
+                2000,
+                "Developer",
                 2000,
               ]}
               wrapper="span"
@@ -80,8 +80,10 @@ export default function BannerSectionV3() {
           </h1>
 
           <p className="max-w-lg mt-5 text-slate-300">
-            I love building full-stack applications with modern UI, smooth UX,
-            and powerful backend functionality.
+            Passionate Full Stack Developer skilled in the backend and frontend,
+            experienced in creating dynamic web applications with HTML, CSS,
+            Tailwind, JavaScript, React, Next.js, Node.js, MongoDB with mongose
+            and Express. Eager to contribute to innovative projects.
           </p>
         </motion.div>
       </div>

@@ -23,6 +23,12 @@ const certifications = [
     image: "/images/Phero.png",
     link: "https://scrimba.com/certificate/your-cert-id",
   },
+  {
+    title: "Spoken English",
+    provider: "English Boli",
+    image: "/images/Phero.png",
+    link: "https://scrimba.com/certificate/your-cert-id",
+  },
 ];
 
 export default function CertificationsSection() {

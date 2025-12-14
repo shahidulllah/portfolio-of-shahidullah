@@ -13,13 +13,13 @@ const certifications = [
   },
   {
     title: "Full Stack Web Development (Level-2)",
-    provider: "freeCodeCamp",
+    provider: "Programming Hero",
     image: "/images/Phero.png",
     link: "https://www.freecodecamp.org/certification/your-username/javascript-algorithms-and-data-structures",
   },
   {
-    title: "Frontend Developer Career Path",
-    provider: "Scrimba",
+    title: "Basic Computer And IT Application",
+    provider: "United Trust",
     image: "/images/Phero.png",
     link: "https://scrimba.com/certificate/your-cert-id",
   },

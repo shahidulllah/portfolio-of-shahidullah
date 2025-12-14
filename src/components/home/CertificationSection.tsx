@@ -6,13 +6,13 @@ import Link from "next/link";
 
 const certifications = [
   {
-    title: "Web Development Course",
+    title: "Complete Web Development (Level-1)",
     provider: "Programming Hero",
     image: "/images/Phero.png",
     link: "https://www.programming-hero.com/certificate/your-certificate-id",
   },
   {
-    title: "JavaScript Algorithms & Data Structures",
+    title: "Full Stack Web Development (Level-2)",
     provider: "freeCodeCamp",
     image: "/images/Phero.png",
     link: "https://www.freecodecamp.org/certification/your-username/javascript-algorithms-and-data-structures",

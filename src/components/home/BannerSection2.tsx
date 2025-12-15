@@ -6,7 +6,7 @@ import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import { Eye, Download } from "lucide-react";
 
-export default function BannerSectionV1() {
+export default function BannerSection2() {
   return (
     <section className="relative w-full overflow-hidden bg-gradient-to-b from-slate-900 to-slate-700 text-white py-24 px-6">
       {/* Floating Blobs */}
@@ -25,7 +25,7 @@ export default function BannerSectionV1() {
         >
           <div className="w-60 h-60 lg:w-80 lg:h-80 rounded-full ring-4 ring-slate-300 shadow-xl shadow-black/40 overflow-hidden">
             <Image
-              src="/images/hero.png"
+              src="/images/phero.png"
               alt="profile"
               width={500}
               height={500}
@@ -61,9 +61,7 @@ export default function BannerSectionV1() {
               sequence={[
                 "A Professional",
                 2000,
-                "Full Stack",
-                2000,
-                "Developer",
+                "Full Stack Developer",
                 2000,
               ]}
               speed={50}

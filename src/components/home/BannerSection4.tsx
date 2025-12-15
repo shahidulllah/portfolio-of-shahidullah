@@ -6,7 +6,7 @@ import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import { Eye, Download } from "lucide-react";
 
-export default function BannerSectionV3() {
+export default function BannerSection4() {
   return (
     <section className="relative w-full min-h-screen bg-[#0f1d2e] text-white py-20 px-6 overflow-hidden">
       {/* Neon Edges */}

@@ -6,9 +6,9 @@ import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import { Eye, Download } from "lucide-react";
 
-export default function BannerSectionV2() {
+export default function BannerSection3() {
   return (
-    <section className="relative w-full lg:pt-40 py-16 bg-[#282b36] text-white overflow-hidden">
+    <section className="relative w-full lg:pt-40 py-16 dark:bg-[#282b36] text-white overflow-hidden">
       {/* Glow Light */}
       <div className="absolute top-1/2 left-1/3 w-[600px] h-[600px] bg-purple-600/30 rounded-full blur-3xl -translate-y-1/2" />
 
@@ -26,7 +26,7 @@ export default function BannerSectionV2() {
             className="rounded-3xl overflow-hidden shadow-[0_0_60px_-15px] shadow-purple-400/40"
           >
             <Image
-              src="/images/hero.png"
+              src="/images/phero.png"
               alt="Me"
               width={380}
               height={380}
@@ -45,14 +45,7 @@ export default function BannerSectionV2() {
             Hey, I&apos;m <span className="text-purple-300">Shahidullah</span>
             <br />
             <TypeAnimation
-             sequence={[
-                "A Professional",
-                2000,
-                "Full Stack",
-                2000,
-                "Developer",
-                2000,
-              ]}
+              sequence={["A Professional", 2000, "Full Stack Developer",4000]}
               speed={50}
               repeat={Infinity}
               wrapper="span"
@@ -71,7 +64,7 @@ export default function BannerSectionV2() {
             <Link
               href="https://drive.google.com/file/d/1DAt5fkZ18TuYLom2LmUlzl03ANkksyU-/view?usp=sharing"
               target="_blank"
-              className="flex items-center gap-2 px-6 py-3 rounded-full bg-purple-500 hover:bg-purple-400 transition text-white shadow-lg"
+              className="group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] text-gray-900 shadow-lg shadow-slate-700 border border-slate-500 dark:text-white transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
               <Eye size={18} />
               Preview Resume
@@ -80,7 +73,7 @@ export default function BannerSectionV2() {
             <a
               href="https://drive.google.com/uc?export=download&id=1DAt5fkZ18TuYLom2LmUlzl03ANkksyU-"
               download
-              className="flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black shadow-lg hover:scale-105 transition"
+              className="group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] text-gray-900 shadow-lg shadow-slate-700 border border-slate-500 dark:text-white transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
               <Download size={18} />
               Download Resume

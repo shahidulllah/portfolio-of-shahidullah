@@ -5,14 +5,14 @@ import FaqSection from "@/components/home/FaqSection";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 import NewsletterSignupSection from "@/components/home/Newsletter";
 import ServicesSection from "@/components/home/ServicesSection";
-import Skills from "@/components/home/Skills";
+import SkillsOrbit from "@/components/home/SkillsOrbit";
 import ImageUploader from "@/components/ImageUploader";
 
 const page = () => {
   return (
     <div>
       <BannerSection3 />
-      <Skills />
+      <SkillsOrbit/>
       <AboutSection />
       <FeaturedProjects />
       <CertificationsSection />

@@ -8,7 +8,7 @@ import { Eye, Download } from "lucide-react";
 
 export default function BannerSection3() {
   return (
-    <section className="relative w-full lg:pt-40 py-16 dark:bg-[#282b36] text-white overflow-hidden">
+    <section className="relative w-full lg:pt-44 py-20 dark:bg-[#282b36]  text-black dark:text-white overflow-hidden">
       {/* Glow Light */}
       <div className="absolute top-1/2 left-1/3 w-[600px] h-[600px] bg-purple-600/30 rounded-full blur-3xl -translate-y-1/2" />
 
@@ -42,18 +42,18 @@ export default function BannerSection3() {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
-            Hey, I&apos;m <span className="text-purple-300">Shahidullah</span>
+            Hey, I&apos;m <span className="dark:text-purple-300 text-purple-900">Shahidullah</span>
             <br />
             <TypeAnimation
               sequence={["A Professional", 2000, "Full Stack Developer",4000]}
               speed={50}
               repeat={Infinity}
               wrapper="span"
-              className="text-purple-200 block mt-3"
+              className="dark:text-purple-200 text-purple-600 block mt-3"
             />
           </h1>
 
-          <p className="mt-5 text-slate-300 max-w-xl">
+          <p className="mt-5 dark:text-slate-300 max-w-xl">
             Passionate Full Stack Developer skilled in the backend and frontend,
             experienced in creating dynamic web applications with HTML, CSS,
             Tailwind, JavaScript, React, Next.js, Node.js, MongoDB with mongose

@@ -11,7 +11,7 @@ export default function BannerSection3() {
     <section className="relative w-full pt-28 sm:pt-32 lg:pt-40 pb-16 dark:bg-[#282b36] text-black dark:text-white overflow-hidden">
       
       {/* Glow Light */}
-      <div className="absolute top-1/2 left-1/2 sm:left-1/3 w-[320px] sm:w-[450px] lg:w-[600px] h-[320px] sm:h-[450px] lg:h-[600px] bg-purple-600/30 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute top-1/2 left-1/2 sm:left-1/3 w-[320px] sm:w-[450px] lg:w-[600px] h-[320px] sm:h-[450px] lg:h-[600px] bg-purple-600/15 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-12 md:grid-cols-2 items-center relative z-10">
         

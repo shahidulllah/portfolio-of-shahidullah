@@ -37,7 +37,7 @@ const skills = [
 export default function SkillsOrbit() {
   return (
     <section className="py-12 bg-gradient-to-r from-[#9d94ad] via-[#68909c] to-[#637780] dark:bg-gradient-to-r dark:from-[#2c2b4b] dark:to-[#323a57] text-center border-y border-[#33353F]">
-      <h2 className="text-3xl lg:text-4xl font-bold mb-16 text-center">
+      <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center">
         Tools & Technologies
       </h2>
 
@@ -53,27 +53,29 @@ export default function SkillsOrbit() {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
-          className="absolute inset-0"
+          className="absolute inset-0 flex items-center justify-center"
         >
-          {skills.map((skill, index) => {
-            const angle = (index / skills.length) * 360;
-            return (
-              <div
-                key={index}
-                className="absolute top-1/2 left-1/2 bottom-1/2"
-                style={{
-                  transform: `rotate(${angle}deg) translate(140px) rotate(-${angle}deg)`,
-                }}
-              >
-                <div className="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition">
-                  <skill.icon size={28} className="text-cyan-400" />
+          <div className="relative w-full h-full">
+            {skills.map((skill, index) => {
+              const angle = (index / skills.length) * 360;
+              return (
+                <div
+                  key={index}
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  style={{
+                    transform: `translateX(-50%) translateY(-50%) rotate(${angle}deg) translate(var(--radius, 140px)) rotate(-${angle}deg)`,
+                  }}
+                >
+                  <div className="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition">
+                    <skill.icon size={28} className="text-cyan-400" />
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </motion.div>
       </div>
-      <SkillsMarquee/>
+      <SkillsMarquee />
     </section>
   );
 }

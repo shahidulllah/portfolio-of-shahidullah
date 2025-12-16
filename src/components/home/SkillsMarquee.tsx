@@ -21,10 +21,10 @@ const skills = [
 
 export default function SkillsMarquee() {
   return (
-    <section className="relative py-20 bg-[#0b1120] text-white overflow-hidden">
-      <h2 className="text-4xl font-bold text-center mb-10">
+    <section className="relative text-white overflow-hidden mt-16">
+      {/* <h2 className="text-4xl font-bold text-center mb-10">
         Tools & Technologies
-      </h2>
+      </h2> */}
 
       {/* Fade edges */}
       <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0b1120] to-transparent z-10" />

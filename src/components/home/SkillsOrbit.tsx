@@ -16,6 +16,7 @@ import {
   SiRedux,
   SiTypescript,
 } from "react-icons/si";
+import SkillsMarquee from "./SkillsMarquee";
 
 const skills = [
   { name: "HTML", icon: SiHtml5 },
@@ -35,15 +36,15 @@ const skills = [
 
 export default function SkillsOrbit() {
   return (
-    <section className="relative py-24 bg-[#0f172a] text-white overflow-hidden">
-      <h2 className="text-4xl font-bold text-center mb-16">
-        My <span className="text-cyan-400">Tech Stack</span>
+    <section className="py-12 bg-gradient-to-r from-[#9d94ad] via-[#68909c] to-[#637780] dark:bg-gradient-to-r dark:from-[#2c2b4b] dark:to-[#323a57] text-center border-y border-[#33353F]">
+      <h2 className="text-3xl lg:text-4xl font-bold mb-16 text-center">
+        Tools & Technologies
       </h2>
 
       <div className="relative w-[320px] h-[320px] mx-auto">
         {/* Center */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-28 h-28 rounded-full bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center font-semibold">
+          <div className="w-28 h-28 rounded-full bg-gradient-to-r from-[#ddcb9f] to-[#599cb7] dark:from-[#314155] dark:to-[#262656] text-gray-900 shadow-lg border border-slate-500 dark:text-white border-cyan-400/40 flex items-center justify-center font-semibold">
             MERN
           </div>
         </div>
@@ -59,7 +60,7 @@ export default function SkillsOrbit() {
             return (
               <div
                 key={index}
-                className="absolute top-1/2 left-1/2"
+                className="absolute top-1/2 left-1/2 bottom-1/2"
                 style={{
                   transform: `rotate(${angle}deg) translate(140px) rotate(-${angle}deg)`,
                 }}
@@ -72,6 +73,7 @@ export default function SkillsOrbit() {
           })}
         </motion.div>
       </div>
+      <SkillsMarquee/>
     </section>
   );
 }

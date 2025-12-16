@@ -62,7 +62,7 @@ export default function BannerSection3() {
             speed={50}
             repeat={Infinity}
             wrapper="span"
-            className="block mt-3 text-lg sm:text-xl lg:text-3xl dark:text-purple-200 text-purple-600"
+            className="block mt-3 text-lg sm:text-xl lg:text-3xl dark:text-purple-200 text-purple-600 font-bold"
           />
 
           <p className="mt-5 text-sm sm:text-base dark:text-slate-300 max-w-xl mx-auto md:mx-0">

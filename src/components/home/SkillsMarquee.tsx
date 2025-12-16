@@ -21,7 +21,7 @@ const skills = [
 
 export default function SkillsMarquee() {
   return (
-    <section className="relative text-white overflow-hidden mt-16">
+    <section className="relative text-white overflow-hidden mt-16 max-w-6xl mx-auto">
       {/* <h2 className="text-4xl font-bold text-center mb-10">
         Tools & Technologies
       </h2> */}

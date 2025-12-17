@@ -6,7 +6,6 @@ import { useState } from "react";
 
 export default function ImageUploader() {
   const [imageUrl, setImageUrl] = useState("");
-  console.log("ImageUrl: ", imageUrl);
 
   const handleUpload = async (e: any) => {
     const file = e.target.files[0] ;
@@ -34,7 +33,7 @@ export default function ImageUploader() {
       />
 
       {imageUrl && (
-        <Image src={imageUrl} alt="Uploaded" width={240} className="mt-4 w-40 rounded" />
+        <Image src={imageUrl} alt="Uploaded" width={200} height={240} className="mt-4 w-40 rounded" />
       )}
       <button className="border ml-4" onClick={handleUpload}>
         Upload

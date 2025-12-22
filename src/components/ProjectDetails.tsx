@@ -92,8 +92,7 @@ export default function ProjectDetailsPage() {
         <div className="text-lg leading-relaxed space-y-6 text-justify mb-14 bg-gray-400 dark:bg-gray-700 py-4 px-2 rounded-lg">
           <p>{project.description}</p>
         </div>
-
-        {/* Technologies */}
+{/* Technologies */}
         {project.technologies?.length > 0 && (
           <section className="mb-14">
             <h2 className="text-2xl font-semibold mb-2 flex items-center gap-2">
@@ -112,8 +111,7 @@ export default function ProjectDetailsPage() {
             </div>
           </section>
         )}
-
-        {/* Goals */}
+{/* Goals */}
         {project.goals && (
           <section className="mb-14">
             <h2 className="text-2xl font-bold mb-3 flex items-center gap-2">
@@ -123,8 +121,7 @@ export default function ProjectDetailsPage() {
             <p className="leading-relaxed">{project.goals}</p>
           </section>
         )}
-
-        {/* Features */}
+{/* Features */}
         {project.features?.length > 0 && (
           <section className="mb-14">
             <h2 className="text-2xl font-bold mb-3 flex items-center gap-2">

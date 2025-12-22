@@ -64,8 +64,7 @@ export default function ProjectDetailsPage() {
         <h1 className="text-3xl md:text-4xl font-bold mb-6 mt-8">
           <strong>Title:</strong> {project.title}
         </h1>
-
-        {/* Project Image */}
+{/* Project Image */}
         {project.image && (
           <div className="relative w-full h-[300px] md:h-[400px] mb-10 rounded-xl overflow-hidden border border-gray-700 shadow-lg">
             <Image
@@ -77,8 +76,7 @@ export default function ProjectDetailsPage() {
             />
           </div>
         )}
-
-        {/* Category */}
+{/* Category */}
         {project.category && (
           <p className="text-sm text-center mb-10 text-gray-600 dark:text-white/70">
             Category:{" "}
@@ -87,8 +85,7 @@ export default function ProjectDetailsPage() {
             </span>
           </p>
         )}
-
-        {/* Description */}
+{/* Description */}
         <div className="text-lg leading-relaxed space-y-6 text-justify mb-14 bg-gray-400 dark:bg-gray-700 py-4 px-2 rounded-lg">
           <p>{project.description}</p>
         </div>

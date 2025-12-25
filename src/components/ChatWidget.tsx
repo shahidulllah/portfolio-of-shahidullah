@@ -31,7 +31,7 @@ export default function ChatWidget() {
         </div>
       )}
 
-      {/* Chat Bubble Button */}
+      {/* Chat Bubble Button icon */}
       <button
         onClick={() => setOpen(!open)}
         className="p-4 bg-black text-white rounded-full shadow-lg hover:bg-gray-800 transition"

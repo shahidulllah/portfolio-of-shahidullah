@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// app/watch/page.tsx
 export default async function WatchPage() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/watch/categories`);
   const categories = await res.json();

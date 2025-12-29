@@ -17,14 +17,14 @@ const categoryIcons: Record<string, React.ReactNode> = {
 
 export default function WatchPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="container mx-auto px-4 pt-24 pb-12">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Explore Our <span className="text-blue-600">Video Collection</span>
+      <div className="container mx-auto px-4 pt-24 lg:pt-32 pb-12">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Explore Our <span className="text-purple-900 dark:text-purple-300">Video Collection</span>
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-md lg:text-lg">
             Browse through carefully curated categories to find content that
             matches your interests
           </p>
@@ -87,7 +87,7 @@ export default function WatchPage() {
         {/* Optional: Stats Section */}
         <div className="mt-16 pt-8 border-t border-gray-200">
           <div className="text-center">
-            <p className="text-gray-500 text-sm">
+            <p className=" text-sm">
               Explore thousands of videos across {categories.length} categories
             </p>
           </div>

@@ -8,7 +8,7 @@ import { categories } from "@/lib/watchData";
 
 // Optional: Category icon mapping
 const categoryIcons: Record<string, React.ReactNode> = {
-  trending: <TrendingUp className="w-6 h-6" />,
+  trending: <TrendingUp className="w-6 h-6 text-purple-900" />,
   popular: <Users className="w-6 h-6" />,
   recent: <Clock className="w-6 h-6" />,
   top: <Star className="w-6 h-6" />,
@@ -45,9 +45,9 @@ export default function WatchPage() {
                     {/* Category Header */}
                     <div className="p-6">
                       <div className="flex items-center justify-between mb-4">
-                        <div className="p-3 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 group-hover:from-blue-200 group-hover:to-blue-100 transition-colors">
+                        <div className="p-3 rounded-xl bg-gradient-to-br from-purple-300 to-purple-100 group-hover:from-purple-200 group-hover:to-purple-100 transition-colors">
                           {categoryIcons[cat.slug] || (
-                            <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded" />
+                            <div className="w-6 h-6 bg-gradient-to-br from-purple-400 to-purple-700 rounded" />
                           )}
                         </div>
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-all" />
@@ -60,14 +60,14 @@ export default function WatchPage() {
 
                       {/* Optional: Category Description */}
                       {cat.description && (
-                        <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                        <p className=" text-sm mb-4 line-clamp-2">
                           {cat.description}
                         </p>
                       )}
 
                       {/* Optional: Video Count Badge */}
                       {cat.videoCount && (
-                        <div className="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 group-hover:bg-blue-50 transition-colors">
+                        <div className="inline-flex items-center px-3 py-1 rounded-full bg-purple-300 group-hover:bg-blue-50 transition-colors">
                           <span className="text-xs font-medium text-gray-700 group-hover:text-blue-700">
                             {cat.videoCount} videos
                           </span>
@@ -76,7 +76,7 @@ export default function WatchPage() {
                     </div>
 
                     {/* Optional: Gradient Bottom Border */}
-                    <div className="h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="h-1 bg-gradient-to-r from-transparent via-purple-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
                 </a>
               </motion.div>

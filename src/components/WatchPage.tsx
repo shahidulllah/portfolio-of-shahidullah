@@ -41,7 +41,7 @@ export default function WatchPage() {
                 transition={{ duration: 0.3, delay: index * 0.1 }}
               >
                 <a href={`/watch/${cat.slug}`} className="group block">
-                  <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-200 hover:border-blue-500 hover:translate-y-[-4px] h-full">
+                  <div className="bg-gradient-to-r from-[#baab86] to-[#4d889f] dark:from-[#314155] dark:to-[#262656] dark:text-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-700 hover:border-blue-500 hover:translate-y-[-4px] h-full">
                     {/* Category Header */}
                     <div className="p-6">
                       <div className="flex items-center justify-between mb-4">
@@ -50,11 +50,11 @@ export default function WatchPage() {
                             <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded" />
                           )}
                         </div>
-                        <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-all" />
                       </div>
 
                       {/* Category Title */}
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                      <h3 className="text-xl font-semibold mb-2 transition-colors">
                         {cat.title}
                       </h3>
 

@@ -51,14 +51,14 @@ const EmailSection = () => {
           <h2 className="text-3xl font-bold text-black dark:text-white mb-4">
             Let&apos;s Connect
           </h2>
-          <p className="text-gray-700 dark:text-gray-300 mb-6">
+          <p className="text-gray-800 dark:text-gray-300 mb-6">
             I&apos;m currently open to opportunities! Whether you have a
             question, idea, or want to collaborate, feel free to reach out.
             I&apos;ll get back to you as soon as I can.
           </p>
           <div className="socials flex flex-row gap-2 justify-center lg:justify-start">
             <Link href="https://github.com/shahidulllah" target="_blank">
-              <Image src={GithubIcon} alt="GitHub" />
+              <Image src={GithubIcon} alt="GitHub"/>
             </Link>
             <Link
               href="https://www.linkedin.com/in/shahidulllah/"

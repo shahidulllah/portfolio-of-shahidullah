@@ -47,7 +47,7 @@ export default function BannerSection3() {
         >
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
             Hey, I&apos;m{" "}
-            <span className="dark:text-purple-300">
+            <span className="dark:text-purple-400 text-purple-900">
               Shahidullah
             </span>
           </h1>

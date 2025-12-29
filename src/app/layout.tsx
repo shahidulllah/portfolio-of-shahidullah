@@ -10,7 +10,7 @@ import ChatWidget from "@/components/ChatWidget";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Personal Portfolio & Blog",
+  title: "Md. Shahidullah",
   description: "Showcasing my projects and blog posts",
 };
 

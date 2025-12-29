@@ -22,7 +22,7 @@ export default function WatchPage() {
       <div className="container mx-auto px-4 pt-24 lg:pt-32 pb-12">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Explore Our <span className="text-purple-900 dark:text-purple-300">Video Collection</span>
+            Explore My <span className="text-purple-900 dark:text-purple-300">Video Content</span>
           </h1>
           <p className="text-md lg:text-lg">
             Browse through carefully curated categories to find content that
@@ -32,7 +32,7 @@ export default function WatchPage() {
 
         {/* Categories Grid */}
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {categories.map((cat: any, index: number) => (
               <motion.div
                 key={cat.slug}
@@ -60,7 +60,7 @@ export default function WatchPage() {
 
                       {/* Optional: Category Description */}
                       {cat.description && (
-                        <p className=" text-sm mb-4 line-clamp-2">
+                        <p className=" text-sm mb-4 line-clamp-1">
                           {cat.description}
                         </p>
                       )}

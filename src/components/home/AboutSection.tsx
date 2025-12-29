@@ -85,7 +85,7 @@ const AboutSection = () => {
         <div className=" rounded-full mx-auto p-2 lg:p-2 border-2 border-black dark:border-white flex items-center justify-center w-[240px] h-[295px] lg:w-[315px] lg:h-[390px]">
           <Image
             className="rounded-full"
-            src="/images/about.png"
+            src="/images/aboutPic.png"
             width={350}
             height={350}
             alt="About pic"

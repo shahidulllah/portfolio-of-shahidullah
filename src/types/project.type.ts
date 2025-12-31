@@ -1,6 +1,5 @@
-import { Document } from "mongoose";
 
-export interface IProject extends Document {
+export interface IProject {
   _id: string;
   title: string;
   image: string;

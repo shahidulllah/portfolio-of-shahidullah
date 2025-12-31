@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  matcher: ["/dashboard/:path*"],
+  reactStrictMode: true
 };
 
 export default nextConfig;

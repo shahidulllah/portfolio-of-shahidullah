@@ -6,13 +6,11 @@ import { categories } from "@/lib/watchData";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-// Optional: Category icon mapping
 const categoryIcons: Record<string, React.ReactNode> = {
   trending: <TrendingUp className="w-6 h-6 text-purple-900" />,
   popular: <Users className="w-6 h-6" />,
   recent: <Clock className="w-6 h-6" />,
   top: <Star className="w-6 h-6" />,
-  // Add more mappings as needed
 };
 
 export default function WatchPage() {

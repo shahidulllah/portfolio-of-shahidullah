@@ -1,10 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { ArrowRight, Clock, TrendingUp, Users, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import { categories } from "@/lib/watchData";
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
 
 const categoryIcons: Record<string, React.ReactNode> = {
   trending: <TrendingUp className="w-6 h-6 text-purple-900" />,

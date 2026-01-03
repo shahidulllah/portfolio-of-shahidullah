@@ -435,25 +435,6 @@ export const categories = [
     title: "Gaming",
     description: "Gameplay, reviews, and gaming news",
     videoCount: 4,
-    playlists: [
-      {
-        slug: "game-reviews",
-        title: "Game Reviews",
-        videos: [
-          {
-            id: "game1",
-            title: "Top 10 Games of 2024",
-            youtubeId: "sZz3YHqkMtk",
-            duration: "42:30",
-          },
-          {
-            id: "game2",
-            title: "Cyberpunk 2077 Review",
-            youtubeId: "LembwKDo1Dk",
-            duration: "28:45",
-          },
-        ],
-      },
-    ],
+    playlists: [],
   },
 ];

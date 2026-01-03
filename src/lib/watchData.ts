@@ -454,24 +454,6 @@ export const categories = [
           },
         ],
       },
-      {
-        slug: "gameplay",
-        title: "Gameplay Walkthroughs",
-        videos: [
-          {
-            id: "walk1",
-            title: "Elden Ring Complete Walkthrough",
-            youtubeId: "EKbHQpXhL4M",
-            duration: "56:20",
-          },
-          {
-            id: "walk2",
-            title: "Minecraft Survival Series",
-            youtubeId: "MmB9b5njVbA",
-            duration: "38:15",
-          },
-        ],
-      },
     ],
   },
 ];

@@ -33,7 +33,7 @@ export default function BannerSection3() {
               width={380}
               height={380}
               priority
-              className="w-[220px] sm:w-[280px] md:w-[320px] lg:w-[380px] h-auto rounded-3xl"
+              className="w-[220px] sm:w-[280px] md:w-[320px] lg:w-[380px] h-auto rounded-3xl border"
             />
           </motion.div>
         </motion.div>

@@ -430,11 +430,4 @@ export const categories = [
       },
     ],
   },
-  {
-    slug: "gaming",
-    title: "Gaming",
-    description: "Gameplay, reviews, and gaming news",
-    videoCount: 4,
-    playlists: [],
-  },
 ];

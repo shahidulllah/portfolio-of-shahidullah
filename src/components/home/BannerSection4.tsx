@@ -83,7 +83,7 @@ export default function BannerSection4() {
             Passionate Full Stack Developer skilled in the backend and frontend,
             experienced in creating dynamic web applications with HTML, CSS,
             Tailwind, JavaScript, React, Next.js, Node.js, MongoDB with mongose
-            and Express. Eager to contribute to innovative projects.
+            and Express.
           </p>
         </motion.div>
       </div>

@@ -58,12 +58,7 @@ export default function BannerSection2() {
             </span>
             <br />
             <TypeAnimation
-              sequence={[
-                "A Professional",
-                2000,
-                "Full Stack Developer",
-                2000,
-              ]}
+              sequence={["A Professional", 2000, "Full Stack Developer", 2000]}
               speed={50}
               repeat={Infinity}
               wrapper="span"
@@ -74,8 +69,8 @@ export default function BannerSection2() {
           <p className="max-w-xl mt-5 text-slate-200">
             Passionate Full Stack Developer skilled in the backend and frontend,
             experienced in creating dynamic web applications with HTML, CSS,
-            Tailwind, JavaScript, React, Next.js, Node.js, MongoDB with mongose and Express. Eager to
-            contribute to innovative projects.
+            Tailwind, JavaScript, React, Next.js, Node.js, MongoDB with mongose
+            and Express. Eager to contribute to innovative projects.
           </p>
 
           {/* Buttons */}

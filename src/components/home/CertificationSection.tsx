@@ -8,7 +8,7 @@ const certifications = [
   {
     title: "Complete Web Development (Level-1)",
     provider: "Programming Hero",
-    image: "/images/Phero.png",
+    image: "/images/Level-1.png",
     link: "https://drive.google.com/file/d/1ykx7JbV37vRm0Wa3dyLR5B1G7t7YVQNq/view?usp=drive_link",
   },
   {
@@ -16,6 +16,12 @@ const certifications = [
     provider: "Programming Hero",
     image: "/images/Phero.png",
     link: "https://drive.google.com/file/d/1-PMEHpODXe4IRbStH0O-a3y5BIpv3i9G/view?usp=drive_link",
+  },
+  {
+    title: "Black Belt-Reward",
+    provider: "Programming Hero",
+    image: "/images/Black Belt.png",
+    link: "https://drive.google.com/file/d/1PDJhkHCRS852CDIFQeZck9beJlFa_AED/view?usp=drive_link",
   },
   {
     title: "Basic Computer And IT Application",

@@ -8,13 +8,13 @@ const certifications = [
   {
     title: "Complete Web Development (Level-1)",
     provider: "Programming Hero",
-    image: "/images/Level-1.png",
+    image: "/images/Level-1.jpg",
     link: "https://drive.google.com/file/d/1ykx7JbV37vRm0Wa3dyLR5B1G7t7YVQNq/view?usp=drive_link",
   },
   {
     title: "Full Stack Web Development (Level-2)",
     provider: "Programming Hero",
-    image: "/images/Phero.png",
+    image: "/images/Level-2.jpg",
     link: "https://drive.google.com/file/d/1-PMEHpODXe4IRbStH0O-a3y5BIpv3i9G/view?usp=drive_link",
   },
   {

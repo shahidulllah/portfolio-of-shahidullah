@@ -26,7 +26,7 @@ const certifications = [
   {
     title: "Basic Computer And IT Application",
     provider: "United Trust",
-    image: "/images/Phero.png",
+    image: "/images/computer.png",
     link: "https://scrimba.com/certificate/your-cert-id",
   },
   {

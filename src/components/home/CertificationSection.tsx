@@ -30,10 +30,10 @@ const certifications = [
     link: "https://scrimba.com/certificate/your-cert-id",
   },
   {
-    title: "Spoken English",
+    title: "Communication Hacks",
     provider: "English Boli",
     image: "/images/Phero.png",
-    link: "https://scrimba.com/certificate/your-cert-id",
+    link: "https://drive.google.com/file/d/1sYQC3ATHdxxtl2NcNGTQvtgaEZWFrS6h/view?usp=sharing",
   },
 ];
 

@@ -31,8 +31,8 @@ const certifications = [
   },
   {
     title: "Communication Hacks",
-    provider: "English Boli",
-    image: "/images/Phero.png",
+    provider: "10 Minute School",
+    image: "/images/communicaitonHacks.png",
     link: "https://drive.google.com/file/d/1sYQC3ATHdxxtl2NcNGTQvtgaEZWFrS6h/view?usp=sharing",
   },
 ];

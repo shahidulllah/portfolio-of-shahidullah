@@ -150,7 +150,6 @@ export default function ProjectDetailsPage() {
             </ul>
           </section>
         )}
-
         {/* Learnings */}
         {project.learnings && (
           <section className="mb-14">
@@ -161,7 +160,6 @@ export default function ProjectDetailsPage() {
             <p className="leading-relaxed">{project.learnings}</p>
           </section>
         )}
-
         {/* Future Plans */}
         {Array.isArray(project.futurePlans) &&
           project.futurePlans.length > 0 && (
@@ -177,7 +175,6 @@ export default function ProjectDetailsPage() {
               </ul>
             </section>
           )}
-
         {/*Buttons*/}
         <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
           {project.liveUrl && (
@@ -208,7 +205,6 @@ export default function ProjectDetailsPage() {
             </Link>
           )}
         </div>
-
         {/* Back Link Button*/}
         <div className="text-center mt-12">
           <Link

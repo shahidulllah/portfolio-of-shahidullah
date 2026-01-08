@@ -112,7 +112,6 @@ export default function ProjectDetailsPage() {
             </div>
           </section>
         )}
-
         {/* Goals */}
         {project.goals && (
           <section className="mb-14">
@@ -123,7 +122,6 @@ export default function ProjectDetailsPage() {
             <p className="leading-relaxed">{project.goals}</p>
           </section>
         )}
-
         {/* Features */}
         {project.features?.length > 0 && (
           <section className="mb-14">
@@ -138,7 +136,6 @@ export default function ProjectDetailsPage() {
             </ul>
           </section>
         )}
-
         {/* Challenges */}
         {project.challenges?.length > 0 && (
           <section className="mb-14">

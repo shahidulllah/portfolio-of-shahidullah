@@ -87,12 +87,10 @@ export default function ProjectDetailsPage() {
             </span>
           </p>
         )}
-
         {/* Description */}
         <div className="text-lg leading-relaxed space-y-6 text-justify mb-14 bg-gray-400 dark:bg-gray-700 py-4 px-2 rounded-lg">
           <p>{project.description}</p>
         </div>
-
         {/* Technologies */}
         {project.technologies?.length > 0 && (
           <section className="mb-14">

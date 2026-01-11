@@ -51,7 +51,6 @@ export default function ProjectDetailsPage() {
   if (!project) {
     return <p className="text-center text-red-400 py-24">Project not found.</p>;
   }
-
   return (
     <section className="py-20 px-6">
       <motion.div
